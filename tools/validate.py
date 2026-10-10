@@ -58,10 +58,12 @@ def main(path):
     if p.bad:
         errs.append("मना वाले HTML tags: " + ", ".join(sorted(p.bad)))
     words = len("".join(p.text).split())
-    if words < 1500:
-        errs.append(f"सिर्फ {words} शब्द (कम से कम 1500, लक्ष्य 2000–3000)")
-    elif words < 2000:
-        warns.append(f"{words} शब्द (लक्ष्य 2000+)")
+    if words < 1100:
+        errs.append(f"सिर्फ {words} शब्द (कम से कम 1100, लक्ष्य 1200–1800)")
+    elif words > 2100:
+        errs.append(f"{words} शब्द — बहुत लंबा (लक्ष्य 1200–1800)")
+    elif not (1200 <= words <= 1800):
+        warns.append(f"{words} शब्द (लक्ष्य 1200–1800)")
     if p.h2 < 6:
         warns.append(f"सिर्फ {p.h2} <h2> हिस्से")
     if p.tables < 1:
