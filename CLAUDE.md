@@ -20,11 +20,14 @@ Claude द्वारा लिखी गई **विश्लेषण / र�
    - मध्य प्रदेश के आंकड़े और हाल के मामले ज़रूर खोजें।
    - हर आंकड़े का **स्रोत, साल/तारीख और URL** नोट करें। जो आंकड़ा किसी स्रोत में न मिले, वह न लिखें।
 4. **लिखें** (नीचे के नियम) → `reports/YYYY-MM-DD-english-slug.json` (आज की IST तारीख)।
-5. **जाँचें:** `python3 tools/validate.py reports/<file>.json` — सब OK होने तक ठीक करें।
-6. `log.md` में एक line जोड़ें: `- YYYY-MM-DD | विषय | reports/<file>.json | शब्द`
-7. Commit करके सीधे `main` पर push करें (कोई PR नहीं):
+   JSON में 2–3 `charts` (graph) और एक `cover_stat` भी डालें (नीचे "Graph और image" देखें)।
+5. **Graph/cover बनाएँ:** `python3 tools/make_charts.py reports/<file>.json` — यह `reports/images/` में PNG
+   बनाकर JSON में `file` और `featured_image` भर देता है। हर PNG को Read से एक बार देखें (हिंदी/अंक सही दिखें)।
+6. **जाँचें:** `python3 tools/validate.py reports/<file>.json` — सब OK होने तक ठीक करें।
+7. `log.md` में एक line जोड़ें: `- YYYY-MM-DD | विषय | reports/<file>.json | शब्द`
+8. Commit करके (PNG files समेत) सीधे `main` पर push करें (कोई PR नहीं):
    `git add -A && git commit -m "रिपोर्ट: <विषय>" && git push origin main`
-8. एक बार में **सिर्फ 1 रिपोर्ट**। पहले से push हो चुकी file को कभी edit/delete न करें
+9. एक बार में **सिर्फ 1 रिपोर्ट**। पहले से push हो चुकी file को कभी edit/delete न करें
    (website उसे पहले ही उठा चुकी होगी)।
 
 अगर पर्याप्त भरोसेमंद सामग्री न मिले (कम से कम 6 ठोस आंकड़े/तथ्य और 5 स्रोत), तो अगला विषय लें।
@@ -63,6 +66,30 @@ Claude द्वारा लिखी गई **विश्लेषण / र�
 - मना: "आइए जानते हैं", "गौरतलब है", सवाल वाले शीर्षक, clickbait, "जानिए"।
 - अनुमति वाले HTML tags: `p h2 h3 ul ol li strong table tr th td` — और कुछ नहीं (कोई link/img/style नहीं;
   स्रोतों की list website खुद जोड़ती है)।
+
+## Graph और image
+
+- Website पर `tools/github_reports.php` (cron, हर घंटे :30 पर) रिपोर्ट उठाता है: cover = featured image,
+  graph = लेख में `after_h2` वाले हिस्से के पहले पैराग्राफ के बाद। `content_html` में `<img>` खुद न डालें।
+- हर रिपोर्ट में **2–3 graph**। हर graph के अंक लेख में लिखे और स्रोत से देखे हुए हों — graph के लिए कोई नया
+  या अंदाज़े वाला अंक नहीं। एक graph में एक ही स्रोत/पैमाने के अंक (जैसे CWS और usual status न मिलाएँ)।
+- `type`: `bar` (साल/महीने या तुलना; कई series के लिए `series`) या `hbar` (लंबे नाम/हिस्सेदारी)।
+- `after_h2` बिल्कुल लेख के किसी `<h2>` के text जैसा हो। `id` सिर्फ a-z0-9-।
+- `cover_stat`: रिपोर्ट का सबसे अहम एक अंक (`value` छोटा रखें, जैसे "15.9%" या "₹19,813 करोड़")।
+- Hindi font `tools/fonts/` में है; Chromium (Playwright) से render होता है — `playwright install` न चलाएँ।
+
+```json
+"cover_stat": {"value": "15.9%", "label": "युवाओं में बेरोज़गारी दर, अप्रैल–जून 2026 (PLFS)"},
+"charts": [
+  {"id": "youth-monthly", "type": "bar", "title": "…", "subtitle": "इकाई/पैमाना", "unit": "%",
+   "labels": ["मार्च 26", "अप्रैल 26"], "values": [15.2, 15.3],
+   "source": "PLFS मासिक बुलेटिन जुलाई 2026, MoSPI", "caption": "एक वाक्य का निष्कर्ष",
+   "after_h2": "आंकड़ों में तस्वीर"},
+  {"id": "gender", "type": "bar", "title": "…", "unit": "%", "labels": ["गाँव", "शहर"],
+   "series": [{"name": "युवक", "values": [13.4, 15.9]}, {"name": "युवतियाँ", "values": [16.0, 27.2]}],
+   "source": "…", "caption": "…", "after_h2": "…"}
+]
+```
 
 ## JSON format (`reports/*.json`)
 

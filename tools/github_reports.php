@@ -11,6 +11,8 @@
  *
  * - हर file सिर्फ एक बार import होती है (याद: autonews/data/github_reports_state.json)
  * - Log: बाकी Auto News log में ही ("GitHub रिपोर्ट: ..." से शुरू होने वाली lines)
+ * - रिपोर्ट के graph (charts) और cover image GitHub से उठाकर public_html/images/auto/YYYY/MM/ में रखता है;
+ *   cover = featured image, graph = लेख के अंदर सही हिस्से में।
  */
 declare(strict_types=1);
 
@@ -54,6 +56,60 @@ function ghr_http_get(string $url): string
     return (string)$body;
 }
 
+/** GitHub से एक PNG उठाकर images/auto/YYYY/MM/ में रखता है। Return: site-relative path */
+function ghr_fetch_image(string $rel): string
+{
+    if (!preg_match('~^images/[a-z0-9-]+\.png$~', $rel)) {
+        throw new RuntimeException('image path गलत: ' . $rel);
+    }
+    $sub = 'images/auto/' . date('Y/m');
+    $dir = an_site_root() . '/' . $sub;
+    if (!is_dir($dir) && !@mkdir($dir, 0755, true)) {
+        throw new RuntimeException('image folder नहीं बना: ' . $dir);
+    }
+    $dest = $dir . '/' . basename($rel);
+    if (!is_file($dest)) {
+        $bin = ghr_http_get('https://raw.githubusercontent.com/' . GH_REPO . '/' . GH_BRANCH . '/' . GH_DIR . '/' . $rel);
+        if (strlen($bin) > 3000000 || substr($bin, 0, 8) !== "\x89PNG\r\n\x1a\n") {
+            throw new RuntimeException('image सही PNG नहीं: ' . $rel);
+        }
+        if (file_put_contents($dest, $bin, LOCK_EX) === false) {
+            throw new RuntimeException('image save नहीं हुई: ' . $dest);
+        }
+    }
+    return $sub . '/' . basename($rel);
+}
+
+/** graph को लेख में उसके <h2> वाले हिस्से के पहले पैराग्राफ के बाद जोड़ता है */
+function ghr_add_charts(string $content, array $charts): string
+{
+    $groups = [];
+    foreach ($charts as $c) {
+        $src = an_h('/' . $c['path']);
+        $alt = an_h(trim(strip_tags((string)($c['title'] ?? ''))));
+        $cap = an_h(trim(strip_tags((string)($c['caption'] ?? ''))) . ' (स्रोत: ' . trim(strip_tags((string)($c['source'] ?? ''))) . ')');
+        $fig = '<figure class="an-chart" style="margin:1.2em 0"><img src="' . $src . '" alt="' . $alt . '" width="1200" height="675" loading="lazy" style="width:100%;height:auto;border:1px solid #eee;border-radius:6px"><figcaption style="font-size:.9em;color:#555;margin-top:.4em">' . $cap . '</figcaption></figure>';
+        $groups[trim((string)($c['after_h2'] ?? ''))][] = $fig;
+    }
+    foreach ($groups as $h2 => $figs) {
+        $html = "\n" . implode("\n", $figs) . "\n";
+        $pos = false;
+        if ($h2 !== '') {
+            $hp = mb_strpos($content, '<h2>' . $h2 . '</h2>');
+            if ($hp !== false) {
+                $pp = mb_strpos($content, '</p>', $hp);
+                $pos = $pp !== false ? $pp + 4 : $hp + mb_strlen('<h2>' . $h2 . '</h2>');
+            }
+        }
+        if ($pos === false) {
+            $np = mb_strpos($content, '<h2>निष्कर्ष</h2>');
+            $pos = $np !== false ? $np : mb_strlen($content);
+        }
+        $content = mb_substr($content, 0, $pos) . $html . mb_substr($content, $pos);
+    }
+    return $content;
+}
+
 function ghr_state_path(): string
 {
     return AN_ROOT . '/data/github_reports_state.json';
@@ -95,7 +151,20 @@ function ghr_check(array $r): string
 
 function ghr_insert_draft(array $r, string $file): int
 {
+    // पहले सारी images उठाएँ — कोई fail हो तो पूरी रिपोर्ट अगले run में दोबारा
+    $cover = '';
+    if (!empty($r['featured_image'])) {
+        $cover = ghr_fetch_image((string)$r['featured_image']);
+    }
+    $charts = [];
+    foreach ((array)($r['charts'] ?? []) as $c) {
+        if (is_array($c) && !empty($c['file'])) {
+            $c['path'] = ghr_fetch_image((string)$c['file']);
+            $charts[] = $c;
+        }
+    }
     $content = an_sanitize_html((string)$r['content_html']);
+    $content = ghr_add_charts($content, $charts); // sanitize के बाद, ताकि img न हटे
     $tags = array_slice(array_values(array_filter(array_map(fn($t) => trim(strip_tags((string)$t)), (array)($r['tags'] ?? [])))), 0, 6);
     $sources = array_values(array_map(
         fn($s) => ['name' => trim(strip_tags((string)($s['name'] ?? ''))), 'link' => (string)($s['link'] ?? '')],
@@ -117,9 +186,9 @@ function ghr_insert_draft(array $r, string $file): int
         trim(strip_tags((string)$r['excerpt'])),
         $content,
         mb_substr(implode(', ', $tags), 0, 500),
-        '',
+        $cover,
         mb_substr(trim(strip_tags((string)($r['image_alt'] ?? ''))), 0, 300),
-        '',
+        $cover !== '' ? 'देसी ललकार ग्राफ़िक' : '',
         json_encode($sources, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
         '',
         mb_substr('GitHub: ' . $file, 0, 500),

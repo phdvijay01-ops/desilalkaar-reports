@@ -77,6 +77,27 @@ def main(path):
         errs.append("कुछ sources में name/https link नहीं")
     if "\\u09" in raw or "\\u0" in raw[:2000]:
         warns.append("हिंदी \\u escapes में है — ensure_ascii=False से लिखें")
+    import os
+    rdir = os.path.dirname(os.path.abspath(path))
+    charts = r.get("charts") or []
+    if not charts:
+        warns.append("कोई graph (charts) नहीं — 2–3 graph जोड़ें और tools/make_charts.py चलाएँ")
+    fi = r.get("featured_image", "")
+    if not fi:
+        warns.append("featured_image नहीं — tools/make_charts.py चलाएँ")
+    elif not os.path.isfile(os.path.join(rdir, fi)):
+        errs.append(f"featured_image file नहीं मिली: {fi}")
+    content = r.get("content_html", "")
+    for c in charts:
+        cid = c.get("id", "?")
+        for k in ("title", "source", "caption", "labels"):
+            if not c.get(k):
+                errs.append(f"chart {cid}: '{k}' खाली")
+        if not c.get("file") or not os.path.isfile(os.path.join(rdir, c.get("file", ""))):
+            errs.append(f"chart {cid}: PNG नहीं बनी — tools/make_charts.py चलाएँ")
+        h2 = c.get("after_h2", "")
+        if h2 and f"<h2>{h2}</h2>" not in content:
+            errs.append(f"chart {cid}: after_h2 '{h2}' वाला <h2> लेख में नहीं")
     if "विश्लेषण" not in (r.get("tags") or []):
         warns.append("tags में 'विश्लेषण' नहीं")
     for w in warns:
@@ -84,7 +105,7 @@ def main(path):
     for e in errs:
         print("❌", e)
     if not errs:
-        print(f"✅ OK — {words} शब्द, {len(good)} स्रोत, {p.h2} हिस्से, {p.tables} table")
+        print(f"✅ OK — {words} शब्द, {len(good)} स्रोत, {p.h2} हिस्से, {p.tables} table, {len(charts)} graph")
     return 1 if errs else 0
 
 
