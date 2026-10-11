@@ -37,6 +37,11 @@
 
 Website cron `tools/github_reports.php` में cover = featured image और graph = `after_h2` वाले हिस्से के पहले पैराग्राफ के बाद आता है। `after_h2` किसी वास्तविक `<h2>` के text से बिल्कुल मेल खाए। `content_html` में खुद image न डालें। Chart में केवल स्रोत-सत्यापित आँकड़े रखें।
 
+## देसी ललकार विवरण (लेख के साथ)
+
+- पाठक के लिए विवरण को **“देसी ललकार विवरण”** कहा जाए; “मेटा विवरण” शीर्षक न लिखें।
+- वेबसाइट के मौजूदा importer और validator के अनुकूल JSON में तकनीकी key `meta_description` ही रखें, क्योंकि `tools/github_reports.php` इसी key को पढ़ता है। इसमें 140–160 अक्षरों के आसपास साफ़, उपयोगी हिंदी विवरण लिखें। JSON key का नाम बिना वेबसाइट कोड और validator बदले न बदलें।
+
 ## JSON schema
 
 मौजूदा schema बनाए रखें: `title`, `meta_description`, `excerpt`, `content_html`, `category`, `tags`, `slug`, `sources`, `image_keywords`, `image_alt`, `needs_check`; उपलब्ध होने पर `cover_stat`, `charts`, `image_prompt`, `featured_image`। श्रेणी `tools/validate.py` में दी गई अनुमत सूची में से हो। स्रोतों में कम से कम 5 सत्यापित https URLs हों। JSON UTF-8 में वास्तविक हिंदी अक्षरों के साथ हो, `\\u` escapes नहीं। अंतिम जाँच के लिए `tools/validate.py` को मानें।
