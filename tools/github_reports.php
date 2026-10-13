@@ -29,6 +29,9 @@ if (PHP_SAPI !== 'cli') {
 @set_time_limit(300);
 
 require __DIR__ . '/lib/bootstrap.php';
+if (is_file(__DIR__ . '/social_post.php')) {
+    require_once __DIR__ . '/social_post.php'; // नए लेख Facebook/X पर
+}
 
 if (!an_is_configured()) {
     an_log('GitHub रिपोर्ट: setup पूरा नहीं है, कुछ नहीं किया।');
@@ -226,6 +229,7 @@ try {
             break;
         }
         $done++;
+        $articleId = 0;
         try {
             if (!str_starts_with($url, 'https://raw.githubusercontent.com/')) {
                 throw new RuntimeException('download link अजीब है');
@@ -258,6 +262,13 @@ try {
                 } catch (Throwable $e) {
                     an_log("GitHub रिपोर्ट: draft #$draftId publish नहीं हुआ (admin से देखें) — " . $e->getMessage());
                 }
+                if (!empty($articleId) && function_exists('sp_queue_article')) {
+                    try {
+                        sp_queue_article((int)$articleId, (string)$r['title']);
+                    } catch (Throwable $e) {
+                        an_log("Social: लेख #$articleId कतार में नहीं गया — " . $e->getMessage());
+                    }
+                }
             }
         } catch (Throwable $e) {
             // इस file को state में नहीं डाला — अगले run में फिर कोशिश होगी
@@ -266,6 +277,13 @@ try {
     }
     if ($done === 0) {
         an_log('GitHub रिपोर्ट: कोई नई रिपोर्ट नहीं।');
+    }
+    if (function_exists('sp_process_queue')) {
+        try {
+            sp_process_queue();
+        } catch (Throwable $e) {
+            an_log('Social error: ' . $e->getMessage());
+        }
     }
 } catch (Throwable $e) {
     an_log('GitHub रिपोर्ट error: ' . $e->getMessage());
