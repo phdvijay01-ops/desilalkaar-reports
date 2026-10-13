@@ -19,3 +19,4 @@
 - 2026-10-13 | भक्ति: आदित्यहृदय उपदेश — अगस्त्य और श्रीराम (वाल्मीकि रामायण, युद्धकांड) | reports/2026-10-13-agastya-aditya-hridayam-rama-bhakti.json | 1579
 - 2026-10-13 | भक्ति: महाकाल, राजा चंद्रसेन और गोप-बालक श्रीकर (शिव पुराण, कोटिरुद्र संहिता 16–17) | reports/2026-10-13-mahakal-chandrasena-shrikar-bhakti.json | 1740
 - 2026-10-13 | फसल बीमा (PMFBY): दावे, लंबित भुगतान और छोटे क्लेम (भारत + मध्य प्रदेश) | reports/2026-10-13-pmfby-crop-insurance-claims-pending-mp.json | 1799
+- 2026-10-13 | भक्ति: शमी वृक्ष और पांडवों के हथियार (महाभारत, विराट पर्व) | reports/2026-10-13-shami-tree-pandava-weapons-virata-parva-bhakti.json | 1715
