@@ -17,3 +17,4 @@
 - 2026-10-13 | भक्ति: महिषासुर वध (दुर्गा सप्तशती, मध्यम चरित्र) | reports/2026-10-13-durga-mahishasura-vadh-bhakti.json | 1561
 - 2026-10-13 | स्कूल ड्रॉपआउट और माध्यमिक रिटेंशन (भारत + मध्य प्रदेश) (ChatGPT, Claude द्वारा जाँचा) | reports/2026-10-13-india-school-dropout-retention-gaps-gpt.json | 1727
 - 2026-10-13 | भक्ति: आदित्यहृदय उपदेश — अगस्त्य और श्रीराम (वाल्मीकि रामायण, युद्धकांड) | reports/2026-10-13-agastya-aditya-hridayam-rama-bhakti.json | 1579
+- 2026-10-13 | भक्ति: महाकाल, राजा चंद्रसेन और गोप-बालक श्रीकर (शिव पुराण, कोटिरुद्र संहिता 16–17) | reports/2026-10-13-mahakal-chandrasena-shrikar-bhakti.json | 1740
