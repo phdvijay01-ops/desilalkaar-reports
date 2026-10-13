@@ -23,3 +23,4 @@
 - 2026-10-13 | भक्ति: गजेन्द्र मोक्ष (श्रीमद्भागवत, स्कंध 8, अध्याय 2–4) | reports/2026-10-13-gajendra-moksha-bhagavata-bhakti.json | 1574
 - 2026-10-13 | अवैध लोन ऐप, डिजिटल कर्ज़ और ब्लैकमेल (भारत + मध्य प्रदेश) | reports/2026-10-13-illegal-loan-apps-digital-lending-harassment-mp.json | 1780
 - 2026-10-13 | भक्ति: सती और दक्ष यज्ञ, शक्तिपीठ परंपरा व हरसिद्धि उज्जैन (शिव पुराण, सती खंड 26–42; देवी भागवत 7.30) | reports/2026-10-13-sati-daksha-yajna-shaktipeeth-harsiddhi-bhakti.json | 1630
+- 2026-10-13 | भक्ति: भरत मिलाप — चित्रकूट में राम-भरत मिलन और पादुका (वाल्मीकि रामायण, अयोध्याकांड 93–115) | reports/2026-10-13-bharat-milap-chitrakoot-ramayana-bhakti.json | 1665
