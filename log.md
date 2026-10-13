@@ -14,3 +14,4 @@
 - 2026-10-13 | भूजल संकट और निकासी स्तर (भारत + मध्य प्रदेश) | reports/2026-10-13-india-groundwater-crisis-mp.json | 1773
 - 2026-10-13 | दहेज मृत्यु और घरेलू हिंसा (भारत + मध्य प्रदेश) | reports/2026-10-13-india-dowry-deaths-domestic-violence-mp.json | 1783
 - 2026-10-13 | बच्चों में कुपोषण: NFHS-6 और पोषण ट्रैकर (मध्य प्रदेश) | reports/2026-10-13-mp-child-malnutrition-nfhs-poshan.json | 1789
+- 2026-10-13 | भक्ति: महिषासुर वध (दुर्गा सप्तशती, मध्यम चरित्र) | reports/2026-10-13-durga-mahishasura-vadh-bhakti.json | 1561
