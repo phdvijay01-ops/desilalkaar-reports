@@ -9,3 +9,4 @@
 - 2026-10-12 | राष्ट्रीय खाद्य सुरक्षा और राशन पोर्टेबिलिटी | reports/2026-10-12-india-nfsa-ration-portability-entitlement-2026.json | 1652
 - 2026-10-12 | मध्य प्रदेश में मनरेगा भुगतान और सामाजिक अंकेक्षण | reports/2026-10-12-madhya-pradesh-mgnrega-wage-payment-social-audit-2026.json | 1634
 - 2026-10-12 | सरकारी अस्पतालों में डॉक्टरों/विशेषज्ञों की कमी (मध्य प्रदेश) | reports/2026-10-12-mp-doctor-specialist-shortage-chc.json | 1630
+- 2026-10-13 | सूचना आयोगों में लंबित RTI अपीलें (भारत + मध्य प्रदेश) | reports/2026-10-13-rti-information-commissions-pending-appeals-mp.json | 1759
