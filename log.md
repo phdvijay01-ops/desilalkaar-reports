@@ -16,3 +16,4 @@
 - 2026-10-13 | बच्चों में कुपोषण: NFHS-6 और पोषण ट्रैकर (मध्य प्रदेश) | reports/2026-10-13-mp-child-malnutrition-nfhs-poshan.json | 1789
 - 2026-10-13 | भक्ति: महिषासुर वध (दुर्गा सप्तशती, मध्यम चरित्र) | reports/2026-10-13-durga-mahishasura-vadh-bhakti.json | 1561
 - 2026-10-13 | स्कूल ड्रॉपआउट और माध्यमिक रिटेंशन (भारत + मध्य प्रदेश) (ChatGPT, Claude द्वारा जाँचा) | reports/2026-10-13-india-school-dropout-retention-gaps-gpt.json | 1727
+- 2026-10-13 | भक्ति: आदित्यहृदय उपदेश — अगस्त्य और श्रीराम (वाल्मीकि रामायण, युद्धकांड) | reports/2026-10-13-agastya-aditya-hridayam-rama-bhakti.json | 1579
