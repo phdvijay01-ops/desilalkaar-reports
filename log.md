@@ -21,3 +21,4 @@
 - 2026-10-13 | फसल बीमा (PMFBY): दावे, लंबित भुगतान और छोटे क्लेम (भारत + मध्य प्रदेश) | reports/2026-10-13-pmfby-crop-insurance-claims-pending-mp.json | 1799
 - 2026-10-13 | भक्ति: शमी वृक्ष और पांडवों के हथियार (महाभारत, विराट पर्व) | reports/2026-10-13-shami-tree-pandava-weapons-virata-parva-bhakti.json | 1715
 - 2026-10-13 | भक्ति: गजेन्द्र मोक्ष (श्रीमद्भागवत, स्कंध 8, अध्याय 2–4) | reports/2026-10-13-gajendra-moksha-bhagavata-bhakti.json | 1574
+- 2026-10-13 | अवैध लोन ऐप, डिजिटल कर्ज़ और ब्लैकमेल (भारत + मध्य प्रदेश) | reports/2026-10-13-illegal-loan-apps-digital-lending-harassment-mp.json | 1780
