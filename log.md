@@ -18,3 +18,4 @@
 - 2026-10-13 | स्कूल ड्रॉपआउट और माध्यमिक रिटेंशन (भारत + मध्य प्रदेश) (ChatGPT, Claude द्वारा जाँचा) | reports/2026-10-13-india-school-dropout-retention-gaps-gpt.json | 1727
 - 2026-10-13 | भक्ति: आदित्यहृदय उपदेश — अगस्त्य और श्रीराम (वाल्मीकि रामायण, युद्धकांड) | reports/2026-10-13-agastya-aditya-hridayam-rama-bhakti.json | 1579
 - 2026-10-13 | भक्ति: महाकाल, राजा चंद्रसेन और गोप-बालक श्रीकर (शिव पुराण, कोटिरुद्र संहिता 16–17) | reports/2026-10-13-mahakal-chandrasena-shrikar-bhakti.json | 1740
+- 2026-10-13 | फसल बीमा (PMFBY): दावे, लंबित भुगतान और छोटे क्लेम (भारत + मध्य प्रदेश) | reports/2026-10-13-pmfby-crop-insurance-claims-pending-mp.json | 1799
