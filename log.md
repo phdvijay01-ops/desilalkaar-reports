@@ -32,3 +32,4 @@
 - 2026-10-14 | मानव-वन्यजीव संघर्ष: मौतें, मुआवज़ा, बाघ व हाथी (मध्य प्रदेश) | reports/2026-10-14-mp-human-wildlife-conflict-deaths-compensation.json | 1792
 - 2026-10-14 | भक्ति: अर्जुन की दुर्गा स्तुति — कुरुक्षेत्र में युद्ध से पहले (महाभारत, भीष्म पर्व 23; समीक्षित संस्करण परिशिष्ट) | reports/2026-10-14-arjuna-durga-stuti-bhishma-parva-bhakti.json | 1604
 - 2026-10-14 | भक्ति: नर्मदा की उत्पत्ति, वरदान और नामकरण (स्कंद पुराण, रेवा खंड 3–5, 9) | reports/2026-10-14-narmada-origin-reva-khanda-amarkantak-bhakti.json | 1632
+- 2026-10-14 | टीबी (क्षय रोग): WHO रिपोर्ट 2025, भारत का बोझ और मध्य प्रदेश के ज़िलेवार मामले | reports/2026-10-14-india-tuberculosis-tb-burden-mp.json | 1779
