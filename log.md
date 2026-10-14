@@ -24,3 +24,4 @@
 - 2026-10-13 | अवैध लोन ऐप, डिजिटल कर्ज़ और ब्लैकमेल (भारत + मध्य प्रदेश) | reports/2026-10-13-illegal-loan-apps-digital-lending-harassment-mp.json | 1780
 - 2026-10-13 | भक्ति: सती और दक्ष यज्ञ, शक्तिपीठ परंपरा व हरसिद्धि उज्जैन (शिव पुराण, सती खंड 26–42; देवी भागवत 7.30) | reports/2026-10-13-sati-daksha-yajna-shaktipeeth-harsiddhi-bhakti.json | 1630
 - 2026-10-13 | भक्ति: भरत मिलाप — चित्रकूट में राम-भरत मिलन और पादुका (वाल्मीकि रामायण, अयोध्याकांड 93–115) | reports/2026-10-13-bharat-milap-chitrakoot-ramayana-bhakti.json | 1665
+- 2026-10-14 | भक्ति: भक्त ध्रुव और ध्रुव पद (विष्णु पुराण, प्रथम अंश 11–12; श्रीमद्भागवत 4.8–9) | reports/2026-10-14-dhruva-pole-star-vishnu-purana-bhakti.json | 1575
