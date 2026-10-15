@@ -46,6 +46,10 @@ Website cron `tools/github_reports.php` में cover = featured image और 
 
 मौजूदा schema बनाए रखें: `title`, `meta_description`, `excerpt`, `content_html`, `category`, `tags`, `slug`, `sources`, `image_keywords`, `image_alt`, `needs_check`; उपलब्ध होने पर `cover_stat`, `charts`, `image_prompt`, `featured_image`। श्रेणी `tools/validate.py` में दी गई अनुमत सूची में से हो। स्रोतों में कम से कम 5 सत्यापित https URLs हों। JSON UTF-8 में वास्तविक हिंदी अक्षरों के साथ हो, `\\u` escapes नहीं। अंतिम जाँच के लिए `tools/validate.py` को मानें।
 
+## शीर्षक और वेबसाइट का duplicate filter
+
+वेबसाइट मिलते-जुलते शीर्षक वाले लेख को "पहले से प्रकाशित" मानकर रोक देती है। इसी वजह से गीता शृंखला का भाग 2 रुका था, क्योंकि उसका शीर्षक भाग 1 जैसे शब्दों से शुरू होता था। इसलिए हर शीर्षक इस लेख के अपने विषय, पात्र या घटना से शुरू हो, किसी तय शृंखला-prefix से नहीं। गीता शृंखला का शीर्षक इस रूप में हो: "<इस भाग का विषय>: भगवद्गीता अध्याय X, श्लोक a–b का अर्थ"। शीर्षक "भगवद्गीता अध्याय…" से शुरू न हो, और उसके पहले 4–5 शब्द किसी पिछले भाग से न मिलें। meta_description भी इसी विषय से शुरू हो। किसी task prompt में दिया पुराना शीर्षक-रूप इस नियम के आगे लागू नहीं होगा।
+
 ## प्रकाशन सुरक्षा
 
 Website cron नई JSON फ़ाइलों को स्वतः draft/publish कर सकता है। Push से पहले स्रोत, तथ्य, duplicate angle, schema, charts और images जाँचें। API keys या credentials कभी repository में न रखें।
