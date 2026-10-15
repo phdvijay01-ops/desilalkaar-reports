@@ -30,6 +30,13 @@ if (!defined('AN_ROOT')) {
 const SP_MAX_TRIES = 3;
 const SP_MAX_PER_RUN = 5;
 
+// पुराने post दोबारा (Facebook App Live होने से पहले वाले post बाहर नहीं दिखते थे)।
+// इस समय से पहले Facebook पर गए सभी लेख एक बार random क्रम में दोबारा जाएँगे।
+const SP_REPOST_BEFORE = '2026-10-15T18:20:00+05:30';
+const SP_REPOST_GAP_MIN = 30;      // दो पुराने post के बीच कम से कम इतने मिनट
+const SP_REPOST_QUIET_FROM = 23;   // रात 23:00 से
+const SP_REPOST_QUIET_TO = 6;      // सुबह 06:00 तक पुराने post नहीं
+
 function sp_config(): array
 {
     static $cfg = null;
@@ -272,6 +279,68 @@ function sp_send_pending(array $platforms, array $c): void
         }
     }
     unset($item);
+    sp_save_state($s);
+
+    // नए लेख पहले; इस run में कोई नया post नहीं गया तो एक पुराना post (random)
+    if ($sent === 0 && isset($platforms['facebook']) && !$c['dry_run']) {
+        sp_send_one_repost($s);
+    }
+}
+
+/** App Live होने से पहले वाले Facebook post: एक बार निशान लगाएँ, फिर हर run में ज़्यादा से ज़्यादा एक random post */
+function sp_send_one_repost(array &$s): void
+{
+    if (empty($s['repost_marked'])) {
+        $cut = strtotime(SP_REPOST_BEFORE);
+        foreach ($s['queue'] as &$item) {
+            $fb = &$item['facebook'];
+            if (($fb['status'] ?? '') === 'done' && !empty($fb['at']) && strtotime((string)$fb['at']) < $cut) {
+                $fb['old_post_id'] = $fb['post_id'] ?? '';
+                $fb['status'] = 'repost';
+                $fb['tries'] = 0;
+            }
+            unset($fb);
+        }
+        unset($item);
+        $s['repost_marked'] = date('c');
+        sp_save_state($s);
+    }
+
+    $hour = (int)date('G');
+    if ($hour >= SP_REPOST_QUIET_FROM || $hour < SP_REPOST_QUIET_TO) {
+        return;
+    }
+    if (!empty($s['last_repost_at']) && time() - strtotime((string)$s['last_repost_at']) < SP_REPOST_GAP_MIN * 60) {
+        return;
+    }
+
+    $ids = [];
+    foreach ($s['queue'] as $id => $item) {
+        if (($item['facebook']['status'] ?? '') === 'repost') {
+            $ids[] = $id;
+        }
+    }
+    if (!$ids) {
+        return;
+    }
+    $id = $ids[array_rand($ids)];
+    $fb = &$s['queue'][$id]['facebook'];
+    $fb['tries'] = (int)($fb['tries'] ?? 0) + 1;
+    $s['last_repost_at'] = date('c');
+    try {
+        $fb['post_id'] = sp_post_facebook((string)$s['queue'][$id]['title'], sp_article_url((int)$id));
+        $fb['status'] = 'done';
+        $fb['at'] = date('c');
+        $fb['reposted'] = true;
+        an_log("Social: पुराना लेख #$id → facebook दोबारा ({$fb['post_id']}), बचे " . (count($ids) - 1));
+    } catch (Throwable $e) {
+        $fb['error'] = $e->getMessage();
+        if ($fb['tries'] >= SP_MAX_TRIES) {
+            $fb['status'] = 'failed';
+        }
+        an_log("Social: पुराना लेख #$id facebook पर दोबारा नहीं गया (कोशिश {$fb['tries']}) — " . $e->getMessage());
+    }
+    unset($fb);
     sp_save_state($s);
 }
 
