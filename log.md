@@ -79,3 +79,4 @@
 - 2026-10-19 | मातृ स्वास्थ्य और SUMAN: MMR 142, ICCC तथा जिला हेल्प डेस्क (मध्य प्रदेश) | reports/2026-10-19-mp-maternal-health-suman-mmr-2026.json | लगभग 1,250
 - 2026-10-19 | भ्रष्टाचार शिकायतें और CVC 2025: CVC/CVO आंकड़ों का विश्लेषण (भारत) | reports/2026-10-19-india-cvc-corruption-complaints-2025.json | लगभग 1,200
 - 2026-10-19 | सितंबर 2026 CPI महंगाई: 5.54% और घरेलू बजट पर असर (भारत + मध्य प्रदेश) | reports/2026-10-19-india-cpi-inflation-september-2026.json | लगभग 1,250
+- 2026-10-19 | AI और स्वचालन का नौकरियों पर असर: नीति आयोग रोडमैप, ILO, ICRIER और मप्र की 30 डेटा व AI लैब | reports/2026-10-19-ai-automation-jobs-impact-india-mp.json | 1788
