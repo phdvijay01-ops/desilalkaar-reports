@@ -15,62 +15,67 @@
 - 2026-10-13 | दहेज मृत्यु और घरेलू हिंसा (भारत + मध्य प्रदेश) | reports/2026-10-13-india-dowry-deaths-domestic-violence-mp.json | 1783
 - 2026-10-13 | बच्चों में कुपोषण: NFHS-6 और पोषण ट्रैकर (मध्य प्रदेश) | reports/2026-10-13-mp-child-malnutrition-nfhs-poshan.json | 1789
 - 2026-10-13 | भक्ति: महिषासुर वध (दुर्गा सप्तशती, मध्यम चरित्र) | reports/2026-10-13-durga-mahishasura-vadh-bhakti.json | 1561
-- 2026-10-13 | स्कूल ड्रॉपआउट और माध्यमिक रिटेंशन (भारत + मध्य प्रदेश) (ChatGPT, Claude द्वारा जाँचा) | reports/2026-10-13-india-school-dropout-retention-gaps-gpt.json | 1727
-- 2026-10-13 | भक्ति: आदित्यहृदय उपदेश — अगस्त्य और श्रीराम (वाल्मीकि रामायण, युद्धकांड) | reports/2026-10-13-agastya-aditya-hridayam-rama-bhakti.json | 1579
-- 2026-10-13 | भक्ति: महाकाल, राजा चंद्रसेन और गोप-बालक श्रीकर (शिव पुराण, कोटिरुद्र संहिता 16–17) | reports/2026-10-13-mahakal-chandrasena-shrikar-bhakti.json | 1740
-- 2026-10-13 | फसल बीमा (PMFBY): दावे, लंबित भुगतान और छोटे क्लेम (भारत + मध्य प्रदेश) | reports/2026-10-13-pmfby-crop-insurance-claims-pending-mp.json | 1799
-- 2026-10-13 | भक्ति: शमी वृक्ष और पांडवों के हथियार (महाभारत, विराट पर्व) | reports/2026-10-13-shami-tree-pandava-weapons-virata-parva-bhakti.json | 1715
-- 2026-10-13 | भक्ति: गजेन्द्र मोक्ष (श्रीमद्भागवत, स्कंध 8, अध्याय 2–4) | reports/2026-10-13-gajendra-moksha-bhagavata-bhakti.json | 1574
-- 2026-10-13 | अवैध लोन ऐप, डिजिटल कर्ज़ और ब्लैकमेल (भारत + मध्य प्रदेश) | reports/2026-10-13-illegal-loan-apps-digital-lending-harassment-mp.json | 1780
-- 2026-10-13 | भक्ति: सती और दक्ष यज्ञ, शक्तिपीठ परंपरा व हरसिद्धि उज्जैन (शिव पुराण, सती खंड 26–42; देवी भागवत 7.30) | reports/2026-10-13-sati-daksha-yajna-shaktipeeth-harsiddhi-bhakti.json | 1630
-- 2026-10-13 | भक्ति: भरत मिलाप — चित्रकूट में राम-भरत मिलन और पादुका (वाल्मीकि रामायण, अयोध्याकांड 93–115) | reports/2026-10-13-bharat-milap-chitrakoot-ramayana-bhakti.json | 1665
-- 2026-10-14 | भक्ति: भक्त ध्रुव और ध्रुव पद (विष्णु पुराण, प्रथम अंश 11–12; श्रीमद्भागवत 4.8–9) | reports/2026-10-14-dhruva-pole-star-vishnu-purana-bhakti.json | 1575
-- 2026-10-14 | भक्ति: ओंकारेश्वर ज्योतिर्लिंग — विन्ध्य पर्वत का अभिमान और तप (शिव पुराण, कोटिरुद्र संहिता 18) | reports/2026-10-14-omkareshwar-vindhya-shiva-purana-bhakti.json | 1624
-- 2026-10-14 | लापता बच्चे और बाल तस्करी: NCRB 2024 (भारत + मध्य प्रदेश) | reports/2026-10-14-missing-children-ncrb-2024-mp.json | 1756
-- 2026-10-14 | भक्ति: श्रीकृष्ण-सुदामा मित्रता, चिउड़े की भेंट और सांदीपनि आश्रम उज्जैन (श्रीमद्भागवत 10.45, 10.80–81) | reports/2026-10-14-krishna-sudama-sandipani-ujjain-bhagavata-bhakti.json | 1657
-- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम, वन के फल और नवधा भक्ति (वाल्मीकि रामायण, अरण्यकांड 74; रामचरितमानस, अरण्यकांड 33–36) | reports/2026-10-14-shabari-rama-matanga-ashram-ramayana-bhakti.json | 1744
-- 2026-10-14 | मानव-वन्यजीव संघर्ष: मौतें, मुआवज़ा, बाघ व हाथी (मध्य प्रदेश) | reports/2026-10-14-mp-human-wildlife-conflict-deaths-compensation.json | 1792
-- 2026-10-14 | भक्ति: अर्जुन की दुर्गा स्तुति — कुरुक्षेत्र में युद्ध से पहले (महाभारत, भीष्म पर्व 23; समीक्षित संस्करण परिशिष्ट) | reports/2026-10-14-arjuna-durga-stuti-bhishma-parva-bhakti.json | 1604
-- 2026-10-14 | भक्ति: नर्मदा की उत्पत्ति, वरदान और नामकरण (स्कंद पुराण, रेवा खंड 3–5, 9) | reports/2026-10-14-narmada-origin-reva-khanda-amarkantak-bhakti.json | 1632
-- 2026-10-14 | टीबी (क्षय रोग): WHO रिपोर्ट 2025, भारत का बोझ और मध्य प्रदेश के ज़िलेवार मामले | reports/2026-10-14-india-tuberculosis-tb-burden-mp.json | 1779
-- 2026-10-14 | भक्ति: रावण वध — मातलि की सलाह, ब्रह्मास्त्र और विभीषण को राम का वचन (वाल्मीकि रामायण, युद्धकांड 107–109; रामचरितमानस, लंकाकांड 102) | reports/2026-10-14-rama-ravana-vadh-yuddha-kanda-dussehra-bhakti.json | 1575
-- 2026-10-14 | भक्ति: मधु-कैटभ वध और राजा सुरथ-समाधि वैश्य का प्रसंग (दुर्गा सप्तशती, प्रथम अध्याय व अध्याय 13; देवी भागवत 1.6–9) | reports/2026-10-14-madhu-kaitabha-suratha-durga-saptashati-bhakti.json | 1587
-- 2026-10-14 | OBC आरक्षण पर हाईकोर्ट फैसला: 13% होल्ड पद और भर्तियों पर असर (मध्य प्रदेश) | reports/2026-10-14-mp-obc-quota-verdict-held-posts-recruitment.json | 1767
-- 2026-10-14 | भक्ति: तुलसीदास — रत्नावली की सीख, चित्रकूट में दर्शन की परंपरा और रामचरितमानस का आरंभ (मानस बालकांड; भक्तमाल-प्रियादास परंपरा) | reports/2026-10-14-tulsidas-ratnavali-chitrakoot-ramcharitmanas-bhakti.json | 1624
-- 2026-10-14 | भक्ति: गीता शृंखला — अध्याय 1, भाग 1 (श्लोक 1–11): धृतराष्ट्र का प्रश्न और दुर्योधन की बेचैनी | reports/2026-10-14-gita-adhyay-1-bhag-1-dhritarashtra-duryodhana-bhakti.json | 1533
-- 2026-10-14 | भक्ति: मीराबाई — मेड़ता, चित्तौड़, विष का प्याला और द्वारका (नाभादास भक्तमाल; प्रियादास भक्तिरसबोधिनी 1712; लोक-परंपरा) | reports/2026-10-14-mirabai-krishna-bhakti-merta-chittor-dwarka-bhakti.json | 1553
-- 2026-10-14 | खाड़ी देशों में भारतीय प्रवासी मज़दूर: मौतें, रेमिटेंस और उत्प्रवास मंज़ूरियाँ (भारत + मध्य प्रदेश) | reports/2026-10-14-gulf-indian-migrant-workers-remittances-mp.json | 1788
-- 2026-10-14 | भक्ति: मैहर की माँ शारदा — सती का हार, आल्हा-ऊदल की भक्ति और त्रिकूट पर्वत (शक्तिपीठ परंपरा; आल्हा-खंड लोकगाथा) | reports/2026-10-14-maihar-sharda-mata-alha-udal-trikut-bhakti.json | 1596
-- 2026-10-14 | भक्ति: संत कबीर — पंचगंगा घाट पर रामानंद से राम नाम, करघा, सिकंदर लोदी प्रसंग और मगहर (संत-परंपरा; कबीरपंथ; बांधवगढ़ के धर्मदास) | reports/2026-10-14-sant-kabir-ramananda-panchganga-maghar-bhakti.json | 1687
-- 2026-10-15 | भक्ति: गीता शृंखला — अध्याय 1, भाग 2 (श्लोक 12–19): भीष्म का सिंहनाद और कुरुक्षेत्र में शंखनाद | reports/2026-10-15-gita-adhyay-1-bhag-2-shankhnaad-kurukshetra-bhakti.json | 1699
-- 2026-10-15 | भक्ति: पार्वती का तप, अपर्णा नाम और शिव की परीक्षा (शिव पुराण, रुद्र संहिता, पार्वती खंड 22–28; कुमारसंभव सर्ग 5) | reports/2026-10-15-parvati-tapas-aparna-shiva-purana-bhakti.json | 1751
-- 2026-10-15 | वायु प्रदूषण और सेहत: NCAP शहर, पराली और मौतों के अनुमान (भारत + मध्य प्रदेश) | reports/2026-10-15-air-pollution-health-stubble-burning-ncap-mp.json | 1789
-- 2026-10-15 | भक्ति: शुम्भ-निशुम्भ वध — कौशिकी, चण्ड-मुण्ड से चामुण्डा, रक्तबीज और 'एकैवाहं' (दुर्गा सप्तशती, उत्तम चरित्र, अध्याय 5–10) | reports/2026-10-15-shumbha-nishumbha-chamunda-raktabija-saptashati-bhakti.json | 1760
-- 2026-10-15 | भक्ति: अशोक वाटिका में हनुमान और सीता — समुद्र-लंघन, मुद्रिका, कौआ प्रसंग और चूड़ामणि (वाल्मीकि रामायण, सुंदरकांड 1, 15, 27, 30–38) | reports/2026-10-15-hanuman-sita-ashok-vatika-sundarakanda-bhakti.json | 1729
-- 2026-10-15 | ऑनलाइन गेमिंग और सट्टेबाज़ी: प्रतिबंध क़ानून, ब्लॉकिंग, सुप्रीम कोर्ट और म्यूल खाते (भारत + मध्य प्रदेश) | reports/2026-10-15-online-gaming-betting-act-enforcement-mp.json | 1795
-- 2026-10-15 | भक्ति: ओरछा के राजा राम — रानी गणेश कुंवरि का तप, राम की शर्तें और रानी महल से राम राजा मंदिर (ओरछा/बुंदेलखंड लोक व मंदिर-परंपरा) | reports/2026-10-15-orchha-ram-raja-rani-ganesh-kunwari-bhakti.json | 1665
-- 2026-10-15 | भक्ति: भक्त प्रह्लाद और नृसिंह अवतार — नवधा भक्ति, अत्याचार, खंभे से नृसिंह और पिता के लिए क्षमा (श्रीमद्भागवत 7.3–7.10; विष्णु पुराण 1.17–20) | reports/2026-10-15-prahlada-narasimha-bhagavata-vishnu-purana-bhakti.json | 1808
-- 2026-10-15 | गिग-प्लेटफॉर्म कामगार: सामाजिक सुरक्षा संहिता, ई-श्रम पंजीकरण और लंबित लाभ योजना (भारत + मध्य प्रदेश) | reports/2026-10-15-gig-platform-workers-social-security-eshram-mp.json | 1797
-- 2026-10-15 | भक्ति: यक्ष प्रश्न — सरोवर पर युधिष्ठिर की परीक्षा, नकुल का चुनाव और धर्म के तीन वरदान (महाभारत, वन पर्व/आरणेय पर्व; गांगुली खंड 309–312) | reports/2026-10-15-yaksha-prashna-yudhishthira-vana-parva-bhakti.json | 1674
-- 2026-10-15 | भक्ति: वाल्मीकि और क्रौंच-वध — तमसा तट पर पहला श्लोक 'मा निषाद', ब्रह्मा का आदेश और लव-कुश का गायन (वाल्मीकि रामायण, बालकांड 1, 2, 4) | reports/2026-10-15-valmiki-krauncha-first-shloka-bala-kanda-bhakti.json | 1780
-- 2026-10-15 | युवाओं का मानसिक स्वास्थ्य: टेली-मानस कॉल, बजट, NCRB 2024 और इलाज-अंतर (भारत + मध्य प्रदेश) | reports/2026-10-15-youth-mental-health-tele-manas-access-mp.json | 1737
-- 2026-10-15 | भक्ति: अनसूया और सीता — अत्रि आश्रम में उपदेश, दिव्य उपहार और स्वयंवर का वर्णन (वाल्मीकि रामायण, अयोध्याकांड 117–119; चित्रकूट का अनसूया आश्रम) | reports/2026-10-15-anasuya-sita-atri-ashram-chitrakoot-bhakti.json | 1852
-- 2026-10-15 | भक्ति: सूरदास और वल्लभाचार्य — गऊघाट की भेंट, विनय से लीला-गान, श्रीनाथजी सेवा और पारसौली (चौरासी वैष्णवन की वार्ता परंपरा; अष्टछाप) | reports/2026-10-15-surdas-vallabhacharya-gaughat-sursagar-bhakti.json | 1730
-- 2026-10-15 | किसान आत्महत्या और कृषि संकट: NCRB ADSI 2024, खेतिहर मज़दूर, कर्ज़ और आय (भारत + मध्य प्रदेश) | reports/2026-10-15-farmer-suicides-ncrb-2024-agri-labourers-mp.json | 1789
-- 2026-10-15 | भक्ति: नरसी मेहता की हुंडी — द्वारका के शामळशा सेठ, मामेरु और हारमाळा (नरसी मेहता की आत्मकथात्मक रचनाएँ; गुजराती संत-परंपरा) | reports/2026-10-15-narsi-mehta-hundi-shamalsha-seth-dwarka-bhakti.json | 1578
-- 2026-10-15 | भक्ति: वामन अवतार और राजा बलि — तीन पग भूमि, शुक्राचार्य की चेतावनी, विराट रूप और सुतल लोक (श्रीमद्भागवत, अष्टम स्कंध 15–23; वाल्मीकि रामायण, बालकांड 29) | reports/2026-10-15-vamana-bali-three-steps-bhagavata-bhakti.json | 1640
-- 2026-10-15 | भक्ति: गीता शृंखला अध्याय 1, भाग 2 (श्लोक 12–19) — नए शीर्षक से दोबारा, क्योंकि वेबसाइट ने पुराने शीर्षक को भाग 1 का duplicate मानकर रोका था | reports/2026-10-15-bhishma-simhanaad-shankhnaad-gita-1-12-19-bhakti.json | 1699
-- 2026-10-16 | भक्ति: गीता शृंखला — अध्याय 1, भाग 3 (श्लोक 20–27): अर्जुन का रथ दोनों सेनाओं के बीच और 'पार्थ, इन कुरुओं को देखो' | reports/2026-10-16-gita-adhyay-1-bhag-3-arjun-rath-senayor-madhye-bhakti.json | 1745
-- 2026-10-16 | भक्ति: राम की नवरात्र-पूजा — नारद का उपदेश, पर्वत-शिखर पर नौ दिन का व्रत और अष्टमी की रात भगवती का आशीर्वाद (श्रीमद्देवीभागवत, तृतीय स्कंध 27–30; बंगाल का अकाल बोधन) | reports/2026-10-16-rama-navaratri-vrata-narada-devi-bhagavata-bhakti.json | 1797
-- 2026-10-16 | लोक शिकायत निवारण: CPGRAMS में लंबित शिकायतें, अपीलें, फीडबैक और सीएम हेल्पलाइन (भारत + मध्य प्रदेश) | reports/2026-10-16-public-grievances-cpgrams-cm-helpline-mp.json | 1776
-- 2026-10-16 | भक्ति: रघु और कौत्स की गुरुदक्षिणा — विश्वजित यज्ञ, वरतन्तु की चौदह करोड़ दक्षिणा, कुबेर का सोना और दशहरे की आपटा-परंपरा (कालिदास, रघुवंश सर्ग 5; महाराष्ट्र-गोवा लोक-परंपरा) | reports/2026-10-16-raghu-kautsa-gurudakshina-raghuvamsha-dussehra-bhakti.json | 1873
-- 2026-10-16 | भक्ति: विभीषण शरणागति — रावण का अपमान, वानर-सलाहकारों का संदेह, हनुमान का तर्क, 'सकृदेव प्रपन्नाय' अभय-वचन और समुद्र-जल से अभिषेक (वाल्मीकि रामायण, युद्धकांड 16–19; सुंदरकांड 52; रामचरितमानस सुंदरकांड) | reports/2026-10-16-vibhishana-sharanagati-yuddha-kanda-bhakti.json | 1786
-- 2026-10-16 | युवाओं में नशा और नशा मुक्ति: NDPS मामले, MD/डोडा चूरा जब्ती, नशा मुक्ति केंद्रों के लाभार्थी और ओवरडोज़ मौतें (भारत + मध्य प्रदेश) | reports/2026-10-16-youth-drug-abuse-de-addiction-ndps-mp.json | 1799
-- 2026-10-16 | भक्ति: सावित्री-सत्यवान — अश्वपति का तप, नारद की चेतावनी, त्रिरात्र व्रत, यमराज से संवाद और चार वरदान (महाभारत, वन पर्व/पतिव्रता-माहात्म्य पर्व; गांगुली खंड 291–297) | reports/2026-10-16-savitri-satyavan-yama-vana-parva-bhakti.json | 1735
-- 2026-10-16 | भक्ति: लिंगोद्भव — ब्रह्मा-विष्णु विवाद, अग्नि-स्तंभ, केतकी और शिवरात्रि (शिव पुराण, विद्येश्वर संहिता 6–9) | reports/2026-10-16-lingodbhava-agni-stambh-shiva-purana-bhakti.json | 1738
-- 2026-10-16 | विदेश में भारतीय छात्र: घटती संख्या, वीज़ा सख़्ती, LRS खर्च, मौतें/निर्वासन और मप्र छात्रवृत्ति योजनाएँ (दुनिया) | reports/2026-10-16-indian-students-abroad-decline-visa-curbs-mp.json | 1791
-- 2026-10-16 | भक्ति: अजामिल की कथा — कान्यकुब्ज के ब्राह्मण का भटकना, पुत्र 'नारायण' की पुकार, यमदूत-विष्णुदूत संवाद, गंगाद्वार में पश्चाताप और यमराज के बारह महाजन (श्रीमद्भागवत, षष्ठ स्कंध 1–3) | reports/2026-10-16-ajamila-narayana-yamaduta-vishnuduta-bhagavata-bhakti.json | 1760
-- 2026-10-16 | भक्ति: राजा हरिश्चंद्र की सत्य-परीक्षा — विश्वामित्र को राज्य-दान, काशी में परिवार व स्वयं की बिक्री, श्मशान-सेवा, धर्म का प्रकट होना और वसिष्ठ-विश्वामित्र का आडी-बक युद्ध (मार्कण्डेय पुराण, अध्याय 7–9; देवीभागवत 7.24) | reports/2026-10-16-raja-harishchandra-satya-pariksha-markandeya-purana-bhakti.json | 1756
-- 2026-10-16 | फेक न्यूज़ और डीपफेक: आईटी नियम 2026 की 3 घंटे की समय-सीमा, NCRB मामले, सहयोग पोर्टल, अदालतें और मप्र (तकनीक) | reports/2026-10-16-deepfake-fake-news-it-rules-3-hour-takedown-mp.json | 1796
-- 2026-10-16 | भक्ति: राजा भर्तृहरि और अमर फल — उज्जैन के राजा, रानी पिंगला, हाथ-दर-हाथ घूमता फल, गोरखनाथ से दीक्षा और शिप्रा तट की भर्तृहरि गुफा (लोक/नाथ-परंपरा; नीति शतक 2, वैराग्य शतक) | reports/2026-10-16-bhartrihari-amar-phal-ujjain-vairagya-bhakti.json | 1643
-- 2026-10-16 | भक्ति: भगीरथ और गंगावतरण — सगर के साठ हज़ार पुत्र, कपिल मुनि, भगीरथ का तप, शिव की जटाएँ, जह्नु और भागीरथी नाम (वाल्मीकि रामायण, बालकांड 38–44; भागवत 9.9; महाभारत वन पर्व) | reports/2026-10-16-bhagiratha-ganga-avatarana-bala-kanda-bhakti.json | 1856
+- 2026-10-13 | स्कूल ड्रॉपआउट और माध्यमिक रिटेंशन (भारत + मध्य प्रदेश) | reports/2026-10-13-india-school-dropout-retention-gaps-gpt.json | 1727
+- 2026-10-13 | भक्ति: आदित्यहृदय उपदेश — अगस्त्य और श्रीराम | reports/2026-10-13-agastya-aditya-hridayam-rama-bhakti.json | 1579
+- 2026-10-13 | भक्ति: महाकाल, राजा चंद्रसेन और गोप-बालक श्रीकर | reports/2026-10-13-mahakal-chandrasena-shrikar-bhakti.json | 1740
+- 2026-10-13 | फसल बीमा (PMFBY): दावे, लंबित भुगतान और छोटे क्लेम | reports/2026-10-13-pmfby-crop-insurance-claims-pending-mp.json | 1799
+- 2026-10-13 | भक्ति: शमी वृक्ष और पांडवों के हथियार | reports/2026-10-13-shami-tree-pandava-weapons-virata-parva-bhakti.json | 1715
+- 2026-10-13 | भक्ति: गजेन्द्र मोक्ष | reports/2026-10-13-gajendra-moksha-bhagavata-bhakti.json | 1574
+- 2026-10-13 | अवैध लोन ऐप, डिजिटल कर्ज़ और ब्लैकमेल | reports/2026-10-13-illegal-loan-apps-digital-lending-harassment-mp.json | 1780
+- 2026-10-13 | भक्ति: सती और दक्ष यज्ञ, शक्तिपीठ परंपरा व हरसिद्धि उज्जैन | reports/2026-10-13-sati-daksha-yajna-shaktipeeth-harsiddhi-bhakti.json | 1630
+- 2026-10-13 | भक्ति: भरत मिलाप — चित्रकूट में राम-भरत मिलन और पादुका | reports/2026-10-13-bharat-milap-chitrakoot-ramayana-bhakti.json | 1665
+- 2026-10-14 | भक्ति: भक्त ध्रुव और ध्रुव पद | reports/2026-10-14-dhruva-pole-star-vishnu-purana-bhakti.json | 1575
+- 2026-10-14 | भक्ति: ओंकारेश्वर ज्योतिर्लिंग — विन्ध्य पर्वत का अभिमान और तप | reports/2026-10-14-omkareshwar-vindhya-shiva-purana-bhakti.json | 1624
+- 2026-10-14 | लापता बच्चे और बाल तस्करी: NCRB 2024 | reports/2026-10-14-missing-children-ncrb-2024-mp.json | 1756
+- 2026-10-14 | भक्ति: श्रीकृष्ण-सुदामा मित्रता और सांदीपनि आश्रम उज्जैन | reports/2026-10-14-krishna-sudama-sandipani-ujjain-bhagavata-bhakti.json | 1657
+- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम और नवधा भक्ति | reports/2026-10-14-shabari-rama-matanga-ashram-ramayana-bhakti.json | 1744
+- 2026-10-14 | मानव-वन्यजीव संघर्ष: मौतें, मुआवज़ा, बाघ व हाथी | reports/2026-10-14-mp-human-wildlife-conflict-deaths-compensation.json | 1792
+- 2026-10-14 | भक्ति: अर्जुन की दुर्गा स्तुति | reports/2026-10-14-arjuna-durga-stuti-bhishma-parva-bhakti.json | 1604
+- 2026-10-14 | भक्ति: नर्मदा की उत्पत्ति, वरदान और नामकरण | reports/2026-10-14-narmada-origin-reva-khanda-amarkantak-bhakti.json | 1632
+- 2026-10-14 | टीबी: WHO रिपोर्ट 2025, भारत का बोझ और मध्य प्रदेश के ज़िलेवार मामले | reports/2026-10-14-india-tuberculosis-tb-burden-mp.json | 1779
+- 2026-10-14 | भक्ति: रावण वध — मातलि की सलाह, ब्रह्मास्त्र और विभीषण को राम का वचन | reports/2026-10-14-rama-ravana-vadh-yuddha-kanda-dussehra-bhakti.json | 1575
+- 2026-10-14 | भक्ति: मधु-कैटभ वध और राजा सुरथ-समाधि वैश्य | reports/2026-10-14-madhu-kaitabha-suratha-durga-saptashati-bhakti.json | 1587
+- 2026-10-14 | OBC आरक्षण पर हाईकोर्ट फैसला: 13% होल्ड पद और भर्तियों पर असर | reports/2026-10-14-mp-obc-quota-verdict-held-posts-recruitment.json | 1767
+- 2026-10-14 | भक्ति: तुलसीदास — रत्नावली की सीख, चित्रकूट और रामचरितमानस | reports/2026-10-14-tulsidas-ratnavali-chitrakoot-ramcharitmanas-bhakti.json | 1624
+- 2026-10-14 | भक्ति: गीता शृंखला — अध्याय 1, भाग 1 | reports/2026-10-14-gita-adhyay-1-bhag-1-dhritarashtra-duryodhana-bhakti.json | 1533
+- 2026-10-14 | भक्ति: मीराबाई — मेड़ता, चित्तौड़, विष का प्याला और द्वारका | reports/2026-10-14-mirabai-krishna-bhakti-merta-chittor-dwarka-bhakti.json | 1553
+- 2026-10-14 | खाड़ी देशों में भारतीय प्रवासी मज़दूर: मौतें, रेमिटेंस और उत्प्रवास मंज़ूरियाँ | reports/2026-10-14-gulf-indian-migrant-workers-remittances-mp.json | 1788
+- 2026-10-14 | भक्ति: मैहर की माँ शारदा — सती का हार, आल्हा-ऊदल और त्रिकूट पर्वत | reports/2026-10-14-maihar-sharda-mata-alha-udal-trikut-bhakti.json | 1596
+- 2026-10-14 | भक्ति: संत कबीर — पंचगंगा घाट, रामानंद और मगहर | reports/2026-10-14-sant-kabir-ramananda-panchganga-maghar-bhakti.json | 1687
+- 2026-10-15 | भक्ति: गीता शृंखला — अध्याय 1, भाग 2 | reports/2026-10-15-gita-adhyay-1-bhag-2-shankhnaad-kurukshetra-bhakti.json | 1699
+- 2026-10-15 | भक्ति: पार्वती का तप, अपर्णा नाम और शिव की परीक्षा | reports/2026-10-15-parvati-tapas-aparna-shiva-purana-bhakti.json | 1751
+- 2026-10-15 | वायु प्रदूषण और सेहत: NCAP शहर, पराली और मौतों के अनुमान | reports/2026-10-15-air-pollution-health-stubble-burning-ncap-mp.json | 1789
+- 2026-10-15 | भक्ति: शुम्भ-निशुम्भ वध — कौशिकी, चामुण्डा और रक्तबीज | reports/2026-10-15-shumbha-nishumbha-chamunda-raktabija-saptashati-bhakti.json | 1760
+- 2026-10-15 | भक्ति: अशोक वाटिका में हनुमान और सीता | reports/2026-10-15-hanuman-sita-ashok-vatika-sundarakanda-bhakti.json | 1729
+- 2026-10-15 | ऑनलाइन गेमिंग और सट्टेबाज़ी: कानून, ब्लॉकिंग और म्यूल खाते | reports/2026-10-15-online-gaming-betting-act-enforcement-mp.json | 1795
+- 2026-10-15 | भक्ति: ओरछा के राजा राम — रानी गणेश कुंवरि और राम राजा मंदिर | reports/2026-10-15-orchha-ram-raja-rani-ganesh-kunwari-bhakti.json | 1665
+- 2026-10-15 | भक्ति: भक्त प्रह्लाद और नृसिंह अवतार | reports/2026-10-15-prahlada-narasimha-bhagavata-vishnu-purana-bhakti.json | 1808
+- 2026-10-15 | गिग-प्लेटफॉर्म कामगार: सामाजिक सुरक्षा संहिता और ई-श्रम | reports/2026-10-15-gig-platform-workers-social-security-eshram-mp.json | 1797
+- 2026-10-15 | भक्ति: यक्ष प्रश्न — युधिष्ठिर की परीक्षा और धर्म के वरदान | reports/2026-10-15-yaksha-prashna-yudhishthira-vana-parva-bhakti.json | 1674
+- 2026-10-15 | भक्ति: वाल्मीकि और क्रौंच-वध — पहला श्लोक और लव-कुश | reports/2026-10-15-valmiki-krauncha-first-shloka-bala-kanda-bhakti.json | 1780
+- 2026-10-15 | युवाओं का मानसिक स्वास्थ्य: टेली-मानस, बजट, NCRB 2024 और इलाज-अंतर | reports/2026-10-15-youth-mental-health-tele-manas-access-mp.json | 1737
+- 2026-10-15 | भक्ति: अनसूया और सीता — अत्रि आश्रम में उपदेश | reports/2026-10-15-anasuya-sita-atri-ashram-chitrakoot-bhakti.json | 1852
+- 2026-10-15 | भक्ति: सूरदास और वल्लभाचार्य — गऊघाट, श्रीनाथजी सेवा और पारसौली | reports/2026-10-15-surdas-vallabhacharya-gaughat-sursagar-bhakti.json | 1730
+- 2026-10-15 | किसान आत्महत्या और कृषि संकट: NCRB ADSI 2024 | reports/2026-10-15-farmer-suicides-ncrb-2024-agri-labourers-mp.json | 1789
+- 2026-10-15 | भक्ति: नरसी मेहता की हुंडी — द्वारका, मामेरु और हारमाळा | reports/2026-10-15-narsi-mehta-hundi-shamalsha-seth-dwarka-bhakti.json | 1578
+- 2026-10-15 | भक्ति: वामन अवतार और राजा बलि — तीन पग भूमि और सुतल लोक | reports/2026-10-15-vamana-bali-three-steps-bhagavata-bhakti.json | 1640
+- 2026-10-15 | भक्ति: गीता शृंखला अध्याय 1, भाग 2 — नए शीर्षक से दोबारा | reports/2026-10-15-bhishma-simhanaad-shankhnaad-gita-1-12-19-bhakti.json | 1699
+- 2026-10-16 | भक्ति: गीता शृंखला — अध्याय 1, भाग 3 | reports/2026-10-16-gita-adhyay-1-bhag-3-arjun-rath-senayor-madhye-bhakti.json | 1745
+- 2026-10-16 | भक्ति: राम की नवरात्र-पूजा — नारद का उपदेश और भगवती का आशीर्वाद | reports/2026-10-16-rama-navaratri-vrata-narada-devi-bhagavata-bhakti.json | 1797
+- 2026-10-16 | लोक शिकायत निवारण: CPGRAMS में लंबित शिकायतें, अपीलें, फीडबैक और सीएम हेल्पलाइन | reports/2026-10-16-public-grievances-cpgrams-cm-helpline-mp.json | 1776
+- 2026-10-16 | भक्ति: रघु और कौत्स की गुरुदक्षिणा — विश्वजित यज्ञ और दशहरे की आपटा-परंपरा | reports/2026-10-16-raghu-kautsa-gurudakshina-raghuvamsha-dussehra-bhakti.json | 1873
+- 2026-10-16 | भक्ति: विभीषण शरणागति — हनुमान का तर्क और अभय-वचन | reports/2026-10-16-vibhishana-sharanagati-yuddha-kanda-bhakti.json | 1786
+- 2026-10-16 | युवाओं में नशा और नशा मुक्ति: NDPS मामले, जब्ती, केंद्रों के लाभार्थी और ओवरडोज़ मौतें | reports/2026-10-16-youth-drug-abuse-de-addiction-ndps-mp.json | 1799
+- 2026-10-16 | भक्ति: सावित्री-सत्यवान — यमराज से संवाद और चार वरदान | reports/2026-10-16-savitri-satyavan-yama-vana-parva-bhakti.json | 1735
+- 2026-10-16 | भक्ति: लिंगोद्भव — ब्रह्मा-विष्णु विवाद, अग्नि-स्तंभ और शिवरात्रि | reports/2026-10-16-lingodbhava-agni-stambh-shiva-purana-bhakti.json | 1738
+- 2026-10-16 | विदेश में भारतीय छात्र: घटती संख्या, वीज़ा सख्ती, LRS खर्च, मौतें/निर्वासन और मप्र छात्रवृत्ति | reports/2026-10-16-indian-students-abroad-decline-visa-curbs-mp.json | 1791
+- 2026-10-16 | भक्ति: अजामिल की कथा — नारायण की पुकार और यमदूत-विष्णुदूत संवाद | reports/2026-10-16-ajamila-narayana-yamaduta-vishnuduta-bhagavata-bhakti.json | 1760
+- 2026-10-16 | भक्ति: राजा हरिश्चंद्र की सत्य-परीक्षा — राज्य-दान, श्मशान-सेवा और धर्म | reports/2026-10-16-raja-harishchandra-satya-pariksha-markandeya-purana-bhakti.json | 1756
+- 2026-10-16 | फेक न्यूज़ और डीपफेक: आईटी नियम 2026, NCRB मामले, सहयोग पोर्टल और मप्र | reports/2026-10-16-deepfake-fake-news-it-rules-3-hour-takedown-mp.json | 1796
+- 2026-10-16 | भक्ति: राजा भर्तृहरि और अमर फल — उज्जैन, पिंगला और भर्तृहरि गुफा | reports/2026-10-16-bhartrihari-amar-phal-ujjain-vairagya-bhakti.json | 1643
+- 2026-10-16 | भक्ति: भगीरथ और गंगावतरण — सगर, कपिल, भगीरथ और शिव | reports/2026-10-16-bhagiratha-ganga-avatarana-bala-kanda-bhakti.json | 1856
+- 2026-10-19 | APAAR आईडी और डिजिटल शैक्षणिक रिकॉर्ड (भारत + मध्य प्रदेश) | reports/2026-10-19-india-apaar-student-id-education-records.json | लगभग 1,300
+- 2026-10-19 | लाड़ली बहना योजना: पात्रता, ₹1,500 DBT और महिला स्वावलंबन (मध्य प्रदेश) | reports/2026-10-19-mp-ladli-behna-payment-eligibility-2026.json | लगभग 1,300
+- 2026-10-19 | मातृ स्वास्थ्य और SUMAN: MMR 142, ICCC तथा जिला हेल्प डेस्क (मध्य प्रदेश) | reports/2026-10-19-mp-maternal-health-suman-mmr-2026.json | लगभग 1,250
+- 2026-10-19 | भ्रष्टाचार शिकायतें और CVC 2025: CVC/CVO आंकड़ों का विश्लेषण (भारत) | reports/2026-10-19-india-cvc-corruption-complaints-2025.json | लगभग 1,200
+- 2026-10-19 | सितंबर 2026 CPI महंगाई: 5.54% और घरेलू बजट पर असर (भारत + मध्य प्रदेश) | reports/2026-10-19-india-cpi-inflation-september-2026.json | लगभग 1,250
