@@ -23,12 +23,12 @@
 - 2026-10-13 | भक्ति: गजेन्द्र मोक्ष | reports/2026-10-13-gajendra-moksha-bhagavata-bhakti.json | 1574
 - 2026-10-13 | अवैध लोन ऐप, डिजिटल कर्ज़ और ब्लैकमेल | reports/2026-10-13-illegal-loan-apps-digital-lending-harassment-mp.json | 1780
 - 2026-10-13 | भक्ति: सती और दक्ष यज्ञ, शक्तिपीठ परंपरा व हरसिद्धि उज्जैन | reports/2026-10-13-sati-daksha-yajna-shaktipeeth-harsiddhi-bhakti.json | 1630
-- 2026-10-13 | भक्ति: भरत मिलाप — चित्रकूट में राम-भरत मिलन और पादुका | reports/2026-10-13-bharat-milap-chitrakoot-ramayana-bhakti.json | 1665
+- 2026-10-13 | भक्ति: भरत मिलाप — चित्रकूट में राम-भरत मिलन और पादुका | reports/2026-10-13-bharat-milap-chitrakoot-ram-bhakti.json | 1665
 - 2026-10-14 | भक्ति: भक्त ध्रुव और ध्रुव पद | reports/2026-10-14-dhruva-pole-star-vishnu-purana-bhakti.json | 1575
 - 2026-10-14 | भक्ति: ओंकारेश्वर ज्योतिर्लिंग — विन्ध्य पर्वत का अभिमान और तप | reports/2026-10-14-omkareshwar-vindhya-shiva-purana-bhakti.json | 1624
 - 2026-10-14 | लापता बच्चे और बाल तस्करी: NCRB 2024 | reports/2026-10-14-missing-children-ncrb-2024-mp.json | 1756
 - 2026-10-14 | भक्ति: श्रीकृष्ण-सुदामा मित्रता और सांदीपनि आश्रम उज्जैन | reports/2026-10-14-krishna-sudama-sandipani-ujjain-bhagavata-bhakti.json | 1657
-- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम और नवधा भक्ति | reports/2026-10-14-shabari-rama-matanga-ashram-ramayana-bhakti.json | 1744
+- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम और नवधा भक्ति | reports/2026-10-14-shabari-rama-matanga-ashram-chitrakoot-bhakti.json | 1744
 - 2026-10-14 | मानव-वन्यजीव संघर्ष: मौतें, मुआवज़ा, बाघ व हाथी | reports/2026-10-14-mp-human-wildlife-conflict-deaths-compensation.json | 1792
 - 2026-10-14 | भक्ति: अर्जुन की दुर्गा स्तुति | reports/2026-10-14-arjuna-durga-stuti-bhishma-parva-bhakti.json | 1604
 - 2026-10-14 | भक्ति: नर्मदा की उत्पत्ति, वरदान और नामकरण | reports/2026-10-14-narmada-origin-reva-khanda-amarkantak-bhakti.json | 1632
@@ -80,3 +80,10 @@
 - 2026-10-19 | भ्रष्टाचार शिकायतें और CVC 2025: CVC/CVO आंकड़ों का विश्लेषण (भारत) | reports/2026-10-19-india-cvc-corruption-complaints-2025.json | लगभग 1,200
 - 2026-10-19 | सितंबर 2026 CPI महंगाई: 5.54% और घरेलू बजट पर असर (भारत + मध्य प्रदेश) | reports/2026-10-19-india-cpi-inflation-september-2026.json | लगभग 1,250
 - 2026-10-19 | AI और स्वचालन का नौकरियों पर असर: नीति आयोग रोडमैप, ILO, ICRIER और मप्र की 30 डेटा व AI लैब | reports/2026-10-19-ai-automation-jobs-impact-india-mp.json | 1788
+- 2026-10-20 | सितंबर 2026 में महिला श्रम भागीदारी कितनी बदली, ग्रामीण-शहरी अंतर क्या कहता है? | reports/2026-10-20-india-women-labour-force-participation-september-2026.json | 1180
+- 2026-10-20 | मध्य प्रदेश के 7,217 स्कूलों में एक-एक शिक्षक, UDISE+ आंकड़े क्या बताते हैं? | reports/2026-10-20-udise-2024-25-madhya-pradesh-school-teacher-gap.json | 1290
+- 2026-10-20 | मध्य प्रदेश भर्ती अपडेट: अक्टूबर 2026 में ESB की नई परीक्षाएं, आवेदन और तारीखों पर नजर | reports/2026-10-20-mp-esb-october-recruitment-applications-2026.json | 1260
+- 2026-10-20 | देश में 1.87 लाख आयुष्मान आरोग्य मंदिर, मध्य प्रदेश की प्राथमिक स्वास्थ्य व्यवस्था में इनकी भूमिका | reports/2026-10-20-ayushman-arogya-mandir-primary-health-mp.json | 1250
+- 2026-10-20 | भारत में 8.67 करोड़ असंगठित प्रतिष्ठान, छोटे कारोबार में रोजगार की नई तस्वीर | reports/2026-10-20-asuse-unincorporated-enterprises-employment-india-2026.json | 1280
+- 2026-10-20 | सितंबर 2026 में थोक महंगाई 11.39%, खुदरा CPI से इतना बड़ा अंतर क्यों? | reports/2026-10-20-wholesale-inflation-wpi-september-2026.json | 1300
+- 2026-10-20 | PM-KISAN 2026-31: 3.15 लाख करोड़ के प्रावधान से किसान DBT व्यवस्था में क्या बदलेगा? | reports/2026-10-20-pm-kisan-continuation-2026-31-farmer-dbt.json | 1310
