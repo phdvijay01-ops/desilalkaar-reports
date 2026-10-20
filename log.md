@@ -91,3 +91,8 @@
 - 2026-10-20 | जल जीवन मिशन में मध्य प्रदेश के 27.39 लाख नल कनेक्शन बाकी, असली चुनौती अब गुणवत्ता | reports/2026-10-20-jal-jeevan-mission-mp-tap-water-2026.json | लगभग 1,250
 - 2026-10-20 | मध्य प्रदेश की 100% ई-सेवा संतृप्ति, डिजिटल प्रशासन की असली परीक्षा अब क्या? | reports/2026-10-20-mp-e-service-governance-neSDA-2026.json | लगभग 1,200
 - 2026-10-20 | पीएम स्वनिधि में 75.5 लाख रेहड़ी-पटरी वालों तक कर्ज, मध्य प्रदेश की अगली चुनौती क्या? | reports/2026-10-20-pm-svanidhi-street-vendors-india-mp.json | लगभग 1,200
+- 2026-10-20 | उज्ज्वला योजना: स्वच्छ रसोई तक पहुंच के बाद नियमित रिफिल की अगली परीक्षा | reports/2026-10-20-ujjwala-clean-cooking-women-refill-access-india-mp-gpt.json | 1228
+- 2026-10-20 | मुद्रा योजना: छोटे कारोबार को औपचारिक ऋण और टिकाऊ रोजगार की कसौटी | reports/2026-10-20-mudra-loans-micro-business-women-entrepreneurship-india-gpt.json | 1228
+- 2026-10-20 | औषधि पीएलआई: निवेश और उत्पादन के बाद आयात निर्भरता घटाने की चुनौती | reports/2026-10-20-pharma-pli-investment-exports-api-self-reliance-india-gpt.json | 1223
+- 2026-10-20 | आकांक्षी जिला मॉडल: रैंकिंग से परिणाम और नागरिक जवाबदेही तक | reports/2026-10-20-aspirational-districts-results-based-governance-madhya-pradesh-gpt.json | 1203
+- 2026-10-20 | स्टार्टअप इंडिया: मान्यता, रोजगार और नवाचार के बाद टिकाऊ कारोबार की कसौटी | reports/2026-10-20-startup-india-innovation-jobs-funding-madhya-pradesh-gpt.json | 1301
