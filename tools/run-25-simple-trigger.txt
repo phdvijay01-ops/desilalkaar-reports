@@ -1,1 +1,2 @@
-run simple 25 reports
+2026-10-21T21:00:00+05:30
+Generate the 25 current research-based Hindi reports from tools/generate_25_reports.py, validate them, update log.md, and commit them under reports/.
