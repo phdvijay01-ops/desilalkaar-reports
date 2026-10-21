@@ -96,3 +96,4 @@
 - 2026-10-20 | औषधि पीएलआई: निवेश और उत्पादन के बाद आयात निर्भरता घटाने की चुनौती | reports/2026-10-20-pharma-pli-investment-exports-api-self-reliance-india-gpt.json | 1223
 - 2026-10-20 | आकांक्षी जिला मॉडल: रैंकिंग से परिणाम और नागरिक जवाबदेही तक | reports/2026-10-20-aspirational-districts-results-based-governance-madhya-pradesh-gpt.json | 1203
 - 2026-10-20 | स्टार्टअप इंडिया: मान्यता, रोजगार और नवाचार के बाद टिकाऊ कारोबार की कसौटी | reports/2026-10-20-startup-india-innovation-jobs-funding-madhya-pradesh-gpt.json | 1301
+- 2026-10-21 | भक्ति: शरद पूर्णिमा और रास-लीला — रासपंचाध्यायी, गोपी-गीत और महारास | reports/2026-10-21-sharad-purnima-raas-panchadhyayi-bhagavata-bhakti.json | 1693
