@@ -11,8 +11,9 @@ permissions:
 
 jobs:
   generate:
-    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -20,24 +21,66 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Generate reports
-        run: python3 tools/generate_25_reports.py
+        run: |
+          set -e
+          python3 tools/generate_25_reports.py
+
+      - name: Check report count
+        shell: bash
+        run: |
+          set -e
+
+          count=$(find reports -maxdepth 1 -type f -name '2026-10-21-*.json' | wc -l)
+
+          echo "Generated reports: $count"
+
+          if [ "$count" -ne 25 ]; then
+            echo "ERROR: Expected exactly 25 reports, but found $count"
+            exit 1
+          fi
 
       - name: Validate JSON and source URL format
         shell: bash
         run: |
           set -e
+
           for f in reports/2026-10-21-*.json; do
+            echo "Validating: $f"
+
             python3 tools/validate.py "$f"
+
             python3 - "$f" <<'PY'
-import json,sys,urllib.parse
-p=sys.argv[1]
-r=json.load(open(p,encoding='utf-8'))
-for s in r['sources']:
-    u=s['link']
-    q=urllib.parse.urlparse(u)
-    assert q.scheme=='https' and q.netloc, f'Invalid URL: {u}'
-print('URL format OK:',p)
+import json
+import sys
+import urllib.parse
+
+p = sys.argv[1]
+
+with open(p, encoding="utf-8") as fh:
+    r = json.load(fh)
+
+assert isinstance(r.get("sources"), list), f"Missing sources: {p}"
+
+assert r.get("title"), f"Missing title: {p}"
+assert r.get("content_html"), f"Missing content_html: {p}"
+
+for s in r["sources"]:
+    assert isinstance(s, dict), f"Invalid source object: {p}"
+    assert s.get("link"), f"Missing source link: {p}"
+
+    u = s["link"]
+    q = urllib.parse.urlparse(u)
+
+    assert q.scheme == "https" and q.netloc, \
+        f"Invalid URL: {u}"
+
+print("URL format OK:", p)
 PY
           done
 
@@ -45,22 +88,57 @@ PY
         run: |
           python3 - <<'PY'
 from pathlib import Path
-import json,re
-log=Path('log.md')
-text=log.read_text(encoding='utf-8') if log.exists() else '# लिखी गई रिपोर्ट\n'
-for p in sorted(Path('reports').glob('2026-10-21-*.json')):
-    r=json.loads(p.read_text(encoding='utf-8'))
-    line=f"- 2026-10-21 | {r['title'].replace('विश्लेषण: ','',1)} | {p.as_posix()} | {len(re.sub(r'<[^>]+>',' ',r['content_html']).split())}"
+import json
+import re
+
+log = Path("log.md")
+
+text = (
+    log.read_text(encoding="utf-8")
+    if log.exists()
+    else "# लिखी गई रिपोर्ट\n"
+)
+
+for p in sorted(Path("reports").glob("2026-10-21-*.json")):
+    r = json.loads(p.read_text(encoding="utf-8"))
+
+    title = r["title"].replace("विश्लेषण: ", "", 1)
+
+    word_count = len(
+        re.sub(
+            r"<[^>]+>",
+            " ",
+            r["content_html"]
+        ).split()
+    )
+
+    line = (
+        f"- 2026-10-21 | {title} | "
+        f"{p.as_posix()} | {word_count}"
+    )
+
     if p.as_posix() not in text:
-        text += '\n' + line
-log.write_text(text.rstrip()+'\n',encoding='utf-8')
+        text += "\n" + line
+
+log.write_text(
+    text.rstrip() + "\n",
+    encoding="utf-8"
+)
 PY
 
       - name: Commit generated reports and log
         run: |
-          git config user.name 'DesiLalkaar Reports Bot'
-          git config user.email 'actions@github.com'
+          set -e
+
+          git config user.name "DesiLalkaar Reports Bot"
+          git config user.email "actions@github.com"
+
           git add reports/2026-10-21-*.json log.md
-          git diff --cached --quiet && exit 0
-          git commit -m 'Add 25 research-based Hindi reports [skip ci]'
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Add 25 research-based Hindi reports [skip ci]"
           git push origin main
