@@ -1,0 +1,30 @@
+name: Build 25 DesiLalkaar Reports
+on:
+  push:
+    paths:
+      - 'tools/run-25-simple-trigger.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - run: python3 tools/generate_25_reports.py
+      - name: Validate reports
+        run: |
+          set -e
+          for f in reports/2026-10-21-*.json; do python3 tools/validate.py "$f"; done
+      - name: Update log
+        run: python3 -c "from pathlib import Path; import json,re; p=Path('log.md'); t=p.read_text(encoding='utf-8') if p.exists() else '# लिखी गई रिपोर्ट\n'; fs=sorted(Path('reports').glob('2026-10-21-*.json')); [None for f in fs if f.as_posix() in t or not t.__class__]; t=t+'\n'.join('' if f.as_posix() in t else f\"- 2026-10-21 | {json.loads(f.read_text(encoding='utf-8'))['title'].replace('विश्लेषण: ','',1)} | {f.as_posix()} | {len(re.sub(r'<[^>]+>',' ',json.loads(f.read_text(encoding='utf-8'))['content_html']).split())}\" for f in fs)+'\n'; p.write_text(t,encoding='utf-8')"
+      - name: Commit reports
+        run: |
+          git config user.name 'DesiLalkaar Reports Bot'
+          git config user.email 'actions@github.com'
+          git add reports/2026-10-21-*.json log.md
+          git diff --cached --quiet || git commit -m 'Add 25 research-based Hindi reports [skip ci]'
+          git push origin main
