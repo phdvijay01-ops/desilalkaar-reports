@@ -1,0 +1,54 @@
+name: Run 25 DesiLalkaar Reports
+on:
+  push:
+    paths:
+      - 'tools/run-25-trigger.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Generate reports
+        run: python3 tools/generate_25_reports.py
+      - name: Validate generated JSON
+        run: |
+          set -e
+          for f in reports/2026-10-21-*.json; do
+            python3 tools/validate.py "$f"
+            python3 - "$f" <<'PY'
+import json,sys,urllib.parse
+r=json.load(open(sys.argv[1],encoding='utf-8'))
+assert 1500 <= len(''.join(__import__('re').sub(r'<[^>]+>',' ',r['content_html'])).split()) <= 2000
+for s in r['sources']:
+    q=urllib.parse.urlparse(s['link'])
+    assert q.scheme=='https' and q.netloc
+print('validated',sys.argv[1])
+PY
+          done
+      - name: Update log
+        run: |
+          python3 - <<'PY'
+from pathlib import Path
+import json,re
+p=Path('log.md')
+t=p.read_text(encoding='utf-8') if p.exists() else '# लिखी गई रिपोर्ट\n'
+for f in sorted(Path('reports').glob('2026-10-21-*.json')):
+ r=json.loads(f.read_text(encoding='utf-8'))
+ line=f"- 2026-10-21 | {r['title'].replace('विश्लेषण: ','',1)} | {f.as_posix()} | {len(re.sub(r'<[^>]+>',' ',r['content_html']).split())}"
+ if f.as_posix() not in t: t += '\n'+line
+p.write_text(t.rstrip()+'\n',encoding='utf-8')
+PY
+      - name: Commit
+        run: |
+          git config user.name 'DesiLalkaar Reports Bot'
+          git config user.email 'actions@github.com'
+          git add reports/2026-10-21-*.json log.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add 25 research-based Hindi reports [skip ci]'
+          git push origin main
