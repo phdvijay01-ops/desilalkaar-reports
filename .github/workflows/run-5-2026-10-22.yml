@@ -1,0 +1,68 @@
+name: Build 5 DesiLalkaar Reports 2026-10-22
+on:
+  push:
+    paths:
+      - 'tools/run-5-2026-10-22-trigger.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Generate five reports
+        run: python3 tools/generate_5_reports_2026_10_22.py
+      - name: Validate JSON and URLs
+        run: |
+          set -e
+          for f in reports/2026-10-22-*.json; do
+            python3 -m json.tool "$f" >/dev/null
+            python3 tools/validate.py "$f"
+            python3 - <<'PY' "$f"
+          import json,sys,urllib.request
+          p=sys.argv[1]; d=json.load(open(p,encoding='utf-8'))
+          assert d.get('slug') and d['slug'].isascii()
+          assert len(d.get('sources',[])) >= 2
+          for u in d['sources']:
+              assert u.startswith('https://')
+              r=urllib.request.urlopen(u,timeout=20)
+              assert r.status < 400
+          print(p, 'validated')
+          PY
+          done
+      - name: Duplicate-topic check
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          existing=' '.join(p.read_text(encoding='utf-8') for p in Path('log.md').glob('*')) if Path('log.md').exists() else ''
+          new=list(Path('reports').glob('2026-10-22-*.json'))
+          assert len(new)==5
+          for p in new:
+              t=json.loads(p.read_text(encoding='utf-8'))['title']
+              if t in existing: raise SystemExit('Duplicate title: '+t)
+          print('5 new titles pass exact-title duplicate check')
+          PY
+      - name: Update log
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,re
+          p=Path('log.md'); t=p.read_text(encoding='utf-8') if p.exists() else '# लिखी गई रिपोर्ट\n'
+          for f in sorted(Path('reports').glob('2026-10-22-*.json')):
+              d=json.loads(f.read_text(encoding='utf-8'))
+              line=f"- 2026-10-22 | {d['title']} | {f.as_posix()} | {d['word_count']}"
+              if line not in t: t += ('\n' if not t.endswith('\n') else '') + line + '\n'
+          p.write_text(t,encoding='utf-8')
+          PY
+      - name: Commit reports and log
+        run: |
+          git config user.name 'DesiLalkaar Reports Bot'
+          git config user.email 'actions@github.com'
+          git add reports/2026-10-22-*.json log.md
+          git diff --cached --quiet || git commit -m 'Add five verified Hindi reports 2026-10-22 [skip ci]'
+          git push origin main
