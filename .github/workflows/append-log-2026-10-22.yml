@@ -1,0 +1,48 @@
+name: Append 2026-10-22 reports to log
+on:
+  push:
+    paths:
+      - 'tools/append-log-2026-10-22.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Validate five reports and append log
+        run: |
+          set -e
+          files=(reports/2026-10-22-nmmss-bhopal-scholarship-verification-mp.json reports/2026-10-22-ddu-gky-2-0-madhya-pradesh-rural-youth-jobs.json reports/2026-10-22-mission-yuva-raksha-mp-drug-awareness-youth.json reports/2026-10-22-pmddky-umaria-madhya-pradesh-agriculture.json reports/2026-10-22-yuva-sangam-phase-vii-mp-karnataka-youth-education.json)
+          test "${#files[@]}" -eq 5
+          for f in "${files[@]}"; do
+            python3 -m json.tool "$f" >/dev/null
+            python3 tools/validate.py "$f"
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re
+          files=[Path('reports/2026-10-22-nmmss-bhopal-scholarship-verification-mp.json'),Path('reports/2026-10-22-ddu-gky-2-0-madhya-pradesh-rural-youth-jobs.json'),Path('reports/2026-10-22-mission-yuva-raksha-mp-drug-awareness-youth.json'),Path('reports/2026-10-22-pmddky-umaria-madhya-pradesh-agriculture.json'),Path('reports/2026-10-22-yuva-sangam-phase-vii-mp-karnataka-youth-education.json')]
+          p=Path('log.md'); t=p.read_text(encoding='utf-8')
+          for f in files:
+              d=json.loads(f.read_text(encoding='utf-8'))
+              text=re.sub(r'<[^>]+>',' ',d['content_html'])
+              wc=len(text.split())
+              d['word_count']=wc
+              f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              line=f"- 2026-10-22 | {d['title']} | {f.as_posix()} | {wc}"
+              if line not in t:
+                  t += ('\n' if not t.endswith('\n') else '')+line+'\n'
+          p.write_text(t,encoding='utf-8')
+          PY
+      - name: Commit log and word counts
+        run: |
+          git config user.name 'DesiLalkaar Reports Bot'
+          git config user.email 'actions@github.com'
+          git add reports/2026-10-22-*.json log.md
+          git diff --cached --quiet || git commit -m 'Update log for five verified reports 2026-10-22 [skip ci]'
+          git push origin main
