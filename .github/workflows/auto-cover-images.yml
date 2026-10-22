@@ -1,0 +1,80 @@
+name: Auto Cover Images
+
+# reports/ में कोई नई या बदली JSON push होते ही उसकी cover image अपने आप बनती है,
+# ताकि वेबसाइट का hourly cron खबर को तस्वीर के साथ उठाए।
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'reports/*.json'
+  schedule:
+    - cron: '*/10 * * * *'   # bot वाले push (जो Action नहीं चलाते) के लिए बैकअप
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'किन JSON के लिए (खाली = आखिरी commit की)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-cover
+  cancel-in-progress: false
+
+jobs:
+  cover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: बदली हुई रिपोर्टें ढूँढें
+        id: files
+        shell: bash
+        run: |
+          set -euo pipefail
+          before="${{ github.event.before }}"
+          if [ -n "${{ github.event.inputs.files }}" ]; then
+            files="${{ github.event.inputs.files }}"
+          elif [ "${{ github.event_name }}" = "schedule" ]; then
+            files=$(git log --since="90 minutes ago" --name-only --diff-filter=AM --pretty=format: -- 'reports/*.json' | sort -u | tr '\n' ' ')
+          elif [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$before" 2>/dev/null; then
+            files=$(git diff --name-only --diff-filter=AM "$before" "${{ github.sha }}" -- 'reports/*.json' | tr '\n' ' ')
+          else
+            files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'reports/*.json' | tr '\n' ' ')
+          fi
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+          echo "रिपोर्टें: $files"
+
+      - uses: actions/setup-python@v5
+        if: steps.files.outputs.files != ''
+        with:
+          python-version: '3.12'
+
+      - name: Chromium तैयार करें
+        if: steps.files.outputs.files != ''
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Cover बनाएँ
+        if: steps.files.outputs.files != ''
+        run: python3 tools/auto_cover.py ${{ steps.files.outputs.files }}
+
+      - name: Commit और push
+        if: steps.files.outputs.files != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "desilalkaar-image-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/images/*.png reports/*.json
+          if git diff --cached --quiet; then echo "कोई नई image नहीं"; exit 0; fi
+          git commit -m "Auto cover images [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            sleep 5
+          done
+          exit 1

@@ -37,6 +37,8 @@
 
 Website cron `tools/github_reports.php` में cover = featured image और graph = `after_h2` वाले हिस्से के पहले पैराग्राफ के बाद आता है। `after_h2` किसी वास्तविक `<h2>` के text से बिल्कुल मेल खाए। `content_html` में खुद image न डालें। Chart में केवल स्रोत-सत्यापित आँकड़े रखें।
 
+Auto cover: `reports/` में push हुई जिस JSON में `featured_image` (या `image_search`) नहीं है, उसकी cover GitHub Action `auto-cover-images.yml` (`tools/auto_cover.py`) अपने आप बनाकर JSON में भर देता है। इसलिए cover न बना पाएँ तो भी रिपोर्ट push करें; image के लिए base64 या बाहरी तस्वीर की ज़रूरत नहीं।
+
 ## देसी ललकार विवरण (लेख के साथ)
 
 - पाठक के लिए विवरण को **“देसी ललकार विवरण”** कहा जाए; “मेटा विवरण” शीर्षक न लिखें।

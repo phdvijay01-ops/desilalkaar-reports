@@ -103,6 +103,7 @@ def chart_html(c):
 
 
 def cover_html(r):
+    tag = "विश्लेषण" if r["title"].startswith("विश्लेषण") else (r.get("category") or "खबर")
     t = re.sub(r"^विश्लेषण:\s*", "", r["title"])
     cs = r.get("cover_stat") or {}
     stat = ""
@@ -115,7 +116,7 @@ body {{ background: linear-gradient(135deg, #7f0000 0%, {RED} 60%, #d84315 100%)
 .tag {{ position: absolute; top: 56px; left: 70px; background: #fff; color: {RED}; font-size: 30px; font-weight: 700; padding: 6px 22px; border-radius: 6px; }}
 h1 {{ position: absolute; top: 160px; left: 70px; right: 70px; font-size: {58 if len(t) < 70 else 50}px; line-height: 1.35; font-weight: 700; }}
 .foot {{ position: absolute; bottom: 50px; left: 70px; right: 70px; display: flex; justify-content: space-between; font-size: 28px; opacity: .92; }}
-</style></head><body><div class="tag">विश्लेषण</div><h1>{html.escape(t)}</h1>
+</style></head><body><div class="tag">{html.escape(tag)}</div><h1>{html.escape(t)}</h1>
 {stat}<div class="foot"><span>{html.escape(r.get('category', ''))}</span><b>देसी ललकार</b></div></body></html>"""
 
 
