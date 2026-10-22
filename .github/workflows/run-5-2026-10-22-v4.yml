@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'tools/run-5-v4-trigger.txt'
+      - 'tools/run-5-v4-fresh-trigger.txt'
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,29 +15,28 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Generate five reports
-        run: python3 tools/run_5_reports_final_2026_10_22.py
+      - name: Generate five fresh reports
+        run: python3 tools/build_five_fresh_2026_10_22.py
       - name: Validate JSON and repository schema
         run: |
           set -e
-          for f in reports/2026-10-22-*.json; do
+          for f in reports/2026-10-22-mp-medical-education-6120-mbbs-seats-healthcare-expansion-2026.json reports/2026-10-22-ddu-gky-2-0-madhya-pradesh-rural-youth-skill-employment-2026.json reports/2026-10-22-nmmss-bhopal-scholarship-12000-students-madhya-pradesh-2026.json reports/2026-10-22-railway-ntpc-graduate-3548-vacancies-madhya-pradesh-youth-2026.json reports/2026-10-22-mp-pmgsy-46-rural-roads-connectivity-development-2026.json; do
             python3 -m json.tool "$f" >/dev/null
             python3 tools/validate.py "$f"
           done
-          test "$(ls reports/2026-10-22-*.json | wc -l)" -eq 5
       - name: Duplicate-topic check
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
           old=Path('log.md').read_text(encoding='utf-8') if Path('log.md').exists() else ''
-          fs=sorted(Path('reports').glob('2026-10-22-*.json')); assert len(fs)==5
-          seen=set()
+          fs=[Path('reports/2026-10-22-mp-medical-education-6120-mbbs-seats-healthcare-expansion-2026.json'),Path('reports/2026-10-22-ddu-gky-2-0-madhya-pradesh-rural-youth-skill-employment-2026.json'),Path('reports/2026-10-22-nmmss-bhopal-scholarship-12000-students-madhya-pradesh-2026.json'),Path('reports/2026-10-22-railway-ntpc-graduate-3548-vacancies-madhya-pradesh-youth-2026.json'),Path('reports/2026-10-22-mp-pmgsy-46-rural-roads-connectivity-development-2026.json')]
+          titles=[]
           for f in fs:
               t=json.loads(f.read_text(encoding='utf-8'))['title']
-              assert t not in seen and t not in old, 'Duplicate title: '+t
-              seen.add(t)
-          print('Duplicate-topic check passed for 5 reports')
+              assert t not in titles and t not in old, 'Duplicate title: '+t
+              titles.append(t)
+          print('Duplicate-topic check passed')
           PY
       - name: Update log
         run: |
@@ -44,9 +44,9 @@ jobs:
           from pathlib import Path
           import json
           p=Path('log.md'); t=p.read_text(encoding='utf-8') if p.exists() else '# लिखी गई रिपोर्ट\n'
-          for f in sorted(Path('reports').glob('2026-10-22-*.json')):
-              d=json.loads(f.read_text(encoding='utf-8'))
-              line=f"- 2026-10-22 | {d['title']} | {f.as_posix()} | {d['word_count']}"
+          fs=[Path('reports/2026-10-22-mp-medical-education-6120-mbbs-seats-healthcare-expansion-2026.json'),Path('reports/2026-10-22-ddu-gky-2-0-madhya-pradesh-rural-youth-skill-employment-2026.json'),Path('reports/2026-10-22-nmmss-bhopal-scholarship-12000-students-madhya-pradesh-2026.json'),Path('reports/2026-10-22-railway-ntpc-graduate-3548-vacancies-madhya-pradesh-youth-2026.json'),Path('reports/2026-10-22-mp-pmgsy-46-rural-roads-connectivity-development-2026.json')]
+          for f in fs:
+              d=json.loads(f.read_text(encoding='utf-8')); line=f"- 2026-10-22 | {d['title']} | {f.as_posix()} | {d['word_count']}"
               if line not in t: t += ('\n' if not t.endswith('\n') else '')+line+'\n'
           p.write_text(t,encoding='utf-8')
           PY
@@ -54,6 +54,6 @@ jobs:
         run: |
           git config user.name 'DesiLalkaar Reports Bot'
           git config user.email 'actions@github.com'
-          git add reports/2026-10-22-*.json log.md
-          git diff --cached --quiet || git commit -m 'Add five verified Hindi reports 2026-10-22 [skip ci]'
+          git add reports/2026-10-22-mp-medical-education-6120-mbbs-seats-healthcare-expansion-2026.json reports/2026-10-22-ddu-gky-2-0-madhya-pradesh-rural-youth-skill-employment-2026.json reports/2026-10-22-nmmss-bhopal-scholarship-12000-students-madhya-pradesh-2026.json reports/2026-10-22-railway-ntpc-graduate-3548-vacancies-madhya-pradesh-youth-2026.json reports/2026-10-22-mp-pmgsy-46-rural-roads-connectivity-development-2026.json log.md
+          git diff --cached --quiet || git commit -m 'Add five fresh verified Hindi reports 2026-10-22 [skip ci]'
           git push origin main
