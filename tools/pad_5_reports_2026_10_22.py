@@ -13,6 +13,8 @@ for p in Path('reports').glob('2026-10-22-*.json'):
     content=d['content_html']+'\n'+'\n'.join(add*2)
     words=len(re.sub(r'<[^>]+>',' ',content).split())
     d['content_html']=content; d['word_count']=words
+    d['sources']=[{'name':s['name'],'link':s['url']} for s in d['sources']]
+    d['meta_description']=(d['title']+' | '+d['summary'])[:160]
     if words < 1500: raise RuntimeError(f'{p}: only {words} words after padding')
     p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
     print(p,words)
