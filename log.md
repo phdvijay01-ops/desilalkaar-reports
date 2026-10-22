@@ -97,3 +97,8 @@
 - 2026-10-20 | आकांक्षी जिला मॉडल: रैंकिंग से परिणाम और नागरिक जवाबदेही तक | reports/2026-10-20-aspirational-districts-results-based-governance-madhya-pradesh-gpt.json | 1203
 - 2026-10-20 | स्टार्टअप इंडिया: मान्यता, रोजगार और नवाचार के बाद टिकाऊ कारोबार की कसौटी | reports/2026-10-20-startup-india-innovation-jobs-funding-madhya-pradesh-gpt.json | 1301
 - 2026-10-21 | भक्ति: शरद पूर्णिमा और रास-लीला — रासपंचाध्यायी, गोपी-गीत और महारास | reports/2026-10-21-sharad-purnima-raas-panchadhyayi-bhagavata-bhakti.json | 1693
+- 2026-10-22 | विश्लेषण: ई-संजीवनी की 50 करोड़ टेली-कंसल्टेशन उपलब्धि, मध्य प्रदेश के लिए डिजिटल स्वास्थ्य का बड़ा अवसर | reports/2026-10-22-esanjeevani-50-crore-teleconsultations-madhya-pradesh-2026.json | 1822
+- 2026-10-22 | विश्लेषण: मध्य प्रदेश के किसानों के लिए कृषि भंडारण का बढ़ता ढांचा, महिला भागीदारी से नई ग्रामीण अर्थव्यवस्था | reports/2026-10-22-mp-agricultural-storage-women-beneficiaries-ami-2026.json | 1650
+- 2026-10-22 | विश्लेषण: मध्य प्रदेश के 944 पीएम श्री स्कूल, आधुनिक शिक्षा, भाषा और कौशल का नया आधार | reports/2026-10-22-mp-pm-shri-944-schools-udise-2025-26-education-2026.json | 1741
+- 2026-10-22 | विश्लेषण: मध्य प्रदेश में रेलवे विकास को ₹15,188 करोड़ की रफ्तार, ₹1.18 लाख करोड़ की परियोजनाएं जारी | reports/2026-10-22-mp-railway-development-15188-crore-118379-crore-projects-2026.json | 1660
+- 2026-10-22 | विश्लेषण: मध्य प्रदेश में महिला कौशल प्रशिक्षण को रोजगार से जोड़ता समर्थ, 17,796 प्लेसमेंट का आधिकारिक आंकड़ा | reports/2026-10-22-mp-samarth-women-skilling-17796-placements-2026.json | 1728
