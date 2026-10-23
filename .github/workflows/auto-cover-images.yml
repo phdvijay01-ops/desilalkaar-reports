@@ -63,6 +63,39 @@ jobs:
         if: steps.files.outputs.files != ''
         run: python3 tools/auto_cover.py ${{ steps.files.outputs.files }}
 
+      - name: Reports validate करें
+        if: steps.files.outputs.files != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in ${{ steps.files.outputs.files }}; do
+            python3 tools/validate.py "$f"
+          done
+
+      - name: log.md अपडेट करें
+        if: steps.files.outputs.files != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, re
+          from pathlib import Path
+          log = Path('log.md')
+          lines = log.read_text(encoding='utf-8').splitlines()
+          existing = '\n'.join(lines)
+          for raw in '${{ steps.files.outputs.files }}'.split():
+              p = Path(raw)
+              if not p.exists() or p.suffix != '.json':
+                  continue
+              r = json.loads(p.read_text(encoding='utf-8'))
+              text = re.sub(r'<[^>]+>', ' ', r.get('content_html',''))
+              words = len(text.split())
+              entry = f"- 2026-10-23 | {r.get('title','')} | {raw} | {words}"
+              if entry not in existing:
+                  lines.append(entry)
+          log.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+
       - name: Commit और push
         if: steps.files.outputs.files != ''
         shell: bash
@@ -70,9 +103,9 @@ jobs:
           set -euo pipefail
           git config user.name "desilalkaar-image-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add reports/images/*.png reports/*.json
-          if git diff --cached --quiet; then echo "कोई नई image नहीं"; exit 0; fi
-          git commit -m "Auto cover images [skip ci]"
+          git add reports/images/*.png reports/*.json log.md
+          if git diff --cached --quiet; then echo "कोई नई image/report/log बदलाव नहीं"; exit 0; fi
+          git commit -m "Auto cover images and report log [skip ci]"
           for i in 1 2 3; do
             git pull --rebase origin main && git push origin main && exit 0
             sleep 5
