@@ -122,3 +122,4 @@
 - 2026-10-23 | विश्लेषण: 2026 में RSS से जुड़ने की ऑनलाइन रुचि और युवा स्वयंसेवा का विस्तार | reports/2026-10-23-rss-online-registration-youth-volunteering-service-2026.json | 1125
 - 2026-10-23 | विश्लेषण: पंच परिवर्तन के जरिए नागरिक जीवन में छोटे बदलावों पर RSS का जोर | reports/2026-10-23-rss-panch-parivartan-civic-life-2026.json | 1656
 - 2026-10-23 | विश्लेषण: डिजिटल दौर में विवेकपूर्ण सूचना की जरूरत, RSS ने युवाओं के लिए उठाया नया सवाल | reports/2026-10-23-rss-digital-vivek-youth-new-media-2026.json | 1528
+- 2026-10-23 | विश्लेषण: संत रविदास की 650वीं जयंती और सामाजिक समरसता पर RSS का अभियान | reports/2026-10-23-rss-sant-ravidas-650-social-harmony-2026.json | 1320
