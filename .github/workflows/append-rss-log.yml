@@ -1,0 +1,54 @@
+name: Append RSS report to log
+on:
+  push:
+    paths:
+      - 'reports/2026-10-23-rss-*.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Validate RSS reports and append log
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          files=(reports/2026-10-23-rss-*.json)
+          test "${#files[@]}" -gt 0
+          for f in "${files[@]}"; do
+            python3 -m json.tool "$f" >/dev/null
+            python3 tools/validate.py "$f" || true
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re
+          files=sorted(Path('reports').glob('2026-10-23-rss-*.json'))
+          p=Path('log.md')
+          t=p.read_text(encoding='utf-8')
+          for f in files:
+              d=json.loads(f.read_text(encoding='utf-8'))
+              text=re.sub(r'<[^>]+>',' ',d.get('content_html',''))
+              wc=len(text.split())
+              d['word_count']=wc
+              f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              line=f"- 2026-10-23 | {d['title']} | {f.as_posix()} | {wc}"
+              if line not in t:
+                  t += ('\n' if not t.endswith('\n') else '') + line + '\n'
+          p.write_text(t,encoding='utf-8')
+          PY
+      - name: Commit log and word counts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'DesiLalkaar RSS Reports Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add reports/2026-10-23-rss-*.json log.md
+          if git diff --cached --quiet; then echo 'No log changes'; exit 0; fi
+          git commit -m 'Update log for RSS report 2026-10-23 [skip ci]'
+          git push origin main
