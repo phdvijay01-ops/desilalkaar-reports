@@ -7,7 +7,7 @@
 - 2026-10-12 | मध्य प्रदेश भर्ती कैलेंडर और परीक्षा पारदर्शिता | reports/2026-10-12-madhya-pradesh-esb-recruitment-calendar-transparency-2026.json | 1539
 - 2026-10-12 | सूचना का अधिकार और प्रशासनिक जवाबदेही | reports/2026-10-12-india-rti-public-information-accountability-2026.json | 1692
 - 2026-10-12 | राष्ट्रीय खाद्य सुरक्षा और राशन पोर्टेबिलिटी | reports/2026-10-12-india-nfsa-ration-portability-entitlement-2026.json | 1652
-- 2026-10-12 | मध्य प्रदेश में मनरेगा भुगतान और सामाजिक अंकेक्षण | reports/2026-10-12-madhya-pradesh-mgnrega-wage-payment-social-audit-2026.json | 1634
+- 2026-10-12 | मध्य प्रदेश में मनरेगा भुगतान और सामाजिक अंकेक्षण | reports/2026-10-12-madhya-pradesh-mgnrega-wage-payment-social-audit.json | 1634
 - 2026-10-12 | सरकारी अस्पतालों में डॉक्टरों/विशेषज्ञों की कमी (मध्य प्रदेश) | reports/2026-10-12-mp-doctor-specialist-shortage-chc.json | 1630
 - 2026-10-13 | सूचना आयोगों में लंबित RTI अपीलें (भारत + मध्य प्रदेश) | reports/2026-10-13-rti-information-commissions-pending-appeals-mp.json | 1759
 - 2026-10-13 | सड़क हादसे और मौतें (भारत + मध्य प्रदेश) | reports/2026-10-13-india-road-accidents-deaths-mp.json | 1732
@@ -108,3 +108,4 @@
 - 2026-10-22 | विश्लेषण: उमरिया को PM धन-धान्य कृषि योजना में उत्कृष्ट जिला मान्यता, किसानों के लिए नई संभावनाएं | reports/2026-10-22-pmddky-umaria-madhya-pradesh-agriculture.json | 1412
 - 2026-10-22 | विश्लेषण: मध्य प्रदेश–कर्नाटक युवा संगम से युवाओं को शिक्षा, संस्कृति और विकास का नया अनुभव | reports/2026-10-22-yuva-sangam-phase-vii-mp-karnataka-youth-education.json | 1519
 - 2026-10-22 | मध्य प्रदेश में बेरोजगारी से रोजगार तक: मोहन सरकार का कौशल, प्रशिक्षण और स्वरोजगार मॉडल युवाओं के लिए कितना उपयोगी | reports/2026-10-22-mp-youth-employment-skill-to-job-model.json | लगभग 1,800
+- 2026-10-23 | RSS की शाखाओं में संत रविदास के जीवन और संदेश पर कार्यक्रम, सामाजिक समरसता पर जोर | reports/2026-10-23-rss-sant-ravidas-650-samrasta.json | लगभग 1,500
