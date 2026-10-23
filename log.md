@@ -28,7 +28,7 @@
 - 2026-10-14 | भक्ति: ओंकारेश्वर ज्योतिर्लिंग — विन्ध्य पर्वत का अभिमान और तप | reports/2026-10-14-omkareshwar-vindhya-shiva-purana-bhakti.json | 1624
 - 2026-10-14 | लापता बच्चे और बाल तस्करी: NCRB 2024 | reports/2026-10-14-missing-children-ncrb-2024-mp.json | 1756
 - 2026-10-14 | भक्ति: श्रीकृष्ण-सुदामा मित्रता और सांदीपनि आश्रम उज्जैन | reports/2026-10-14-krishna-sudama-sandipani-ujjain-bhagavata-bhakti.json | 1657
-- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम और नवधा भक्ति | reports/2026-10-14-shabari-rama-matanga-ashram-ramayana-bhakti.json | 1744
+- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम और नवधा भक्ति | reports/2026-10-14-shabari-rama-matanga-ashram-chitrakoot-bhakti.json | 1744
 - 2026-10-14 | मानव-वन्यजीव संघर्ष: मौतें, मुआवज़ा, बाघ व हाथी | reports/2026-10-14-mp-human-wildlife-conflict-deaths-compensation.json | 1792
 - 2026-10-14 | भक्ति: अर्जुन की दुर्गा स्तुति | reports/2026-10-14-arjuna-durga-stuti-bhishma-parva-bhakti.json | 1604
 - 2026-10-14 | भक्ति: नर्मदा की उत्पत्ति, वरदान और नामकरण | reports/2026-10-14-narmada-origin-reva-khanda-amarkantak-bhakti.json | 1632
@@ -114,3 +114,4 @@
 - 2026-10-23 | RSS की शाखाओं में संत रविदास के जीवन और संदेश पर कार्यक्रम, सामाजिक समरसता पर जोर | reports/2026-10-23-rss-sant-ravidas-650-samrasta.json | 932
 - 2026-10-23 | शाखा से सेवा तक: राष्ट्रीय स्वयंसेवक संघ की सामाजिक गतिविधियों को कैसे समझें | reports/2026-10-23-rss-seva-branch-and-community-service.json | 674
 - 2026-10-23 | विश्लेषण: सेवा, सामाजिक संपर्क और युवा भागीदारी पर RSS की नई प्राथमिकताएँ | reports/2026-10-23-rss-seva-samajik-sampark-initiative.json | 1382
+- 2026-10-23 | विश्लेषण: राष्ट्र सेविका समिति के 90 वर्ष, महिला स्वयंसेवा और 1,332 सेवा कार्यों का विस्तार | reports/2026-10-23-rss-rashtra-sevika-samiti-women-service-2026.json | 1384
