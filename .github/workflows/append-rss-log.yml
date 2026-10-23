@@ -4,6 +4,10 @@ on:
     paths:
       - 'reports/2026-10-23-rss-*.json'
   workflow_dispatch:
+    inputs:
+      files:
+        description: 'किन JSON के लिए (खाली = आखिरी commit की)'
+        required: false
 permissions:
   contents: write
 jobs:
@@ -14,24 +18,35 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Validate RSS reports and append log
+      - name: Validate changed RSS reports and append log
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
-          files=(reports/2026-10-23-rss-*.json)
+          if [ -n "${{ github.event.inputs.files }}" ]; then
+            files=( ${{ github.event.inputs.files }} )
+          else
+            before="${{ github.event.before }}"
+            if [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$before" 2>/dev/null; then
+              mapfile -t files < <(git diff --name-only --diff-filter=AM "$before" "${{ github.sha }}" -- 'reports/2026-10-23-rss-*.json')
+            else
+              files=(reports/2026-10-23-rss-*.json)
+            fi
+          fi
           test "${#files[@]}" -gt 0
           for f in "${files[@]}"; do
+            test -f "$f"
             python3 -m json.tool "$f" >/dev/null
-            python3 tools/validate.py "$f" || true
+            python3 tools/validate.py "$f"
           done
-          python3 - <<'PY'
+          python3 - "${files[@]}" <<'PY'
           from pathlib import Path
-          import json, re
-          files=sorted(Path('reports').glob('2026-10-23-rss-*.json'))
+          import json, re, sys
+          files=sys.argv[1:]
           p=Path('log.md')
           t=p.read_text(encoding='utf-8')
-          for f in files:
+          for raw in files:
+              f=Path(raw)
               d=json.loads(f.read_text(encoding='utf-8'))
               text=re.sub(r'<[^>]+>',' ',d.get('content_html',''))
               wc=len(text.split())
