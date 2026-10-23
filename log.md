@@ -121,3 +121,4 @@
 - 2026-10-23 | विश्लेषण: भारतीय भाषाओं में विज्ञान की भाषा बनाने की पहल, RSS से जुड़े विज्ञान भारती का फोकस | reports/2026-10-23-rss-bharatiya-bhasha-vigyan-shabdavali.json | 1446
 - 2026-10-23 | विश्लेषण: 2026 में RSS से जुड़ने की ऑनलाइन रुचि और युवा स्वयंसेवा का विस्तार | reports/2026-10-23-rss-online-registration-youth-volunteering-service-2026.json | 1125
 - 2026-10-23 | विश्लेषण: पंच परिवर्तन के जरिए नागरिक जीवन में छोटे बदलावों पर RSS का जोर | reports/2026-10-23-rss-panch-parivartan-civic-life-2026.json | 1656
+- 2026-10-23 | विश्लेषण: डिजिटल दौर में विवेकपूर्ण सूचना की जरूरत, RSS ने युवाओं के लिए उठाया नया सवाल | reports/2026-10-23-rss-digital-vivek-youth-new-media-2026.json | 1528
