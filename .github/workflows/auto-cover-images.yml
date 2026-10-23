@@ -7,8 +7,9 @@ on:
     branches: [main]
     paths:
       - 'reports/*.json'
+      - 'tools/auto_cover.py'
   schedule:
-    - cron: '*/10 * * * *'   # bot वाले push (जो Action नहीं चलाते) के लिए बैकअप
+    - cron: '*/10 * * * *'
   workflow_dispatch:
     inputs:
       files:
