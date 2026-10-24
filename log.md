@@ -125,3 +125,8 @@
 - 2026-10-23 | विश्लेषण: संत रविदास की 650वीं जयंती और सामाजिक समरसता पर RSS का अभियान | reports/2026-10-23-rss-sant-ravidas-650-social-harmony-2026.json | 1320
 - 2026-10-23 | विश्लेषण: इंदौर बैठक में नए मीडिया, युवा नशामुक्ति और वैश्विक परिदृश्य पर चर्चा प्रस्तावित | reports/2026-10-23-rss-indore-new-media-youth-drug-deaddiction-agenda-2026.json | 1311
 - 2026-10-23 | विश्लेषण: इंदौर में RSS की अगली बैठक, नए मीडिया और युवा नशामुक्ति पर क्यों रहेगा फोकस | reports/2026-10-23-rss-indore-new-media-youth-drug-deaddiction-agenda-2026.json | 1311
+- 2026-10-24 | डिजिटल स्वास्थ्य: सितंबर 2026 तक 97.61 करोड़ ABHA आईडी और 119.95 करोड़ लिंक स्वास्थ्य रिकॉर्ड | reports/2026-10-24-india-abdm-abha-digital-health-september-2026.json | लगभग 1,500
+- 2026-10-24 | मध्य प्रदेश कॉलेज प्रवेश 2026-27: e-Pravesh नवीनीकरण और डिजिटल उच्च शिक्षा प्रशासन | reports/2026-10-24-madhya-pradesh-epravesh-higher-education-2026-27.json | लगभग 1,500
+- 2026-10-24 | PM SVANidhi: 76.95 लाख स्ट्रीट वेंडरों तक ऋण, मध्य प्रदेश के कटनी-पन्ना-खजुराहो का डिजिटल क्रेडिट संदर्भ | reports/2026-10-24-india-mp-pm-svanidhi-street-vendors-2026.json | लगभग 1,500
+- 2026-10-24 | PM Vishwakarma: 24.37 लाख कारीगरों की बेसिक ट्रेनिंग और 6.19 लाख से अधिक ऋण स्वीकृत | reports/2026-10-24-india-mp-pm-vishwakarma-artisans-2026.json | लगभग 1,500
+- 2026-10-24 | NAPS: 54.41 लाख से अधिक apprentices, रोजगार तैयारी और मध्य प्रदेश के लिए apprenticeship अवसर | reports/2026-10-24-india-mp-naps-apprenticeship-2026.json | लगभग 1,500
