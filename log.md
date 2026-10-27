@@ -28,7 +28,7 @@
 - 2026-10-14 | भक्ति: ओंकारेश्वर ज्योतिर्लिंग — विन्ध्य पर्वत का अभिमान और तप | reports/2026-10-14-omkareshwar-vindhya-shiva-purana-bhakti.json | 1624
 - 2026-10-14 | लापता बच्चे और बाल तस्करी: NCRB 2024 | reports/2026-10-14-missing-children-ncrb-2024-mp.json | 1756
 - 2026-10-14 | भक्ति: श्रीकृष्ण-सुदामा मित्रता और सांदीपनि आश्रम उज्जैन | reports/2026-10-14-krishna-sudama-sandipani-ujjain-bhagavata-bhakti.json | 1657
-- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम और नवधा भक्ति | reports/2026-10-14-shabari-rama-matanga-ashram-chitrakoot-bhakti.json | 1744
+- 2026-10-14 | भक्ति: शबरी और श्रीराम — मतंग आश्रम में उपदेश | reports/2026-10-14-shabari-rama-matanga-ashram-chitrakoot-bhakti.json | 1744
 - 2026-10-14 | मानव-वन्यजीव संघर्ष: मौतें, मुआवज़ा, बाघ व हाथी | reports/2026-10-14-mp-human-wildlife-conflict-deaths-compensation.json | 1792
 - 2026-10-14 | भक्ति: अर्जुन की दुर्गा स्तुति | reports/2026-10-14-arjuna-durga-stuti-bhishma-parva-bhakti.json | 1604
 - 2026-10-14 | भक्ति: नर्मदा की उत्पत्ति, वरदान और नामकरण | reports/2026-10-14-narmada-origin-reva-khanda-amarkantak-bhakti.json | 1632
@@ -130,3 +130,8 @@
 - 2026-10-24 | PM SVANidhi: 76.95 लाख स्ट्रीट वेंडरों तक ऋण, मध्य प्रदेश के कटनी-पन्ना-खजुराहो का डिजिटल क्रेडिट संदर्भ | reports/2026-10-24-india-mp-pm-svanidhi-street-vendors-2026.json | लगभग 1,500
 - 2026-10-24 | PM Vishwakarma: 24.37 लाख कारीगरों की बेसिक ट्रेनिंग और 6.19 लाख से अधिक ऋण स्वीकृत | reports/2026-10-24-india-mp-pm-vishwakarma-artisans-2026.json | लगभग 1,500
 - 2026-10-24 | NAPS: 54.41 लाख से अधिक apprentices, रोजगार तैयारी और मध्य प्रदेश के लिए apprenticeship अवसर | reports/2026-10-24-india-mp-naps-apprenticeship-2026.json | लगभग 1,500
+- 2026-10-27 | पीएमएफएमई: सूक्ष्म खाद्य प्रसंस्करण, उद्यमिता और रोजगार | reports/2026-10-27-india-mp-pmfme-micro-food-processing-employment-2026.json | लगभग 1,500
+- 2026-10-27 | एवीजीसी कंटेंट क्रिएटर लैब: स्कूल, कॉलेज और डिजिटल रोजगार | reports/2026-10-27-india-mp-avgc-content-creator-labs-education-jobs-2026.json | लगभग 1,500
+- 2026-10-27 | सॉयल हेल्थ कार्ड और संतुलित उर्वरक: कृषि लागत व मिट्टी स्वास्थ्य | reports/2026-10-27-india-mp-soil-health-cards-balanced-fertilizer-2026.json | लगभग 1,500
+- 2026-10-27 | महिला किसान: कृषि आजीविका, एफपीओ और ग्रामीण रोजगार | reports/2026-10-27-india-mp-women-farmers-livelihoods-fpo-2026.json | लगभग 1,500
+- 2026-10-27 | GOBARdhan: CBG, जैविक खाद और ग्रामीण सर्कुलर अर्थव्यवस्था | reports/2026-10-27-india-mp-gobardhan-cbg-circular-bioeconomy-2026.json | लगभग 1,500
