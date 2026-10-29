@@ -14,10 +14,17 @@ ROOT = mc.ROOT
 W, H = 1280, 720
 
 
+REPORTS = os.path.join(ROOT, "reports")
+
+
+def img_exists(rel):
+    # JSON में image path reports/ के सापेक्ष होता है (images/<file>.png)
+    return bool(rel) and os.path.isfile(os.path.join(REPORTS, rel))
+
+
 def charts_missing(r):
     for c in r.get("charts") or []:
-        f = c.get("file") or ""
-        if not f or not os.path.isfile(os.path.join(ROOT, f)):
+        if not img_exists(c.get("file") or ""):
             return True
     return False
 
@@ -85,9 +92,13 @@ def main(paths):
                 mc.main(path)
                 with open(path, encoding="utf-8") as f:
                     r = json.load(f)
+            # जिस रिपोर्ट में पहले से असली cover है (जैसे "बदलता भारत" की branded image), उसे न बदलें
+            if img_exists(r.get("featured_image") or "") or r.get("image_search"):
+                print("✔ cover पहले से है:", path)
+                continue
             make_lineart_cover(path, r)
             made += 1
-        except Exception as e:
+        except (Exception, SystemExit) as e:
             print(f"::error file={path}::cover/chart generation failed — {e}")
             bad += 1
     print(f"कुल: {made} line-art cover बने, {bad} असफल JSON")

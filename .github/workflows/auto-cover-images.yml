@@ -91,7 +91,10 @@ jobs:
               r = json.loads(p.read_text(encoding='utf-8'))
               text = re.sub(r'<[^>]+>', ' ', r.get('content_html',''))
               words = len(text.split())
-              entry = f"- 2026-10-23 | {r.get('title','')} | {raw} | {words}"
+              day = p.name[:10]
+              entry = f"- {day} | {r.get('title','')} | {raw} | {words}"
+              if raw in existing:
+                  continue
               if entry not in existing:
                   lines.append(entry)
           log.write_text('\n'.join(lines) + '\n', encoding='utf-8')
