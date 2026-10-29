@@ -137,3 +137,4 @@
 - 2026-10-27 | GOBARdhan: CBG, जैविक खाद और ग्रामीण सर्कुलर अर्थव्यवस्था | reports/2026-10-27-india-mp-gobardhan-cbg-circular-bioeconomy-2026.json | लगभग 1,500
 - 2026-10-29 | स्वच्छ भारत मिशन के 11 साल (बदलता भारत, भाग 1) | reports/2026-10-29-swachh-bharat-mission-11-years-impact-badalta-bharat.json | 2485
 - 2026-10-29 | उज्ज्वला योजना के 10 साल: 10.5 करोड़ गैस कनेक्शन, धुएं से राहत और महंगे रिफिल की नई परीक्षा (बदलता भारत, भाग 2) | reports/2026-10-29-ujjwala-yojana-10-years-lpg-impact-badalta-bharat.json | 3027
+- 2026-10-29 | सौभाग्य योजना के 9 साल: 2.86 करोड़ घरों तक बिजली, पर भरोसेमंद आपूर्ति और CAG के सवाल बाकी (बदलता भारत, भाग 3) | reports/2026-10-29-saubhagya-yojana-har-ghar-bijli-impact-badalta-bharat.json | 3383
