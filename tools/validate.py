@@ -42,7 +42,10 @@ def main(path):
         if not r.get(k):
             errs.append(f"'{k}' खाली/गायब")
     t = r.get("title", "")
-    if not t.startswith("विश्लेषण:"):
+    # "बदलता भारत" शृंखला: लंबे लेख (2000–4500 शब्द), शीर्षक योजना के नाम से शुरू (duplicate filter से बचने को)
+    series = "बदलता भारत" in (r.get("tags") or [])
+    lo, hi, tlo, thi = (2000, 4500, 2500, 3500) if series else (1100, 2100, 1200, 1800)
+    if not series and not t.startswith("विश्लेषण:"):
         errs.append("title 'विश्लेषण:' से शुरू होना चाहिए")
     if not (40 <= len(t) <= 110):
         warns.append(f"title लंबाई {len(t)} (55–90 ठीक)")
@@ -58,12 +61,12 @@ def main(path):
     if p.bad:
         errs.append("मना वाले HTML tags: " + ", ".join(sorted(p.bad)))
     words = len("".join(p.text).split())
-    if words < 1100:
-        errs.append(f"सिर्फ {words} शब्द (कम से कम 1100, लक्ष्य 1200–1800)")
-    elif words > 2100:
-        errs.append(f"{words} शब्द — बहुत लंबा (लक्ष्य 1200–1800)")
-    elif not (1200 <= words <= 1800):
-        warns.append(f"{words} शब्द (लक्ष्य 1200–1800)")
+    if words < lo:
+        errs.append(f"सिर्फ {words} शब्द (कम से कम {lo}, लक्ष्य {tlo}–{thi})")
+    elif words > hi:
+        errs.append(f"{words} शब्द — बहुत लंबा (लक्ष्य {tlo}–{thi})")
+    elif not (tlo <= words <= thi):
+        warns.append(f"{words} शब्द (लक्ष्य {tlo}–{thi})")
     if p.h2 < 6:
         warns.append(f"सिर्फ {p.h2} <h2> हिस्से")
     if p.tables < 1:

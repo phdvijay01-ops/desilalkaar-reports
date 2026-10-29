@@ -135,3 +135,4 @@
 - 2026-10-27 | सॉयल हेल्थ कार्ड और संतुलित उर्वरक: कृषि लागत व मिट्टी स्वास्थ्य | reports/2026-10-27-india-mp-soil-health-cards-balanced-fertilizer-2026.json | लगभग 1,500
 - 2026-10-27 | महिला किसान: कृषि आजीविका, एफपीओ और ग्रामीण रोजगार | reports/2026-10-27-india-mp-women-farmers-livelihoods-fpo-2026.json | लगभग 1,500
 - 2026-10-27 | GOBARdhan: CBG, जैविक खाद और ग्रामीण सर्कुलर अर्थव्यवस्था | reports/2026-10-27-india-mp-gobardhan-cbg-circular-bioeconomy-2026.json | लगभग 1,500
+- 2026-10-29 | स्वच्छ भारत मिशन के 11 साल (बदलता भारत, भाग 1) | reports/2026-10-29-swachh-bharat-mission-11-years-impact-badalta-bharat.json | 2485

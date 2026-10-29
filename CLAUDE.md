@@ -55,3 +55,7 @@ Auto cover: `reports/` में push हुई जिस JSON में `featur
 ## प्रकाशन सुरक्षा
 
 Website cron नई JSON फ़ाइलों को स्वतः draft/publish कर सकता है। Push से पहले स्रोत, तथ्य, duplicate angle, schema, charts और images जाँचें। API keys या credentials कभी repository में न रखें।
+
+## "बदलता भारत" शृंखला
+
+रोज़ की 5 रिपोर्टों से अलग, सरकारी योजनाओं के असर पर एक लंबा लेख रोज़ सुबह बनता है। उसके नियम, image डिज़ाइन और विषय सूची `series-badalta-bharat.md` में हैं। `tags` में "बदलता भारत" होने पर `tools/validate.py` लंबे लेख (2000–4500 शब्द) और बिना "विश्लेषण:" prefix वाला शीर्षक स्वीकार करता है। रोज़ की रिपोर्टों में उसी दिन की शृंखला-योजना का विषय न दोहराएँ।
