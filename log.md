@@ -138,3 +138,4 @@
 - 2026-10-29 | स्वच्छ भारत मिशन के 11 साल (बदलता भारत, भाग 1) | reports/2026-10-29-swachh-bharat-mission-11-years-impact-badalta-bharat.json | 2485
 - 2026-10-29 | उज्ज्वला योजना के 10 साल: 10.5 करोड़ गैस कनेक्शन, धुएं से राहत और महंगे रिफिल की नई परीक्षा (बदलता भारत, भाग 2) | reports/2026-10-29-ujjwala-yojana-10-years-lpg-impact-badalta-bharat.json | 3027
 - 2026-10-29 | सौभाग्य योजना के 9 साल: 2.86 करोड़ घरों तक बिजली, पर भरोसेमंद आपूर्ति और CAG के सवाल बाकी (बदलता भारत, भाग 3) | reports/2026-10-29-saubhagya-yojana-har-ghar-bijli-impact-badalta-bharat.json | 3383
+- 2026-10-30 | बेटी बचाओ बेटी पढ़ाओ और सुकन्या समृद्धि के 11 साल: लिंगानुपात 929, 4.53 करोड़ खाते, पर खर्च पर सवाल (बदलता भारत, भाग 4) | reports/2026-10-30-beti-bachao-beti-padhao-sukanya-samriddhi-badalta-bharat.json | 3156
