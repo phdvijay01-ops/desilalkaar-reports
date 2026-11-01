@@ -141,3 +141,4 @@
 - 2026-10-30 | बेटी बचाओ बेटी पढ़ाओ और सुकन्या समृद्धि के 11 साल: लिंगानुपात 929, 4.53 करोड़ खाते, पर खर्च पर सवाल (बदलता भारत, भाग 4) | reports/2026-10-30-beti-bachao-beti-padhao-sukanya-samriddhi-badalta-bharat.json | 3156
 - 2026-10-30 | जीवन ज्योति, सुरक्षा बीमा और अटल पेंशन के 11 साल: ₹25,160 करोड़ के दावे, पर सक्रिय बीमा पर सवाल (बदलता भारत, भाग 5) | reports/2026-10-30-jeevan-jyoti-suraksha-bima-atal-pension-badalta-bharat.json | 3461
 - 2026-10-31 | डिजिटल इंडिया, आधार और DBT: ₹43 लाख करोड़ सीधे खातों में, पर बचत के दावे और कटे नामों पर सवाल (बदलता भारत, भाग 6) | reports/2026-10-31-digital-india-aadhaar-dbt-savings-exclusion-badalta-bharat.json | 3416
+- 2026-11-01 | उजाला योजना: 36.87 करोड़ LED बल्ब, ₹450 से ₹70 तक कीमत, पर बचत के अनुमानों पर सवाल (बदलता भारत, भाग 7) | reports/2026-11-01-ujala-yojana-led-bulb-energy-savings-badalta-bharat.json | 3389

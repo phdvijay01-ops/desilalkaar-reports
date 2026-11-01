@@ -138,7 +138,57 @@ def scene_dbt():
     return "".join(s)
 
 
-SCENES = {"dbt": scene_dbt}
+def scene_ujala():
+    """उजाला: शाम का गांव-घर, छत से लटका LED बल्ब, पढ़ता बच्चा, पुराना बल्ब बनाम LED, बाहर LED स्ट्रीटलाइट।"""
+    import math
+    s = []
+    # शाम का आसमान: चांद और तारे
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#e8ecf6" stroke="none"/>')
+    s.append('<path d="M70 70 a34 34 0 1 0 40 46 a28 28 0 1 1 -40 -46 Z" fill="#fff3c4"/>')
+    for x, y in ((170, 60), (240, 110), (130, 160), (300, 50)):
+        s.append(f'<path d="M{x} {y-9} L{x} {y+9} M{x-9} {y} L{x+9} {y}" stroke-width="2.4"/>')
+    # ज़मीन
+    s.append('<path d="M0 580 L660 580" />')
+    s.append('<path d="M0 560 Q160 548 330 560 Q500 572 660 556 L660 580 L0 580 Z" fill="#dfe9cf"/>')
+    # LED स्ट्रीटलाइट (बाएं)
+    s.append('<path d="M70 580 L70 250 Q70 222 100 222 L150 222" stroke-width="5"/>')
+    s.append('<rect x="130" y="214" width="62" height="16" rx="5" fill="#cfd8dc"/>')
+    s.append('<path d="M136 232 L112 330 L214 330 L186 232 Z" fill="#fff59d" stroke="none" opacity=".75"/>')
+    s.append('<rect x="56" y="566" width="28" height="14" fill="#bdbdbd"/>')
+    # घर: दीवार, छत, खुली खिड़कीनुमा कटाव
+    s.append('<path d="M232 300 L432 190 L640 300 Z" fill="#e57373"/>')
+    s.append('<rect x="248" y="300" width="380" height="270" fill="#fff8e1"/>')
+    s.append('<path d="M248 570 L628 570"/>')
+    # छत से लटका LED बल्ब और रोशनी
+    s.append('<path d="M438 300 L438 344"/>')
+    s.append('<path d="M370 380 L300 560 L580 560 L506 380 Z" fill="#fff176" stroke="none" opacity=".55"/>')
+    s.append('<rect x="428" y="344" width="20" height="12" rx="2" fill="#b0bec5"/>')
+    s.append('<path d="M424 356 Q410 372 422 388 Q438 400 454 388 Q466 372 452 356 Z" fill="#fffde7"/>')
+    for i in range(7):
+        a = math.pi * (0.15 + 0.7 * i / 6)
+        s.append(f'<line x1="{438+38*math.cos(a):.0f}" y1="{374+38*math.sin(a)-0:.0f}" x2="{438+56*math.cos(a):.0f}" y2="{374+56*math.sin(a):.0f}" stroke="#f9a825" stroke-width="3"/>')
+    # मेज़, किताब और पढ़ता बच्चा
+    s.append('<rect x="370" y="486" width="170" height="14" fill="#a1887f"/><path d="M384 500 L384 566 M526 500 L526 566"/>')
+    s.append('<path d="M410 486 L440 474 L470 486 L440 480 Z" fill="#fff"/><path d="M440 474 L440 486" stroke-width="2"/>')
+    s.append('<circle cx="356" cy="452" r="18" fill="#c68b59"/>')
+    s.append('<path d="M334 474 Q356 464 378 474 L384 540 L330 540 Z" fill="#64b5f6"/>')
+    s.append('<path d="M374 486 Q392 484 412 480" fill="none"/>')
+    s.append('<path d="M336 540 L330 566 M378 540 L384 566" />')
+    # मां (साड़ी), हाथ में पुराना बल्ब
+    s.append(_person(580, 566, "#d49a6a", "#ba68c8", 0.92, saree=True))
+    # पुराना बल्ब बनाम LED (ऊपर दाएं, घर के बाहर)
+    s.append('<circle cx="300" cy="240" r="0" />')
+    s.append('<path d="M478 120 Q458 100 470 78 Q488 58 508 78 Q520 100 500 120 Z" fill="#ffe0b2"/><rect x="478" y="120" width="22" height="12" fill="#b0bec5"/>')
+    s.append('<path d="M482 98 l6 -8 l6 8 l6 -8" stroke-width="2"/>')
+    s.append('<path d="M458 70 L522 136" stroke="#b8232a" stroke-width="5"/>')
+    s.append('<text x="489" y="160" text-anchor="middle" font-size="22" font-weight="800" fill="#7a6a64" stroke="none">60W</text>')
+    s.append('<path d="M534 100 L580 100 M570 90 L582 100 L570 110" stroke="#2e7d32" stroke-width="4"/>')
+    s.append('<path d="M602 120 Q588 104 598 86 Q612 72 626 86 Q636 104 620 120 Z" fill="#fffde7"/><rect x="600" y="120" width="20" height="12" fill="#b0bec5"/>')
+    s.append('<text x="611" y="160" text-anchor="middle" font-size="22" font-weight="800" fill="#2e7d32" stroke="none">7W</text>')
+    return "".join(s)
+
+
+SCENES = {"dbt": scene_dbt, "ujala": scene_ujala}
 
 
 def featured_lineart(f, part):
