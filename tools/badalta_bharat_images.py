@@ -188,7 +188,49 @@ def scene_ujala():
     return "".join(s)
 
 
-SCENES = {"dbt": scene_dbt, "ujala": scene_ujala}
+def scene_vaccine():
+    """मिशन इंद्रधनुष: आंगनवाड़ी के बाहर टीकाकरण सत्र — मां की गोद में बच्चा, टीका लगाती ANM, ऊपर इंद्रधनुष।"""
+    s = []
+    # इंद्रधनुष (सात रंग)
+    cols = ["#e53935", "#fb8c00", "#fdd835", "#43a047", "#1e88e5", "#3949ab", "#8e24aa"]
+    for i, c in enumerate(cols):
+        r = 300 - i * 14
+        s.append(f'<path d="M{330-r} 330 A{r} {r} 0 0 1 {330+r} 330" stroke="{c}" stroke-width="12" fill="none" opacity=".85"/>')
+    s.append('<path d="M30 330 q-20 -30 14 -40 q10 -26 40 -14 q30 -6 34 22 q20 14 0 32 Z" fill="#fff"/>')
+    s.append('<path d="M570 330 q-14 -30 18 -38 q12 -24 40 -10 q28 0 26 26 q18 14 -2 26 Z" fill="#fff"/>')
+    # ज़मीन
+    s.append('<path d="M0 548 Q160 536 330 548 Q500 560 660 544 L660 580 L0 580 Z" fill="#dfe9cf"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    # आंगनवाड़ी भवन (पीछे बाएं)
+    s.append('<rect x="20" y="372" width="200" height="176" fill="#fff3e0"/><path d="M8 376 L120 318 L232 376 Z" fill="#ffab91"/>')
+    s.append('<rect x="92" y="440" width="56" height="108" fill="#a1887f"/><rect x="40" y="410" width="36" height="34" fill="#b3e5fc"/><rect x="166" y="410" width="36" height="34" fill="#b3e5fc"/>')
+    s.append('<text x="120" y="398" text-anchor="middle" font-size="19" font-weight="800" fill="#b8232a" stroke="none">आंगनवाड़ी</text>')
+    # मेज़, टीका-बक्सा (vaccine carrier) और रजिस्टर
+    s.append('<rect x="236" y="470" width="150" height="14" fill="#a1887f"/><path d="M248 484 L248 560 M374 484 L374 560"/>')
+    s.append('<rect x="250" y="424" width="56" height="46" rx="8" fill="#4fc3f7"/><path d="M262 424 q16 -18 32 0" fill="none"/>')
+    s.append('<path d="M278 436 v22 M267 447 h22" stroke="#fff" stroke-width="5"/>')
+    s.append('<rect x="318" y="448" width="54" height="22" rx="3" fill="#fff"/><path d="M345 448 L345 470" stroke-width="2"/>')
+    # ANM (स्वास्थ्यकर्मी) — सिरिंज के साथ
+    s.append(_person(450, 566, "#c68b59", "#e3f2fd", 0.96, saree=True))
+    s.append('<path d="M470 412 Q500 420 520 432" fill="none"/>')
+    s.append('<rect x="516" y="424" width="30" height="9" rx="2" fill="#fff" transform="rotate(20 516 424)"/>')
+    s.append('<path d="M544 437 L556 442" stroke-width="2"/>')
+    # मां (बैठी), गोद में बच्चा
+    s.append('<rect x="548" y="500" width="92" height="16" fill="#bcaaa4"/><path d="M558 516 L558 566 M630 516 L630 566"/>')
+    s.append('<circle cx="604" cy="378" r="22" fill="#d49a6a"/>')
+    s.append('<path d="M578 404 Q604 392 630 404 L640 500 L566 500 Z" fill="#f06292"/>')
+    s.append('<path d="M582 402 Q604 360 628 402" fill="none"/>')
+    s.append('<path d="M566 500 L556 560 M640 500 L646 560" stroke-width="5"/>')
+    s.append('<ellipse cx="574" cy="452" rx="34" ry="20" fill="#fff59d"/>')
+    s.append('<circle cx="548" cy="446" r="15" fill="#e0a878"/>')
+    s.append('<path d="M590 470 Q610 476 624 462" fill="none"/>')
+    # टीकाकरण कार्ड का प्रतीक (ऊपर दाएं, ✓)
+    s.append('<rect x="500" y="250" width="92" height="66" rx="8" fill="#fff"/><path d="M512 266 h50 M512 280 h40 M512 294 h46" stroke-width="2"/>')
+    s.append('<circle cx="574" cy="296" r="14" fill="#66bb6a"/><path d="M567 296 l5 5 l9 -10" stroke="#fff" stroke-width="3"/>')
+    return "".join(s)
+
+
+SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine}
 
 
 def featured_lineart(f, part):
