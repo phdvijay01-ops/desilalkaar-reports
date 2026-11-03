@@ -28,21 +28,24 @@ You will write Hindi devotional articles (भक्ति — कथा और �
 - `cover_stat`: {"value": a short word like "कथा" or the scripture name, "label": e.g. "श्रीमद्भागवत, दशम स्कंध से"}
 - `featured_image`: "images/<slug>-cover.png"
 
-**File 2 — cover image.** Do NOT make the image in this same message. After the JSON file, write one short English line starting with `IMAGE PROMPT:` that names 3–4 simple objects or a place from this कथा (no people, no deity, no names), e.g. "IMAGE PROMPT: a riverside ghat at dawn with a small temple, oil lamps and lotus flowers". I will then ask for the image separately.
+**File 2 — cover image.** Do NOT make the image in this same message. After the JSON file, write one short line starting with `IMAGE PROMPT:` describing the main scene of this कथा in a few words (main character or deity + place), e.g. "IMAGE PROMPT: भगवान राम और केवट, गंगा तट पर नाव". I will ask for the image separately.
 
 At the end, list the JSON file and the IMAGE PROMPT line of each article and a 1-line summary (कथा, शब्द संख्या, स्रोतों की संख्या).
 
 ---
 
-## Image अलग से बनवाएँ (नया message)
+## Image अलग से बनवाएँ (नया message, छोटा prompt)
 
-लेख पूरा होने के बाद उसी chat में नीचे वाला message भेजें। `<...>` की जगह ChatGPT की दी हुई IMAGE PROMPT वाली पंक्ति रखें:
+लेख पूरा होने के बाद उसी chat में छोटा message भेजें। लंबे prompt पर ChatGPT कई बार "content policy" वाला संदेश दे देता है, जबकि छोटा prompt आराम से चलता है। उदाहरण:
 
 ```
-Create a 16:9 landscape illustration: <IMAGE PROMPT वाली पंक्ति>. Style: clean hand-drawn editorial line art with strong dark outlines, only a few areas filled with flat colours (saffron, maroon, deep green, sky blue), lots of light cream background, calm and peaceful mood. No people, no text, no letters, no numbers, no logos, no border.
+<IMAGE PROMPT वाली पंक्ति> का रंगीन line art बनाओ, 16:9 landscape (चौड़ी), हल्की क्रीम पृष्ठभूमि, image में कोई अक्षर या text नहीं
 ```
 
-अगर फिर भी "content policy" वाला संदेश आए, तो दृश्य और सरल कर दें, जैसे "a small temple on a hill with oil lamps and a full moon"। किसी देवता, संत या धार्मिक व्यक्ति का नाम image prompt में न लिखें। बनी image को `<slug>-cover.png` नाम से save करें।
+- Image **चौड़ी (16:9)** हो, चौकोर नहीं। चौकोर बने तो "इसे 16:9 चौड़ा बनाओ" कहकर दोबारा बनवाएँ। फिर भी चौकोर रहे तो वैसे ही दे दें, Claude उसे क्रीम पृष्ठभूमि वाले 1200×675 फ्रेम में बिठा देगा।
+- Image में अक्षर न हों, क्योंकि ChatGPT की image में हिंदी अक्षर टूट जाते हैं।
+- फिर भी रोक लगे तो सिर्फ़ जगह और वस्तुएँ लिखें, जैसे "गंगा घाट, नाव, दीपक और कमल का रंगीन line art"।
+- Image को `<slug>-cover.png` नाम से save करें।
 
 ## Claude को कैसे दें
 
