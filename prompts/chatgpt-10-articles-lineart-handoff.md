@@ -28,11 +28,21 @@ You will write Hindi devotional articles (भक्ति — कथा और �
 - `cover_stat`: {"value": a short word like "कथा" or the scripture name, "label": e.g. "श्रीमद्भागवत, दशम स्कंध से"}
 - `featured_image`: "images/<slug>-cover.png"
 
-**File 2 — cover image** named `<slug>-cover.png`, landscape 16:9. Style: clean hand-drawn editorial **line-art** — strong dark outlines, a few selected areas filled with flat colour (saffron, maroon, deep green, sky blue), lots of light cream/white space, newspaper-illustration look. Show the scene of this कथा in an Indian setting (temple, ghat, forest, village, river, sky). Deities and saints may be shown in a respectful, traditional, non-photographic way; no real politicians or public figures, no party/organisation logos, no violence or blood, no weapons in use. **Do not write any text, letters or numbers in the image** (Hindi letters break in generated images; the website adds the title). No border, no blur strip, no collage.
+**File 2 — cover image.** Do NOT make the image in this same message. After the JSON file, write one short English line starting with `IMAGE PROMPT:` that names 3–4 simple objects or a place from this कथा (no people, no deity, no names), e.g. "IMAGE PROMPT: a riverside ghat at dawn with a small temple, oil lamps and lotus flowers". I will then ask for the image separately.
 
-At the end, list the two files of each article and a 1-line summary (कथा, शब्द संख्या, स्रोतों की संख्या).
+At the end, list the JSON file and the IMAGE PROMPT line of each article and a 1-line summary (कथा, शब्द संख्या, स्रोतों की संख्या).
 
 ---
+
+## Image अलग से बनवाएँ (नया message)
+
+लेख पूरा होने के बाद उसी chat में नीचे वाला message भेजें। `<...>` की जगह ChatGPT की दी हुई IMAGE PROMPT वाली पंक्ति रखें:
+
+```
+Create a 16:9 landscape illustration: <IMAGE PROMPT वाली पंक्ति>. Style: clean hand-drawn editorial line art with strong dark outlines, only a few areas filled with flat colours (saffron, maroon, deep green, sky blue), lots of light cream background, calm and peaceful mood. No people, no text, no letters, no numbers, no logos, no border.
+```
+
+अगर फिर भी "content policy" वाला संदेश आए, तो दृश्य और सरल कर दें, जैसे "a small temple on a hill with oil lamps and a full moon"। किसी देवता, संत या धार्मिक व्यक्ति का नाम image prompt में न लिखें। बनी image को `<slug>-cover.png` नाम से save करें।
 
 ## Claude को कैसे दें
 
