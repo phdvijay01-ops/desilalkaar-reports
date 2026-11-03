@@ -230,7 +230,46 @@ def scene_vaccine():
     return "".join(s)
 
 
-SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine}
+def scene_svamitva():
+    """स्वामित्व: गांव की आबादी के घर, ऊपर ड्रोन और सर्वे-ग्रिड, नीचे संपत्ति कार्ड थामे दंपती, पास में बैंक।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eef5fb" stroke="none"/>')
+    # ड्रोन (ऊपर बीच) और नीचे जाती स्कैन-किरणें
+    s.append('<path d="M250 150 L180 330 L470 330 L400 150 Z" fill="#fff59d" stroke="none" opacity=".45"/>')
+    s.append('<rect x="290" y="96" width="70" height="30" rx="10" fill="#90a4ae"/><circle cx="325" cy="132" r="9" fill="#37474f"/>')
+    s.append('<path d="M290 104 L250 84 M360 104 L400 84 M290 118 L250 138 M360 118 L400 138"/>')
+    for cx, cy in ((242, 82), (408, 82), (242, 140), (408, 140)):
+        s.append(f'<ellipse cx="{cx}" cy="{cy}" rx="26" ry="6" fill="#cfd8dc"/>')
+    # ज़मीन और सर्वे ग्रिड (लाल डैश वाली प्लॉट सीमाएं)
+    s.append('<path d="M0 330 L660 330 L660 580 L0 580 Z" fill="#e6f1d8"/>')
+    for x in (60, 190, 330, 470, 600):
+        s.append(f'<path d="M{x} 330 L{x-20} 430" stroke="#b8232a" stroke-width="2.4" stroke-dasharray="8 7"/>')
+    s.append('<path d="M30 380 L640 380 M10 430 L650 430" stroke="#b8232a" stroke-width="2.4" stroke-dasharray="8 7"/>')
+    # गांव के घर (खपरैल छत)
+    for x, col in ((70, "#ef9a9a"), (200, "#ffcc80"), (340, "#a5d6a7"), (480, "#ce93d8")):
+        s.append(f'<rect x="{x}" y="276" width="96" height="70" fill="#fff8e1"/><path d="M{x-10} 280 L{x+48} 236 L{x+106} 280 Z" fill="{col}"/>'
+                 f'<rect x="{x+36}" y="306" width="24" height="40" fill="#a1887f"/>')
+    # पेड़
+    s.append('<rect x="604" y="250" width="12" height="90" fill="#8d6e63"/><circle cx="610" cy="236" r="40" fill="#81c784"/>')
+    # बैंक भवन (बाएं नीचे)
+    s.append('<path d="M20 470 L100 430 L180 470 Z" fill="#90caf9"/><rect x="28" y="470" width="144" height="86" fill="#fff"/>')
+    for x in (46, 82, 118, 154):
+        s.append(f'<rect x="{x-6}" y="478" width="12" height="70" fill="#e3f2fd"/>')
+    s.append('<text x="100" y="463" text-anchor="middle" font-size="22" font-weight="800" fill="#b8232a" stroke="none">₹ बैंक</text>')
+    s.append('<path d="M10 556 L190 556" stroke-width="4"/>')
+    # दंपती, महिला के हाथ में संपत्ति कार्ड
+    s.append(_person(330, 572, "#c68b59", "#ffffff", 0.9))
+    s.append(_person(450, 572, "#d49a6a", "#4db6ac", 0.92, saree=True))
+    s.append('<rect x="472" y="408" width="124" height="96" rx="8" fill="#fff"/>')
+    s.append('<text x="534" y="432" text-anchor="middle" font-size="17" font-weight="800" fill="#5c0f12" stroke="none">संपत्ति कार्ड</text>')
+    s.append('<path d="M484 448 h60 M484 462 h48 M484 476 h56" stroke-width="2"/>')
+    s.append('<rect x="558" y="446" width="26" height="26" fill="#ffe0b2" stroke-width="2"/><path d="M484 492 l18 -8 l14 8 l18 -10" stroke="#b8232a" stroke-width="2"/>')
+    s.append('<path d="M478 434 Q468 426 470 412" fill="none"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva}
 
 
 def featured_lineart(f, part):

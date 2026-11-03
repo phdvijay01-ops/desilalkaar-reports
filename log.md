@@ -143,3 +143,4 @@
 - 2026-10-31 | डिजिटल इंडिया, आधार और DBT: ₹43 लाख करोड़ सीधे खातों में, पर बचत के दावे और कटे नामों पर सवाल (बदलता भारत, भाग 6) | reports/2026-10-31-digital-india-aadhaar-dbt-savings-exclusion-badalta-bharat.json | 3416
 - 2026-11-01 | उजाला योजना: 36.87 करोड़ LED बल्ब, ₹450 से ₹70 तक कीमत, पर बचत के अनुमानों पर सवाल (बदलता भारत, भाग 7) | reports/2026-11-01-ujala-yojana-led-bulb-energy-savings-badalta-bharat.json | 3389
 - 2026-11-02 | मिशन इंद्रधनुष: 5.46 करोड़ बच्चों तक पहुंचे टीके, पूर्ण टीकाकरण 87% के पार (बदलता भारत, भाग 8) | reports/2026-11-02-mission-indradhanush-child-immunization-badalta-bharat.json | 3083
+- 2026-11-03 | स्वामित्व योजना: 3.10 करोड़ संपत्ति कार्ड, ड्रोन नक्शों से गांव के घरों को कानूनी हक़ और बैंक कर्ज़ (बदलता भारत, भाग 9) | reports/2026-11-03-svamitva-yojana-property-cards-drone-survey-badalta-bharat.json | 3496
