@@ -314,7 +314,76 @@ def scene_shg():
     return "".join(s)
 
 
-SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg}
+def scene_matru():
+    """मातृ वंदना: आंगनवाड़ी के बाहर गोद में बच्चा लिए मां, MCP कार्ड, पोषण की थाली और खाते में आती राशि।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#fdf3f4" stroke="none"/>')
+    # ज़मीन
+    s.append('<path d="M0 520 Q170 506 330 518 Q500 530 660 512 L660 580 L0 580 Z" fill="#e6f1d8"/><path d="M0 580 L660 580"/>')
+    # आंगनवाड़ी भवन (बाएं)
+    s.append('<rect x="24" y="300" width="230" height="220" fill="#fff3e0"/><path d="M10 304 L139 236 L268 304 Z" fill="#f48fb1"/>')
+    s.append('<rect x="110" y="400" width="58" height="120" fill="#a1887f"/><rect x="44" y="350" width="44" height="40" fill="#b3e5fc"/><rect x="190" y="350" width="44" height="40" fill="#b3e5fc"/>')
+    s.append('<text x="139" y="330" text-anchor="middle" font-size="21" font-weight="800" fill="#b8232a" stroke="none">आंगनवाड़ी</text>')
+    # आंगनवाड़ी कार्यकर्ता, हाथ में रजिस्टर
+    s.append(_person(300, 540, "#c68b59", "#ffcc80", 0.86, saree=True))
+    s.append('<rect x="318" y="398" width="44" height="54" rx="4" fill="#fff"/><path d="M326 412 h28 M326 424 h22 M326 436 h26" stroke-width="2"/>')
+    # मां (साड़ी) और गोद में बच्चा
+    s.append(_person(470, 546, "#d49a6a", "#ba68c8", 1.0, saree=True))
+    s.append('<ellipse cx="440" cy="420" rx="40" ry="22" fill="#fff59d"/><circle cx="410" cy="410" r="17" fill="#e0a878"/>')
+    s.append('<path d="M456 440 Q478 444 496 430" fill="none"/>')
+    # पोषण की थाली (नीचे बीच)
+    s.append('<ellipse cx="380" cy="556" rx="58" ry="14" fill="#cfd8dc"/>')
+    for cx, col in ((354, "#ffb74d"), (380, "#81c784"), (406, "#ef5350")):
+        s.append(f'<circle cx="{cx}" cy="550" r="11" fill="{col}"/>')
+    # MCP कार्ड (ऊपर बीच) ✓ के साथ
+    s.append('<rect x="290" y="170" width="120" height="84" rx="8" fill="#fff"/>')
+    s.append('<text x="350" y="196" text-anchor="middle" font-size="17" font-weight="800" fill="#5c0f12" stroke="none">MCP कार्ड</text>')
+    s.append('<path d="M302 214 h60 M302 230 h46" stroke-width="2"/><circle cx="388" cy="230" r="13" fill="#66bb6a"/><path d="M381 230 l5 5 l9 -10" stroke="#fff" stroke-width="3"/>')
+    # खाते में राशि: पासबुक और सिक्कों का रास्ता (ऊपर दाएं)
+    s.append('<rect x="520" y="140" width="110" height="74" rx="7" fill="#bbdefb"/><path d="M575 140 L575 214" stroke-width="2"/>')
+    s.append('<text x="548" y="186" text-anchor="middle" font-size="26" font-weight="800" fill="#b8232a" stroke="none">₹</text><path d="M584 160 h36 M584 174 h28 M584 188 h32" stroke-width="1.8"/>')
+    s.append('<path d="M420 200 Q470 120 516 168" fill="none" stroke="#b8232a" stroke-width="3" stroke-dasharray="9 8"/>')
+    s.append('<circle cx="458" cy="148" r="18" fill="#ffca28"/><text x="458" y="156" text-anchor="middle" font-size="20" font-weight="800" fill="#3a1a12" stroke="none">₹</text>')
+    # दिल का प्रतीक (मां-बच्चे की देखभाल)
+    s.append('<path d="M140 120 C140 96 172 92 176 116 C180 92 212 96 212 120 C212 146 176 166 176 172 C176 166 140 146 140 120 Z" fill="#ef9a9a"/>')
+    return "".join(s)
+
+
+def scene_road():
+    """ग्राम सड़क: पहाड़ियों के बीच गांव से निकलती बारहमासी पक्की सड़क, बस, ट्रैक्टर, और दूर अस्पताल-स्कूल-मंडी।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    s.append('<circle cx="580" cy="80" r="34" fill="#ffd54f"/>')
+    s.append('<path d="M0 260 Q120 180 240 240 Q360 170 480 230 Q570 190 660 220 L660 330 L0 330 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M0 330 L660 330 L660 580 L0 580 Z" fill="#dcedc8"/>')
+    # दूर के भवन: अस्पताल, स्कूल, मंडी
+    s.append('<rect x="420" y="250" width="70" height="60" fill="#fff"/><path d="M448 262 v24 M436 274 h24" stroke="#e53935" stroke-width="5"/>')
+    s.append('<rect x="500" y="262" width="66" height="48" fill="#fff8e1"/><path d="M494 264 L533 238 L572 264 Z" fill="#ffcc80"/><text x="533" y="294" text-anchor="middle" font-size="15" font-weight="800" fill="#5c0f12" stroke="none">स्कूल</text>')
+    s.append('<rect x="580" y="270" width="64" height="40" fill="#ffe0b2"/><path d="M576 272 L612 252 L648 272 Z" fill="#a5d6a7"/><text x="612" y="298" text-anchor="middle" font-size="15" font-weight="800" fill="#5c0f12" stroke="none">मंडी</text>')
+    # घुमावदार सड़क (आगे चौड़ी, दूर पतली)
+    s.append('<path d="M120 580 Q260 470 330 420 Q420 360 470 316 L500 316 Q450 370 380 430 Q300 500 300 580 Z" fill="#78909c"/>')
+    s.append('<path d="M210 580 Q290 480 360 425 Q430 368 485 316" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="18 14"/>')
+    # गांव के घर (बाएं)
+    for x, col in ((30, "#ef9a9a"), (130, "#ffcc80")):
+        s.append(f'<rect x="{x}" y="380" width="84" height="64" fill="#fff8e1"/><path d="M{x-8} 384 L{x+42} 344 L{x+92} 384 Z" fill="{col}"/><rect x="{x+30}" y="408" width="22" height="36" fill="#a1887f"/>')
+    s.append('<rect x="250" y="300" width="12" height="70" fill="#8d6e63"/><circle cx="256" cy="290" r="32" fill="#81c784"/>')
+    # बस (सड़क पर)
+    s.append('<rect x="300" y="430" width="110" height="52" rx="8" fill="#ffca28"/>')
+    for x in (310, 336, 362, 386):
+        s.append(f'<rect x="{x}" y="440" width="18" height="16" fill="#e3f2fd"/>')
+    s.append('<circle cx="324" cy="484" r="10" fill="#37474f"/><circle cx="390" cy="484" r="10" fill="#37474f"/>')
+    # ट्रैक्टर-ट्रॉली में अनाज (आगे बाएं)
+    s.append('<rect x="150" y="500" width="70" height="40" rx="4" fill="#e57373"/><circle cx="168" cy="546" r="16" fill="#37474f"/><circle cx="208" cy="550" r="10" fill="#37474f"/>')
+    s.append('<rect x="70" y="510" width="72" height="30" fill="#a1887f"/><path d="M74 510 Q106 486 138 510 Z" fill="#ffd54f"/><circle cx="104" cy="546" r="9" fill="#37474f"/>')
+    # स्कूल जाती बच्ची (दाएं आगे)
+    s.append(_person(520, 560, "#d49a6a", "#4fc3f7", 0.62))
+    s.append('<rect x="534" y="450" width="20" height="26" rx="3" fill="#ef5350"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+          "matru": scene_matru, "road": scene_road}
 
 
 def featured_lineart(f, part):
