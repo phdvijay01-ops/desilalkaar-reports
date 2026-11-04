@@ -269,7 +269,52 @@ def scene_svamitva():
     return "".join(s)
 
 
-SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva}
+def scene_shg():
+    """लखपति दीदी/DAY-NRLM: पेड़ के नीचे स्वयं सहायता समूह की बैठक (बचत रजिस्टर, गुल्लक), पास में दीदी की दुकान, ऊपर बढ़ती कमाई का तीर।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#fdf6ea" stroke="none"/>')
+    # सूरज
+    s.append('<circle cx="560" cy="80" r="34" fill="#ffd54f"/>')
+    # बढ़ती कमाई का तीर और सिक्के (ऊपर बाएं से दाएं)
+    s.append('<path d="M60 230 L170 190 L260 205 L380 120" fill="none" stroke="#2e7d32" stroke-width="6"/>')
+    s.append('<path d="M356 116 L384 118 L374 144" fill="none" stroke="#2e7d32" stroke-width="6"/>')
+    for i, (cx, h) in enumerate(((80, 2), (130, 3), (180, 4), (230, 5))):
+        for j in range(h):
+            s.append(f'<ellipse cx="{cx}" cy="{300-j*12}" rx="18" ry="6" fill="#ffca28"/>')
+    s.append('<text x="150" y="150" text-anchor="middle" font-size="32" font-weight="800" fill="#2e7d32" stroke="none">₹1 लाख+</text>')
+    # ज़मीन
+    s.append('<path d="M0 470 Q160 452 330 466 Q500 480 660 460 L660 580 L0 580 Z" fill="#e6f1d8"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    # पेड़ (बीच-पीछे)
+    s.append('<rect x="312" y="300" width="22" height="170" fill="#8d6e63"/>')
+    s.append('<circle cx="292" cy="290" r="54" fill="#81c784"/><circle cx="356" cy="282" r="58" fill="#66bb6a"/><circle cx="324" cy="236" r="52" fill="#81c784"/>')
+    # दरी, बचत रजिस्टर और गुल्लक
+    s.append('<ellipse cx="250" cy="540" rx="190" ry="26" fill="#ffccbc"/>')
+    s.append('<rect x="196" y="508" width="70" height="26" rx="3" fill="#fff"/><path d="M231 508 L231 534" stroke-width="2"/><path d="M204 516 h20 M238 516 h20 M204 524 h18 M238 524 h18" stroke-width="1.6"/>')
+    s.append('<path d="M286 532 Q286 506 306 504 Q326 506 326 532 Z" fill="#ef9a9a"/><path d="M300 510 h12" stroke-width="3"/>')
+    # समूह की दीदियां (साड़ी)
+    s.append(_person(110, 560, "#c68b59", "#f06292", 0.78, saree=True))
+    s.append(_person(170, 562, "#d49a6a", "#ffb74d", 0.74, saree=True))
+    s.append(_person(380, 562, "#b97850", "#4db6ac", 0.76, saree=True))
+    s.append(_person(440, 560, "#d49a6a", "#9575cd", 0.8, saree=True))
+    # दीदी की दुकान (दाएं)
+    s.append('<rect x="490" y="330" width="150" height="200" fill="#fff8e1"/>')
+    s.append('<path d="M480 330 L650 330 L636 296 L494 296 Z" fill="#e57373"/>')
+    for x in (500, 530, 560, 590, 620):
+        s.append(f'<path d="M{x} 330 q15 18 30 0" fill="#fff"/>')
+    s.append('<path d="M500 390 L630 390 M500 450 L630 450" stroke-width="3"/>')
+    for x in (510, 540, 570, 600):
+        s.append(f'<rect x="{x}" y="362" width="18" height="28" rx="4" fill="#ffcc80"/><rect x="{x+2}" y="356" width="14" height="8" fill="#a1887f"/>')
+        s.append(f'<rect x="{x}" y="424" width="20" height="26" rx="2" fill="#90caf9"/>')
+    s.append('<rect x="490" y="470" width="150" height="60" fill="#bcaaa4"/>')
+    s.append('<text x="565" y="508" text-anchor="middle" font-size="20" font-weight="800" fill="#5c0f12" stroke="none">दीदी स्टोर</text>')
+    # बैंक पासबुक (दुकान के ऊपर)
+    s.append('<rect x="430" y="180" width="96" height="64" rx="6" fill="#bbdefb"/><path d="M478 180 L478 244" stroke-width="2"/>')
+    s.append('<text x="454" y="220" text-anchor="middle" font-size="22" font-weight="800" fill="#b8232a" stroke="none">₹</text><path d="M486 200 h30 M486 212 h24 M486 224 h28" stroke-width="1.8"/>')
+    return "".join(s)
+
+
+SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg}
 
 
 def featured_lineart(f, part):
