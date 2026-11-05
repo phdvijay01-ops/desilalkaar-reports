@@ -31,6 +31,21 @@ def first_words(title, n=4):
     return " ".join(t.split()[:n])
 
 
+def same_katha(a, b):
+    """slug का पहला मुख्य शब्द (जैसे ajamil / ajamila) मिले तो वही कथा मानें।"""
+    def key(x):
+        common = {"krishna", "krsna", "rama", "shri", "shree", "shiva", "shiv", "vishnu", "devi", "durga",
+                  "hanuman", "ganesh", "ganesha", "lakshmi", "sita", "mata", "maa", "bhagavata", "bhagwat",
+                  "sant", "bhakt", "bhakta", "raja", "katha", "story", "puran", "purana", "gpt", "bhakti"}
+        w = [t for t in x.split("-") if len(t) >= 4 and t not in common]
+        return w[0] if w else ""
+    ka, kb = key(a), key(b)
+    if not ka or not kb:
+        return False
+    n = min(len(ka), len(kb), 6)
+    return n >= 4 and ka[:n] == kb[:n]
+
+
 def parse_loose(text):
     text = text.strip().lstrip("﻿")
     text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
@@ -112,8 +127,9 @@ def main():
             fw = first_words(title)
             if fw and fw in old_titles:
                 errs.append(f"शीर्षक के पहले शब्द \"{fw}\" पुराने लेख {old_titles[fw]} से मिलते हैं — वेबसाइट इसे रोक देगी")
-            if core in old_slugs:
-                errs.append(f"यही कथा (\"{core}\") पिछले 60 दिन में आ चुकी है — दूसरी कथा लें")
+            same = next((o for o in old_slugs if o == core or same_katha(o, core)), None)
+            if same:
+                errs.append(f"यही कथा पिछले 60 दिन में आ चुकी है (\"{same}\") — log.md देखकर दूसरी कथा लें")
 
             img = next((f"inbox/{stem}{e}" for e in IMG_EXT if os.path.exists(f"inbox/{stem}{e}")), None)
             cover = f"reports/images/{today}-{slug}-cover.png"
