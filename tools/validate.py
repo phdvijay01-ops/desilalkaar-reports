@@ -45,7 +45,9 @@ def main(path):
     # "बदलता भारत" शृंखला: लंबे लेख (2000–4500 शब्द), शीर्षक योजना के नाम से शुरू (duplicate filter से बचने को)
     series = "बदलता भारत" in (r.get("tags") or [])
     lo, hi, tlo, thi = (2000, 4500, 2500, 3500) if series else (1100, 2100, 1200, 1800)
-    if not series and not t.startswith("विश्लेषण:"):
+    # भक्ति कथा: शीर्षक कथा के विषय से शुरू होता है, "विश्लेषण:" नहीं; graph/table की ज़रूरत नहीं
+    bhakti = "भक्ति" in (r.get("tags") or [])
+    if not series and not bhakti and not t.startswith("विश्लेषण:"):
         errs.append("title 'विश्लेषण:' से शुरू होना चाहिए")
     if not (40 <= len(t) <= 110):
         warns.append(f"title लंबाई {len(t)} (55–90 ठीक)")
@@ -69,7 +71,7 @@ def main(path):
         warns.append(f"{words} शब्द (लक्ष्य {tlo}–{thi})")
     if p.h2 < 6:
         warns.append(f"सिर्फ {p.h2} <h2> हिस्से")
-    if p.tables < 1:
+    if p.tables < 1 and not bhakti:
         warns.append("आंकड़ों की <table> नहीं है")
     for b in BANNED:
         if b in r.get("content_html", "") or b in t:
@@ -85,7 +87,7 @@ def main(path):
     import os
     rdir = os.path.dirname(os.path.abspath(path))
     charts = r.get("charts") or []
-    if not charts:
+    if not charts and not bhakti:
         warns.append("कोई graph (charts) नहीं — 2–3 graph जोड़ें और tools/make_charts.py चलाएँ")
     fi = r.get("featured_image", "")
     if not fi:
@@ -103,7 +105,7 @@ def main(path):
         h2 = c.get("after_h2", "")
         if h2 and f"<h2>{h2}</h2>" not in content:
             errs.append(f"chart {cid}: after_h2 '{h2}' वाला <h2> लेख में नहीं")
-    if "विश्लेषण" not in (r.get("tags") or []):
+    if "विश्लेषण" not in (r.get("tags") or []) and not bhakti:
         warns.append("tags में 'विश्लेषण' नहीं")
     for w in warns:
         print("⚠️ ", w)

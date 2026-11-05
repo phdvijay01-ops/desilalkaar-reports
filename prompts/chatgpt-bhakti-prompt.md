@@ -1,7 +1,9 @@
 # ChatGPT (Codex / Agent) के लिए भक्ति-कथा prompt
 
 यह prompt ChatGPT **Codex** (GitHub repo `phdvijay01-ops/desilalkaar-reports` से जुड़ा) में या ChatGPT **Agent mode** में चलाने के लिए है।
-Codex आमतौर पर branch बनाकर Pull Request खोलता है — वेबसाइट केवल `main` branch की `reports/` फ़ाइलें उठाती है, इसलिए PR को review करके **merge** करना ही "publish" है।
+Codex branch बनाकर Pull Request खोलता है। **अब merge हाथ से नहीं करना पड़ता:** GitHub Action `gpt-bhakti-autopublish.yml` हर ऐसे PR की सख़्त जाँच (`tools/check_gpt_bhakti_pr.py`) करता है और पास होने पर फ़ाइलें खुद `main` पर डालकर PR बंद कर देता है; वेबसाइट का cron अगले घंटे में लेख publish कर देता है। जाँच फ़ेल हो तो PR पर कारण comment होते हैं — Codex से वही ठीक करवाकर उसी PR में नया commit करें, जाँच फिर चलेगी।
+
+PR में सिर्फ़ ये फ़ाइलें हों, वरना auto-publish नहीं होगा: नई `reports/YYYY-MM-DD-<slug>-gpt-bhakti.json` (एक PR में अधिकतम 3), उसकी cover `reports/images/...gpt-bhakti...-cover.png`, और `log.md` (वैकल्पिक)। कोई पुरानी फ़ाइल, tool या workflow न बदले।
 Claude वाली routine के साथ चलाएँ तो दोनों का दोहराव रोकने के लिए ChatGPT की फ़ाइलों के slug में `-gpt-bhakti` रखा गया है और हर run से पहले `git pull` + log जाँच ज़रूरी है।
 
 ---
@@ -42,10 +44,10 @@ motif = `moon` (चाँदनी/वृंदावन/कृष्ण कथ�
 This writes `reports/images/<file>-cover.png` (1200×675, cream background #fbf3e2, maroon ink #5b1d0f line art, double border with lotus, text on the right) and sets `featured_image`. Open the PNG and confirm the Hindi renders correctly (no broken matras or boxes).
 If you cannot run Python/Playwright (plain ChatGPT chat): generate a 1200×675 image yourself in exactly this style — flat cream background (#fbf3e2), thin maroon (#5b1d0f) single-weight line drawing on the left half (moon/kadamba/flute, temple shikhara, diya or river ghat), double rectangular border with a small lotus at top and bottom centre, the right half left EMPTY (no text at all — image models break Hindi letters), no faces of deities, no colour fills. Save it as `reports/images/<file>-cover.png` and set `"featured_image": "images/<file>-cover.png"` in the JSON.
 
-**Step 7 — validate.** Run `python3 tools/validate.py reports/<file>.json`. The ONLY acceptable error is "title 'विश्लेषण:' से शुरू होना चाहिए" (plus warnings about charts/table/विश्लेषण tag); fix every other error. Word count must be 1100–2100 (website rejects under 1000 words or under 5 https sources).
+**Step 7 — validate.** Run `python3 tools/validate.py reports/<file>.json` and fix every ❌ error (with the tag "भक्ति" it no longer asks for a "विश्लेषण:" title, charts or tables). Word count must be 1100–2100 (website rejects under 1000 words or under 5 https sources).
 
 **Step 8 — log and publish.** Discard changes to tools/__pycache__ if any. Append one line to log.md:
 `- YYYY-MM-DD | भक्ति: <कथा का नाम> | reports/<file>.json | <शब्द>`
-Commit ONLY the JSON, its cover PNG and log.md with message `भक्ति: <कथा>` and push to main (or, in Codex, open a PR to main titled the same — it is published when merged). Never edit or delete previously pushed files in reports/. Never push a guessed or incomplete article; never put API keys or credentials in the repo.
+Commit ONLY the JSON, its cover PNG and log.md with message `भक्ति: <कथा>` and open ONE pull request to main titled the same. Do not modify, rename or delete any other file (not tools/, not .github/, not older reports) — a GitHub Action checks the PR and publishes it automatically only if it contains nothing but these new files and passes `python3 tools/check_gpt_bhakti_pr.py origin/main HEAD` (run it yourself before opening the PR and fix every ❌ it lists). If the check comments problems on the PR later, fix them in a new commit on the same branch. Never edit or delete previously pushed files in reports/. Never push a guessed or incomplete article; never put API keys or credentials in the repo.
 
 Finish with a 2-line Hindi summary: कथा, शब्द, स्रोत, file name.

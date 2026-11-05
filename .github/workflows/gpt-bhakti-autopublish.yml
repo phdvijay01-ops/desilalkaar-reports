@@ -1,0 +1,135 @@
+name: ChatGPT भक्ति लेख — जाँच और auto-publish
+
+# ChatGPT (Codex) का खोला हुआ भक्ति PR आते ही यह workflow चलता है:
+#   1. tools/check_gpt_bhakti_pr.py से सख़्त जाँच (सिर्फ़ नई gpt-bhakti JSON + cover PNG,
+#      validate.py पास, category/tags/slug सही, शीर्षक व कथा का दोहराव नहीं, कोई पुरानी फ़ाइल नहीं छेड़ी)
+#   2. पास होने पर वही फ़ाइलें main पर commit + log.md में पंक्ति → वेबसाइट का hourly cron publish कर देता है
+#      (PR को merge नहीं, close किया जाता है ताकि log.md का conflict कभी न अटके)
+#   3. फ़ेल होने पर PR पर कारण comment होते हैं; PR खुला रहता है, ठीक करके नया commit करें।
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'reports/*-gpt-bhakti.json'
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'PR नंबर (दोबारा जाँचने के लिए)'
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: gpt-bhakti-autopublish
+  cancel-in-progress: false
+
+jobs:
+  check-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR की जानकारी
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          num="${{ github.event.pull_request.number || github.event.inputs.pr }}"
+          info=$(gh pr view "$num" --repo "${{ github.repository }}" --json headRefOid,headRepositoryOwner,headRepository,state,title)
+          echo "num=$num" >> "$GITHUB_OUTPUT"
+          echo "head=$(echo "$info" | jq -r .headRefOid)" >> "$GITHUB_OUTPUT"
+          echo "state=$(echo "$info" | jq -r .state)" >> "$GITHUB_OUTPUT"
+          owner=$(echo "$info" | jq -r .headRepositoryOwner.login)
+          repo=$(echo "$info" | jq -r .headRepository.name)
+          if [ "$owner/$repo" = "${{ github.repository }}" ]; then echo "same=1" >> "$GITHUB_OUTPUT"; else echo "same=0" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Fork से आए PR को अपने-आप publish नहीं करते
+        if: steps.pr.outputs.same != '1' || steps.pr.outputs.state != 'OPEN'
+        run: echo "यह PR इसी repo की branch से नहीं है या खुला नहीं है — auto-publish नहीं होगा।"
+
+      - uses: actions/checkout@v4
+        if: steps.pr.outputs.same == '1' && steps.pr.outputs.state == 'OPEN'
+        with:
+          ref: ${{ steps.pr.outputs.head }}
+          fetch-depth: 0
+
+      - name: जाँच
+        id: check
+        if: steps.pr.outputs.same == '1' && steps.pr.outputs.state == 'OPEN'
+        run: |
+          set -uo pipefail
+          git fetch origin main
+          python3 tools/check_gpt_bhakti_pr.py origin/main "${{ steps.pr.outputs.head }}" | tee check.out
+          rc=${PIPESTATUS[0]}
+          cat check-report.md >> "$GITHUB_STEP_SUMMARY"
+          if [ "$rc" = "0" ]; then
+            echo "files=$(tail -1 check.out | sed 's/^PASS //')" >> "$GITHUB_OUTPUT"
+            echo "ok=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: फ़ेल — PR पर कारण लिखें
+        if: steps.check.outputs.ok == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment "${{ steps.pr.outputs.num }}" --repo "${{ github.repository }}" --body-file check-report.md
+          exit 1
+
+      - name: पास — main पर publish करें
+        if: steps.check.outputs.ok == '1'
+        env:
+          FILES: ${{ steps.check.outputs.files }}
+          HEAD_SHA: ${{ steps.pr.outputs.head }}
+          PR_NUM: ${{ steps.pr.outputs.num }}
+        run: |
+          set -euo pipefail
+          cp check-report.md /tmp/check-report.md
+          git config user.name 'DesiLalkaar Reports Bot'
+          git config user.email 'actions@github.com'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git checkout -f -B publish origin/main
+            git checkout "$HEAD_SHA" -- $FILES
+            # log.md की पंक्ति workflow खुद बनाता है (PR की log पंक्ति नहीं ली जाती, ताकि conflict न हो)
+            python3 - $FILES <<'PY'
+          import json, re, sys
+          from html.parser import HTMLParser
+          class T(HTMLParser):
+              def __init__(s): super().__init__(); s.t=[]
+              def handle_data(s,d): s.t.append(d)
+          log = open('log.md', encoding='utf-8').read()
+          for f in sys.argv[1:]:
+              if not f.endswith('.json'): continue
+              d = json.load(open(f, encoding='utf-8'))
+              p = T(); p.feed(d['content_html']); wc = len(''.join(p.t).split())
+              date = re.search(r'reports/(\d{4}-\d{2}-\d{2})-', f).group(1)
+              line = f"- {date} | भक्ति (ChatGPT): {d['title']} | {f} | {wc}"
+              if f not in log:
+                  log += ('' if log.endswith('\n') else '\n') + line + '\n'
+          open('log.md', 'w', encoding='utf-8').write(log)
+          PY
+            git add $FILES log.md
+            git commit -m "भक्ति (ChatGPT PR #$PR_NUM): auto-publish" -m "जाँच: tools/check_gpt_bhakti_pr.py"
+            if git push origin publish:main; then break; fi
+            [ "$attempt" = 3 ] && { echo "main पर push नहीं हो सका"; exit 1; }
+            sleep 10
+          done
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: PR बंद करें
+        if: steps.check.outputs.ok == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            cat /tmp/check-report.md
+            echo
+            echo "📰 फ़ाइलें main पर commit ${sha} में publish के लिए भेज दी गईं। वेबसाइट का cron अगले घंटे में इन्हें उठा लेगा।"
+          } > comment.md
+          gh pr close "${{ steps.pr.outputs.num }}" --repo "${{ github.repository }}" --comment "$(cat comment.md)" --delete-branch || \
+            gh pr close "${{ steps.pr.outputs.num }}" --repo "${{ github.repository }}" --comment "$(cat comment.md)"
