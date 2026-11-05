@@ -147,3 +147,4 @@
 - 2026-11-04 | लखपति दीदी योजना: 3.46 करोड़ महिलाओं के परिवार की सालाना आय ₹1 लाख के पार (बदलता भारत, भाग 10) | reports/2026-11-04-lakhpati-didi-day-nrlm-shg-women-income-badalta-bharat.json | 3201
 - 2026-11-04 | मातृ वंदना योजना: 4.27 करोड़ माताओं के खाते में ₹20,150 करोड़, दूसरी बेटी पर ₹6,000 की मदद (बदलता भारत, भाग 11) | reports/2026-11-04-pradhan-mantri-matru-vandana-yojana-maternity-benefit-badalta-bharat.json | 2639
 - 2026-11-04 | ग्राम सड़क योजना के 25 साल: 7.97 लाख किमी पक्की सड़कें, 1.62 लाख बसाहटें बारहमासी रास्ते से जुड़ीं (बदलता भारत, भाग 12) | reports/2026-11-04-pradhan-mantri-gram-sadak-yojana-25-years-rural-roads-badalta-bharat.json | 2621
+- 2026-11-05 | भारतनेट: 2.14 लाख ग्राम पंचायतें ऑप्टिकल फ़ाइबर से जुड़ीं, 7 लाख किमी नेटवर्क से गांवों तक तेज़ इंटरनेट (बदलता भारत, भाग 13) | reports/2026-11-05-bharatnet-gram-panchayat-optical-fibre-badalta-bharat.json | 2861

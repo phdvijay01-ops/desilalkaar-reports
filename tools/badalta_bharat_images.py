@@ -382,8 +382,48 @@ def scene_road():
     return "".join(s)
 
 
+def scene_bharatnet():
+    """भारतनेट: खंभों पर दौड़ती फ़ाइबर लाइन, Wi-Fi वाला पंचायत भवन, टैबलेट पर पढ़ती बच्ची और फ़ोन पर किसान।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    s.append('<circle cx="84" cy="86" r="34" fill="#ffd54f"/>')
+    s.append('<path d="M0 300 Q140 230 280 280 Q420 220 560 270 Q610 255 660 262 L660 360 L0 360 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M0 360 L660 360 L660 580 L0 580 Z" fill="#dcedc8"/>')
+    # खेत की क्यारियाँ
+    for y in (390, 420, 450):
+        s.append(f'<path d="M20 {y} Q120 {y-8} 220 {y}" fill="none" stroke="#7cb342" stroke-width="2.4"/>')
+    # खंभे और फ़ाइबर केबल (नारंगी)
+    poles = [(40, 250), (190, 232), (340, 220), (490, 214)]
+    for x, top in poles:
+        s.append(f'<path d="M{x} {top} L{x} 360" stroke-width="4"/><path d="M{x-14} {top+8} L{x+14} {top+8}"/>')
+    pts = " ".join(f"Q{(poles[i][0]+poles[i+1][0])/2:.0f} {max(poles[i][1], poles[i+1][1])+34} {poles[i+1][0]} {poles[i+1][1]+8}" for i in range(len(poles)-1))
+    s.append(f'<path d="M{poles[0][0]} {poles[0][1]+8} {pts} Q540 250 560 262" fill="none" stroke="#ef6c00" stroke-width="4"/>')
+    # ग्राम पंचायत भवन + Wi-Fi
+    s.append('<rect x="400" y="262" width="230" height="140" fill="#fff8e1"/><path d="M388 266 L515 210 L642 266 Z" fill="#ef9a9a"/>')
+    s.append('<text x="515" y="296" text-anchor="middle" font-size="20" font-weight="800" fill="#5c0f12" stroke="none">ग्राम पंचायत</text>')
+    s.append('<rect x="490" y="340" width="50" height="62" fill="#a1887f"/><rect x="420" y="320" width="44" height="36" fill="#e3f2fd"/><rect x="566" y="320" width="44" height="36" fill="#e3f2fd"/>')
+    s.append('<rect x="560" y="234" width="40" height="20" rx="4" fill="#fff"/><circle cx="590" cy="244" r="3.5" fill="#43a047"/><path d="M570 234 l-6 -16 M590 234 l6 -16"/>')
+    for r in (14, 26, 38):
+        s.append(f'<path d="M{580-r} {206-r*0.2:.0f} a{r} {r} 0 0 1 {2*r} 0" fill="none" stroke="#1e88e5" stroke-width="3.2"/>')
+    s.append('<circle cx="580" cy="208" r="4.5" fill="#1e88e5" stroke="none"/>')
+    # बरगद का पेड़
+    s.append('<rect x="290" y="300" width="14" height="70" fill="#8d6e63"/><circle cx="297" cy="292" r="36" fill="#81c784"/>')
+    # टैबलेट पर पढ़ती बच्ची
+    s.append(_person(150, 572, "#d49a6a", "#4fc3f7", 0.78))
+    s.append('<rect x="176" y="430" width="58" height="42" rx="6" fill="#fff"/><rect x="182" y="436" width="46" height="30" rx="3" fill="#bbdefb"/>')
+    s.append('<path d="M190 446 h30 M190 456 h20" stroke-width="2"/><path d="M168 454 Q172 446 178 446" fill="none"/>')
+    # फ़ोन पर वीडियो कॉल करता किसान, साफ़ा
+    s.append(_person(420, 572, "#b97850", "#ffffff", 0.95))
+    s.append('<path d="M396 378 Q420 360 444 378 L444 386 L396 386 Z" fill="#ffb74d"/>')
+    s.append('<path d="M446 452 Q470 430 466 400" fill="none"/>')
+    s.append('<rect x="452" y="352" width="40" height="66" rx="7" fill="#e3f2fd"/><rect x="458" y="360" width="28" height="44" rx="3" fill="#c8e6c9"/>')
+    s.append('<circle cx="472" cy="376" r="7" fill="#ffccbc"/><path d="M462 398 q10 -12 20 0" fill="#90caf9"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
 SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
-          "matru": scene_matru, "road": scene_road}
+          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet}
 
 
 def featured_lineart(f, part):
