@@ -63,5 +63,5 @@ Website cron नई JSON फ़ाइलों को स्वतः draft/publ
 ## भक्ति कथा (शास्त्र-आधारित)
 
 - `tags` में "भक्ति" होने पर `tools/validate.py` बिना "विश्लेषण:" वाला शीर्षक, बिना chart और बिना table वाला लेख स्वीकार करता है (1100–2100 शब्द, 5+ https स्रोत वही रहते हैं)।
-- Claude के रोज़ के भक्ति लेख: फ़ाइल `reports/YYYY-MM-DD-<slug>-bhakti.json`, cover `tools/bhakti_lineart_cover.py` से; नियम `prompts/chatgpt-bhakti-prompt.md` जैसे ही।
+- Claude से भक्ति लेख बनवाए जाएँ तो: फ़ाइल `reports/YYYY-MM-DD-<slug>-bhakti.json`, cover `tools/bhakti_lineart_cover.py` से; नियम `prompts/chatgpt-bhakti-prompt.md` जैसे ही।
 - ChatGPT (Codex) के भक्ति लेख `-gpt-bhakti` slug के साथ PR में आते हैं। `.github/workflows/gpt-bhakti-autopublish.yml` उन्हें `tools/check_gpt_bhakti_pr.py` से जाँचकर पास होने पर खुद `main` पर डालता है और log.md में "भक्ति (ChatGPT): …" पंक्ति जोड़ता है। विषय चुनते समय `reports/*-gpt-bhakti.json` भी देखें ताकि कथा दोहराई न जाए।
