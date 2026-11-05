@@ -1,0 +1,61 @@
+name: ChatGPT भक्ति लेख — inbox से publish
+
+# GitHub पर inbox/ में ChatGPT का JSON (और चाहें तो उसी नाम की image) डालते ही यह चलता है।
+# tools/inbox_bhakti.py जाँच करता है; पास होने पर लेख reports/ में चला जाता है (वेबसाइट अगले घंटे
+# publish करती है, cover न हो तो auto-cover 10 मिनट में बनाता है)। फ़ेल होने पर inbox/<नाम>.errors.md
+# में कारण लिखे जाते हैं और GitHub आपको "workflow failed" का email भेजता है।
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'inbox/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gpt-bhakti-inbox
+  cancel-in-progress: false
+
+jobs:
+  inbox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: जाँच और publish
+        id: run
+        run: |
+          pip install -q pillow
+          set +e
+          python3 tools/inbox_bhakti.py
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Commit और push
+        run: |
+          set -euo pipefail
+          git config user.name 'DesiLalkaar Reports Bot'
+          git config user.email 'actions@github.com'
+          git add -A inbox reports log.md
+          if git diff --cached --quiet; then echo "कोई बदलाव नहीं"; exit 0; fi
+          git commit -m "भक्ति (ChatGPT): inbox से publish/जाँच"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            sleep 5
+          done
+          exit 1
+
+      - name: फ़ेल हुए लेख
+        if: steps.run.outputs.rc != '0'
+        run: |
+          echo "कुछ लेख जाँच में फ़ेल हुए — inbox/ में .errors.md फ़ाइल देखें।"
+          exit 1
