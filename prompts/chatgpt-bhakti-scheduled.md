@@ -67,7 +67,7 @@ Using the GitHub app, commit directly to **main** of phdvijay01-ops/desilalkaar-
 2. THEN the JSON as `inbox/<slug>.json`. Commit message: `भक्ति (ChatGPT): <कथा>`
 The image must be committed before the JSON, because the check runs as soon as the JSON arrives.
 Do NOT create, change or delete any other file — not reports/, log.md, tools/ or .github/.
-If the GitHub app cannot upload the image file, still commit the JSON, and attach the image in your reply so I can upload it myself (the website will use an automatic cover until then).
+If the GitHub app cannot upload the image file, still commit the JSON, and attach the image in your reply with its exact file name `<slug>.png`, so I can upload it to inbox/ myself. The JSON waits 3 hours in inbox/ for the image; after that it is published with an automatic cover.
 
 ### Step 8 — Report
 Reply in Hindi in 3–4 lines: कथा का नाम, शब्द संख्या, स्रोतों की संख्या, `needs_check` की मुख्य बात, और दोनों फ़ाइलें GitHub में गईं या नहीं।

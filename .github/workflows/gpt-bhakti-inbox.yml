@@ -4,12 +4,15 @@ name: ChatGPT भक्ति लेख — inbox से publish
 # tools/inbox_bhakti.py जाँच करता है; पास होने पर लेख reports/ में चला जाता है (वेबसाइट अगले घंटे
 # publish करती है, cover न हो तो auto-cover 10 मिनट में बनाता है)। फ़ेल होने पर inbox/<नाम>.errors.md
 # में कारण लिखे जाते हैं और GitHub आपको "workflow failed" का email भेजता है।
+# Image न हो तो JSON 3 घंटे inbox में image का इंतज़ार करता है (हर 15 मिनट जाँच), फिर auto-cover से publish।
 
 on:
   push:
     branches: [main]
     paths:
       - 'inbox/**'
+  schedule:
+    - cron: '*/15 * * * *'   # image का इंतज़ार पूरा होने पर publish करने के लिए
   workflow_dispatch:
 
 permissions:

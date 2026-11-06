@@ -24,6 +24,21 @@ import sys
 
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 IMG_EXT = (".png", ".jpg", ".jpeg", ".webp")
+# वेबसाइट हर लेख को एक ही बार उठाती है, इसलिए ChatGPT की image लेख के साथ ही जानी चाहिए।
+# JSON आने के बाद इतने मिनट image का इंतज़ार; फिर auto-cover वाले cover से publish।
+WAIT_FOR_IMAGE_MIN = int(os.environ.get("WAIT_FOR_IMAGE_MIN", "180"))
+
+
+def arrived_minutes_ago(path):
+    """JSON पहली बार inbox में कब commit हुई (git से); पता न चले तो 'बहुत पहले' मानें।"""
+    try:
+        out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%ct", "--", path],
+                             capture_output=True, text=True).stdout.split()
+        if out:
+            return int((dt.datetime.now().timestamp() - int(out[-1])) // 60)
+    except Exception:
+        pass
+    return 10 ** 6
 
 
 def first_words(title, n=4):
@@ -42,8 +57,9 @@ def same_katha(a, b):
     ka, kb = key(a), key(b)
     if not ka or not kb:
         return False
-    n = min(len(ka), len(kb), 6)
-    return n >= 4 and ka[:n] == kb[:n]
+    short, long_ = sorted((ka, kb), key=len)
+    # ajamil/ajamila, prahlad/prahlada जैसे वर्तनी-अंतर; पर dhan ≠ dhanvantari
+    return len(short) >= 5 and long_.startswith(short) and len(long_) - len(short) <= 2
 
 
 def parse_loose(text):
@@ -84,10 +100,11 @@ def main():
             old_titles[first_words(d["title"])] = p
         m = re.match(r"reports/(\d{4}-\d{2}-\d{2})-(.+)\.json$", p)
         if m and m.group(1) >= cutoff:
-            old_slugs.add(re.sub(r"-(gpt-)?bhakti$", "", m.group(2)))
+            if m.group(2).endswith("bhakti"):  # सिर्फ़ भक्ति कथाओं से तुलना
+                old_slugs.add(re.sub(r"-(gpt-)?bhakti$", "", m.group(2)))
 
     inbox = sorted(f for f in glob.glob("inbox/*.json"))
-    published, failed, log_lines = [], [], []
+    published, failed, log_lines, waiting = [], [], [], []
     for src in inbox:
         stem = os.path.splitext(os.path.basename(src))[0]
         errfile = f"inbox/{stem}.errors.md"
@@ -132,6 +149,12 @@ def main():
                 errs.append(f"यही कथा पिछले 60 दिन में आ चुकी है (\"{same}\") — log.md देखकर दूसरी कथा लें")
 
             img = next((f"inbox/{stem}{e}" for e in IMG_EXT if os.path.exists(f"inbox/{stem}{e}")), None)
+            if not img and not errs:
+                waited = arrived_minutes_ago(src)
+                if waited < WAIT_FOR_IMAGE_MIN:
+                    left = WAIT_FOR_IMAGE_MIN - waited
+                    waiting.append(f"⏳ {src}: image का इंतज़ार — inbox/{stem}.png डालें; {left} मिनट बाद अपने-आप बने cover से publish होगा")
+                    continue
             cover = f"reports/images/{today}-{slug}-cover.png"
             if not errs:
                 json.dump(d, open(final, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
@@ -169,7 +192,7 @@ def main():
         log += ("" if log.endswith("\n") else "\n") + "\n".join(log_lines) + "\n"
         open("log.md", "w", encoding="utf-8").write(log)
 
-    summary = []
+    summary = list(waiting)
     for p in published:
         summary.append(f"✅ publish के लिए भेजा: {p}")
     for src, errs in failed:
