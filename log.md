@@ -149,3 +149,4 @@
 - 2026-11-04 | ग्राम सड़क योजना के 25 साल: 7.97 लाख किमी पक्की सड़कें, 1.62 लाख बसाहटें बारहमासी रास्ते से जुड़ीं (बदलता भारत, भाग 12) | reports/2026-11-04-pradhan-mantri-gram-sadak-yojana-25-years-rural-roads-badalta-bharat.json | 2621
 - 2026-11-05 | भारतनेट: 2.14 लाख ग्राम पंचायतें ऑप्टिकल फ़ाइबर से जुड़ीं, 7 लाख किमी नेटवर्क से गांवों तक तेज़ इंटरनेट (बदलता भारत, भाग 13) | reports/2026-11-05-bharatnet-gram-panchayat-optical-fibre-badalta-bharat.json | 2861
 - 2026-11-05 | विश्लेषण: सत्ता में रहते हुए 'लोकतंत्र बचाओ' पदयात्रा, BJP को सड़क पर उतरने की ज़रूरत क्यों पड़ी | reports/2026-11-05-bjp-loktantra-bachao-padyatra-ruling-party-analysis.json | 1588
+- 2026-11-06 | अमृत सरोवर मिशन: 68,000 से ज़्यादा तालाब तैयार, 50,000 का लक्ष्य समय से पहले पार (बदलता भारत, भाग 14) | reports/2026-11-06-amrit-sarovar-mission-water-conservation-ponds-badalta-bharat.json | 3475

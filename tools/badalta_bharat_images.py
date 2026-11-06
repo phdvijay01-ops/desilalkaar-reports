@@ -422,8 +422,48 @@ def scene_bharatnet():
     return "".join(s)
 
 
+def scene_sarovar():
+    """अमृत सरोवर: सीढ़ीदार घाट वाला भरा तालाब, किनारे तिरंगा, नीम-पीपल, पानी पीते मवेशी, नाव से जाल डालती महिला और सरोवर का बोर्ड।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    s.append('<circle cx="560" cy="80" r="34" fill="#ffd54f"/>')
+    s.append('<path d="M0 220 Q140 160 280 200 Q420 150 560 196 Q610 186 660 190 L660 300 L0 300 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M0 260 L660 260 L660 580 L0 580 Z" fill="#dcedc8"/>')
+    # तालाब (अंडाकार) और लहरें
+    s.append('<ellipse cx="350" cy="430" rx="280" ry="110" fill="#81d4fa"/>')
+    s.append('<ellipse cx="350" cy="430" rx="240" ry="86" fill="#4fc3f7" stroke="none"/>')
+    for x, y in ((230, 410), (330, 450), (440, 420), (290, 480), (480, 470)):
+        s.append(f'<path d="M{x} {y} q12 -8 24 0 q12 8 24 0" stroke="#e1f5fe" stroke-width="2.4"/>')
+    # सीढ़ीदार घाट (बाएं)
+    s.append('<path d="M60 350 L110 412 L190 400 L170 350 Z" fill="#ffe0b2" stroke-width="2.6"/>')
+    for i in range(1, 4):
+        s.append(f'<path d="M{60+i*12.5:.0f} {350+i*15.5:.0f} L{170+i*6.7:.0f} {350+i*12.5:.0f}" stroke-width="2.4"/>')
+    # तिरंगा
+    s.append('<path d="M110 340 L110 220" stroke-width="4"/>')
+    s.append('<rect x="112" y="222" width="64" height="14" fill="#ff9933"/><rect x="112" y="236" width="64" height="14" fill="#fff"/><rect x="112" y="250" width="64" height="14" fill="#138808"/>')
+    s.append('<circle cx="144" cy="243" r="4.5" fill="none" stroke="#1a237e" stroke-width="1.8"/>')
+    # सरोवर का बोर्ड
+    s.append('<rect x="210" y="262" width="150" height="54" rx="6" fill="#fff8e1"/><path d="M240 316 L240 342 M330 316 L330 342" stroke-width="3.4"/>')
+    s.append('<text x="285" y="296" text-anchor="middle" font-size="22" font-weight="800" fill="#5c0f12" stroke="none">अमृत सरोवर</text>')
+    # नीम / पीपल
+    s.append('<rect x="560" y="250" width="14" height="80" fill="#8d6e63"/><circle cx="567" cy="236" r="42" fill="#81c784"/>')
+    s.append('<rect x="420" y="232" width="12" height="66" fill="#8d6e63"/><circle cx="426" cy="222" r="30" fill="#a5d6a7"/>')
+    # पानी पीती गाय (दाएं किनारे)
+    s.append('<g transform="translate(-50,-80)"><path d="M528 388 L526 410 M548 392 L548 412 M574 392 L574 412 M594 386 L596 408"/><ellipse cx="560" cy="372" rx="44" ry="22" fill="#fff"/>')
+    s.append('<path d="M516 370 Q496 376 492 392 Q500 398 508 392 Q514 382 522 380" fill="#fff"/><path d="M512 364 l-6 -10 M522 364 l2 -10"/></g>')
+    # नाव पर जाल डालती महिला
+    s.append('<path d="M300 440 Q350 470 410 440 Z" fill="#a1887f"/>')
+    s.append(_person(356, 446, "#c68a5e", "#ef5350", 0.36, saree=True))
+    s.append('<path d="M366 400 Q410 384 430 420 Q404 432 378 424" fill="none" stroke-dasharray="4 4" stroke-width="2"/>')
+    # कमल
+    for x, y in ((470, 400), (230, 460)):
+        s.append(f'<path d="M{x} {y} q-8 -14 0 -22 q8 8 0 22 q-14 -4 -16 -14 q12 0 16 14 q4 -12 16 -14 q-2 10 -16 14" fill="#f8bbd0" stroke-width="2"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
 SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
-          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet}
+          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar}
 
 
 def featured_lineart(f, part):
