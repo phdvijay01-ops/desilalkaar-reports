@@ -462,8 +462,54 @@ def scene_sarovar():
     return "".join(s)
 
 
+def scene_ganga():
+    """नमामि गंगे: मंदिर वाला सीढ़ीदार घाट, बहती गंगा, उछलती डॉल्फ़िन, नाव, किनारे सीवेज शोधन संयंत्र (STP) के गोल टैंक और घाट पर गंगा प्रहरी।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    s.append('<circle cx="320" cy="84" r="34" fill="#ffd54f"/>')
+    for x, y in ((420, 70), (470, 92)):
+        s.append(f'<path d="M{x} {y} q10 -10 20 0 q10 -10 20 0" fill="none" stroke-width="2.4"/>')
+    s.append('<path d="M0 250 Q160 200 330 236 Q500 206 660 230 L660 320 L0 320 Z" fill="#c5e1a5"/>')
+    # नदी
+    s.append('<path d="M0 330 Q330 300 660 330 L660 580 L0 580 Z" fill="#81d4fa"/>')
+    s.append('<path d="M0 380 Q330 350 660 380 L660 580 L0 580 Z" fill="#4fc3f7" stroke="none"/>')
+    for x, y in ((250, 420), (380, 470), (520, 430), (150, 500), (470, 530)):
+        s.append(f'<path d="M{x} {y} q12 -8 24 0 q12 8 24 0" stroke="#e1f5fe" stroke-width="2.4"/>')
+    # बाएं: मंदिर और सीढ़ीदार घाट
+    s.append('<rect x="40" y="200" width="90" height="110" fill="#ffe0b2"/>')
+    s.append('<path d="M30 204 L85 120 L140 204 Z" fill="#ef9a9a"/><path d="M85 120 L85 96"/><path d="M85 96 l22 8 l-22 8 Z" fill="#ff9933"/>')
+    s.append('<path d="M70 310 L70 262 Q85 244 100 262 L100 310" fill="#a1887f"/>')
+    s.append('<path d="M0 310 L210 310 L250 400 L0 400 Z" fill="#ffe0b2" stroke-width="2.6"/>')
+    for i in range(1, 5):
+        s.append(f'<path d="M0 {310+i*18} L{210+i*8} {310+i*18}" stroke-width="2.2"/>')
+    # घाट पर दीया और गंगा प्रहरी (हरी जैकेट)
+    s.append('<path d="M180 318 q12 10 24 0 Z" fill="#ff9800"/><path d="M192 316 q-5 -10 0 -16 q5 6 0 16" fill="#ffd54f" stroke-width="2"/>')
+    s.append(_person(120, 392, "#c68a5e", "#43a047", 0.5))
+    s.append('<path d="M134 330 L150 300" stroke-width="3"/><rect x="146" y="286" width="30" height="20" rx="3" fill="#fff"/>')
+    # दाएं किनारे: STP के गोल टैंक और भवन
+    s.append('<rect x="520" y="210" width="110" height="70" fill="#fff8e1"/><path d="M512 214 L575 182 L638 214 Z" fill="#b0bec5"/>')
+    s.append('<text x="575" y="254" text-anchor="middle" font-size="22" font-weight="800" fill="#5c0f12" stroke="none">STP</text>')
+    s.append('<ellipse cx="430" cy="262" rx="52" ry="16" fill="#b3e5fc"/><path d="M378 262 L378 284 Q430 300 482 284 L482 262" fill="#cfd8dc"/>')
+    s.append('<ellipse cx="430" cy="262" rx="52" ry="16" fill="#80deea"/>')
+    s.append('<path d="M482 280 L520 270 M560 280 L560 312 Q560 326 574 330" stroke="#546e7a" stroke-width="5"/>')
+    s.append('<path d="M574 332 q6 10 0 20 M586 332 q6 10 0 20" stroke="#29b6f6" stroke-width="3"/>')
+    # नाव और नाविक
+    s.append('<path d="M300 452 Q370 486 450 452 Z" fill="#a1887f"/>')
+    s.append(_person(380, 458, "#b97850", "#ffffff", 0.34))
+    s.append('<path d="M396 400 L430 486" stroke-width="3.4"/>')
+    # उछलती डॉल्फ़िन
+    s.append('<path d="M500 500 Q530 440 590 470 Q570 462 556 470 Q548 484 540 486 Q528 486 518 506 Z" fill="#90a4ae"/>')
+    s.append('<path d="M548 468 l-6 -12 l14 6" fill="#90a4ae"/><circle cx="578" cy="468" r="2.4" fill="' + INK + '" stroke="none"/>')
+    s.append('<path d="M500 512 q10 -8 20 0 q10 8 20 0" stroke="#e1f5fe" stroke-width="2.4"/>')
+    # पेड़
+    s.append('<rect x="250" y="236" width="12" height="64" fill="#8d6e63"/><circle cx="256" cy="226" r="32" fill="#81c784"/>')
+    s.append('<rect x="320" y="250" width="10" height="50" fill="#8d6e63"/><circle cx="325" cy="242" r="24" fill="#a5d6a7"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
 SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
-          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar}
+          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga}
 
 
 def featured_lineart(f, part):
