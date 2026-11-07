@@ -152,3 +152,9 @@
 - 2026-11-06 | अमृत सरोवर मिशन: 68,000 से ज़्यादा तालाब तैयार, 50,000 का लक्ष्य समय से पहले पार (बदलता भारत, भाग 14) | reports/2026-11-06-amrit-sarovar-mission-water-conservation-ponds-badalta-bharat.json | 3475
 - 2026-11-06 | भक्ति (ChatGPT): धन्वंतरि की कथा: समुद्र-मंथन से अमृत-कलश तक स्वास्थ्य और ज्ञान का संदेश | reports/2026-11-06-dhanvantari-samudra-manthan-gpt-bhakti.json | 1481
 - 2026-11-07 | नमामि गंगे: 355 परियोजनाएं पूरी, 4,050 MLD सीवेज शोधन क्षमता और सभी 112 स्थलों पर स्नान-योग्य ऑक्सीजन (बदलता भारत, भाग 15) | reports/2026-11-07-namami-gange-ganga-sewage-treatment-river-health-badalta-bharat.json | 3002
+- 2026-11-07 | विश्लेषण: महिलाओं पर अपराध में दोषसिद्धि दर 25.7%, अदालतों में 92% मुकदमे लंबित | reports/2026-11-07-crimes-against-women-ncrb-2024-justice-mp.json | 1795
+- 2026-11-07 | विश्लेषण: मधुमेह और हाई BP में जाँच से नियंत्रण तक बड़ी खाई, मध्य प्रदेश का हाल | reports/2026-11-07-diabetes-hypertension-india-mp-world-diabetes-day-2026.json | 1783
+- 2026-11-07 | विश्लेषण: IMF, विश्व बैंक और RBI के नए अनुमान, 2026-27 में भारत की वृद्धि 7% के आसपास | reports/2026-11-07-imf-world-bank-india-growth-forecast-october-2026.json | 1780
+- 2026-11-07 | विश्लेषण: प्लास्टिक कचरा 41 लाख टन के पार, सिंगल-यूज़ प्रतिबंध और EPR का हिसाब | reports/2026-11-07-plastic-waste-india-single-use-ban-epr-mp-2026.json | 1781
+- 2026-11-07 | विश्लेषण: बूढ़ा होता भारत, 2050 तक हर पाँचवाँ व्यक्ति 60+; सेहत और देखभाल की चुनौती | reports/2026-11-07-elderly-population-ageing-india-health-care-mp-2026.json | 1799
+- 2026-11-07 | विश्लेषण: डेंगू-मलेरिया के दर्ज मामले घटे, मध्य प्रदेश में मलेरिया सबसे ज़्यादा बालाघाट में | reports/2026-11-07-dengue-malaria-india-mp-2026-ncvbdc.json | 1776
