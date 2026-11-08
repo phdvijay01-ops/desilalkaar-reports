@@ -158,3 +158,4 @@
 - 2026-11-07 | विश्लेषण: प्लास्टिक कचरा 41 लाख टन के पार, सिंगल-यूज़ प्रतिबंध और EPR का हिसाब | reports/2026-11-07-plastic-waste-india-single-use-ban-epr-mp-2026.json | 1781
 - 2026-11-07 | विश्लेषण: बूढ़ा होता भारत, 2050 तक हर पाँचवाँ व्यक्ति 60+; सेहत और देखभाल की चुनौती | reports/2026-11-07-elderly-population-ageing-india-health-care-mp-2026.json | 1799
 - 2026-11-07 | विश्लेषण: डेंगू-मलेरिया के दर्ज मामले घटे, मध्य प्रदेश में मलेरिया सबसे ज़्यादा बालाघाट में | reports/2026-11-07-dengue-malaria-india-mp-2026-ncvbdc.json | 1776
+- 2026-11-08 | गरीब कल्याण अन्न योजना: 81 करोड़ लोगों को हर महीने मुफ़्त राशन, दिसंबर 2028 तक खाद्य सुरक्षा की गारंटी (बदलता भारत, भाग 16) | reports/2026-11-08-pradhan-mantri-garib-kalyan-anna-yojana-free-ration-food-security-badalta-bharat.json | 3283

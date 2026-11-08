@@ -508,8 +508,50 @@ def scene_ganga():
     return "".join(s)
 
 
+def scene_ration():
+    """गरीब कल्याण अन्न योजना: उचित मूल्य की दुकान, अनाज की बोरियां, ePoS मशीन पर अंगूठा लगाती महिला, थैला लिए बुज़ुर्ग, गेहूं की बालियां।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#fdf3e1" stroke="none"/>')
+    s.append('<circle cx="90" cy="80" r="34" fill="#ffd54f"/>')
+    s.append('<path d="M0 470 Q160 430 330 456 Q500 428 660 452 L660 580 L0 580 Z" fill="#e6f1d8"/>')
+    # दुकान का भवन
+    s.append('<rect x="150" y="170" width="380" height="300" fill="#fff8e1"/>')
+    s.append('<path d="M130 176 L340 104 L550 176 Z" fill="#ffccbc"/>')
+    s.append('<rect x="190" y="132" width="300" height="0" />')
+    s.append('<rect x="200" y="186" width="280" height="46" rx="6" fill="#b8232a"/>')
+    s.append('<text x="340" y="219" text-anchor="middle" font-size="26" font-weight="800" fill="#fff" stroke="none">उचित मूल्य दुकान</text>')
+    # धारीदार छज्जा
+    for i in range(7):
+        col = "#ff9933" if i % 2 == 0 else "#ffffff"
+        s.append(f'<path d="M{150+i*54.3:.0f} 240 L{204+i*54.3:.0f} 240 L{204+i*54.3:.0f} 262 Q{177+i*54.3:.0f} 276 {150+i*54.3:.0f} 262 Z" fill="{col}"/>')
+    # काउंटर और बोरियां
+    s.append('<rect x="170" y="380" width="340" height="24" fill="#a1887f"/>')
+    for x, lab in ((210, "गेहूं"), (300, "चावल"), (390, "गेहूं")):
+        s.append(f'<path d="M{x-34} 380 Q{x-40} 310 {x-22} 296 L{x+22} 296 Q{x+40} 310 {x+34} 380 Z" fill="#f5deb3"/>')
+        s.append(f'<path d="M{x-22} 296 q22 -14 44 0" fill="none"/>')
+        s.append(f'<text x="{x}" y="350" text-anchor="middle" font-size="18" font-weight="800" fill="#5c0f12" stroke="none">{lab}</text>')
+    # तराज़ू
+    s.append('<path d="M470 300 L470 380 M440 310 L500 310" stroke-width="3"/><path d="M432 310 l-10 26 h28 Z M508 310 l-10 26 h28 Z" fill="#ffe082"/>')
+    # ePoS मशीन और महिला
+    s.append('<rect x="80" y="388" width="52" height="34" rx="6" fill="#cfd8dc"/><circle cx="118" cy="405" r="6" fill="#66bb6a"/>')
+    s.append(_person(70, 580, "#c68a5e", "#ef5350", 0.78, saree=True))
+    s.append('<path d="M96 450 Q108 430 110 414" fill="none"/>')
+    # थैला लिए बुज़ुर्ग
+    s.append(_person(590, 580, "#b97850", "#ffffff", 0.86))
+    s.append('<path d="M560 470 L548 520" /><path d="M520 516 L576 516 L570 566 L526 566 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M534 516 q14 -24 28 0" fill="none"/>')
+    # गेहूं की बालियां
+    for x in (20, 36, 628, 644):
+        s.append(f'<path d="M{x} 580 L{x} 500" stroke="#8d6e63"/>')
+        for k in range(4):
+            s.append(f'<ellipse cx="{x-5}" cy="{506+k*12}" rx="4" ry="7" fill="#ffca28" stroke-width="1.6"/><ellipse cx="{x+5}" cy="{510+k*12}" rx="4" ry="7" fill="#ffca28" stroke-width="1.6"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
 SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
-          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga}
+          "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
+          "ration": scene_ration}
 
 
 def featured_lineart(f, part):
