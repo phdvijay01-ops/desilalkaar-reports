@@ -549,9 +549,51 @@ def scene_ration():
     return "".join(s)
 
 
+def scene_fasal():
+    """फसल बीमा: लहलहाता गेहूं-सोयाबीन का खेत, ऊपर बादल-ओले और उपग्रह, बीमा की ढाल, मोबाइल से जियो-टैग फ़ोटो लेता किसान, दावे का संदेश।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    # उपग्रह
+    s.append('<g transform="translate(470,70)"><rect x="-16" y="-12" width="32" height="24" rx="4" fill="#cfd8dc"/>'
+             '<rect x="-74" y="-10" width="50" height="20" fill="#90caf9"/><rect x="24" y="-10" width="50" height="20" fill="#90caf9"/>'
+             '<path d="M-24 0 L-16 0 M16 0 L24 0"/><path d="M0 12 L0 22"/></g>')
+    s.append('<path d="M470 96 L400 300 M470 96 L540 300" stroke="#90caf9" stroke-dasharray="6 6" stroke-width="2"/>')
+    # बादल और ओले/बारिश
+    s.append('<path d="M70 150 q0 -40 40 -40 q10 -34 50 -26 q30 -24 60 6 q40 0 40 34 q0 26 -30 26 L100 150 Q70 150 70 150 Z" fill="#b0bec5"/>')
+    for x, y in ((110, 180), (150, 196), (190, 178), (230, 192), (130, 216), (210, 220)):
+        s.append(f'<circle cx="{x}" cy="{y}" r="6" fill="#e3f2fd" stroke-width="2"/>')
+    # बीमा की ढाल (छाता जैसी सुरक्षा)
+    s.append('<path d="M330 120 L410 150 Q410 250 330 290 Q250 250 250 150 Z" fill="#fff8e1" stroke-width="3.4"/>')
+    s.append('<path d="M300 190 L324 216 L364 166" stroke="#138808" stroke-width="7" fill="none"/>')
+    s.append('<text x="330" y="252" text-anchor="middle" font-size="19" font-weight="800" fill="#5c0f12" stroke="none">फसल बीमा</text>')
+    # खेत की मेड़ें और ज़मीन
+    s.append('<path d="M0 320 Q330 290 660 320 L660 580 L0 580 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M0 380 Q330 350 660 380 M0 450 Q330 420 660 450 M0 520 Q330 494 660 520" stroke="#8d6e63" stroke-width="2.4"/>')
+    # गेहूं की बालियां (पंक्तियां)
+    for row, y0 in enumerate((372, 442, 512)):
+        for i in range(12):
+            x = 30 + i * 54 + (row % 2) * 20
+            if 360 < x < 520 and row == 2:
+                continue
+            s.append(f'<path d="M{x} {y0} L{x} {y0-44}" stroke="#7cb342" stroke-width="2.4"/>')
+            for k in range(3):
+                s.append(f'<ellipse cx="{x-4}" cy="{y0-40+k*10}" rx="3.6" ry="6" fill="#ffca28" stroke-width="1.5"/><ellipse cx="{x+4}" cy="{y0-36+k*10}" rx="3.6" ry="6" fill="#ffca28" stroke-width="1.5"/>')
+    # किसान (पगड़ी) मोबाइल से फ़ोटो लेता हुआ
+    s.append(_person(450, 576, "#b97850", "#ffffff", 0.82))
+    s.append('<path d="M424 405 Q450 384 476 405 Q450 396 424 405 Z" fill="#ff9933"/>')
+    s.append('<path d="M472 446 L512 420" stroke-width="3.4"/><rect x="508" y="396" width="26" height="42" rx="4" fill="#37474f"/>')
+    s.append('<circle cx="521" cy="410" r="5" fill="#90caf9" stroke-width="1.6"/>')
+    # दावे का संदेश
+    s.append('<rect x="540" y="330" width="110" height="56" rx="10" fill="#fff"/><path d="M556 386 L548 402 L572 386" fill="#fff"/>')
+    s.append('<text x="595" y="356" text-anchor="middle" font-size="17" font-weight="800" fill="#138808" stroke="none">दावा जमा</text>')
+    s.append('<text x="595" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#5c0f12" stroke="none">₹ खाते में</text>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
 SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
-          "ration": scene_ration}
+          "ration": scene_ration, "fasal": scene_fasal}
 
 
 def featured_lineart(f, part):
