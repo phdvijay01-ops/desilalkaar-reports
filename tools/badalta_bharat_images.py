@@ -591,7 +591,54 @@ def scene_fasal():
     return "".join(s)
 
 
-SCENES = {"dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_poshan():
+    """पीएम पोषण: सरकारी स्कूल का बरामदा, दरी पर कतार में बैठकर थाली में गरम भोजन खाते बच्चे, बड़े भगोने से परोसती रसोइया दीदी, पोषण वाटिका।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#fff6e8" stroke="none"/>')
+    # सूरज
+    s.append('<circle cx="580" cy="80" r="34" fill="#ffd54f"/>')
+    import math
+    for i in range(8):
+        a = i * math.pi / 4
+        s.append(f'<path d="M{580+46*math.cos(a):.0f} {80+46*math.sin(a):.0f} L{580+60*math.cos(a):.0f} {80+60*math.sin(a):.0f}" stroke-width="2.4"/>')
+    # स्कूल भवन
+    s.append('<rect x="30" y="150" width="400" height="200" fill="#fff3e0"/><path d="M14 154 L230 92 L446 154 Z" fill="#ef9a9a"/>')
+    s.append('<text x="230" y="140" text-anchor="middle" font-size="22" font-weight="800" fill="#5c0f12" stroke="none">शासकीय विद्यालय</text>')
+    s.append('<rect x="60" y="190" width="70" height="56" fill="#b3e5fc"/><rect x="330" y="190" width="70" height="56" fill="#b3e5fc"/>')
+    s.append('<rect x="160" y="180" width="140" height="80" fill="#2e5d3a"/><text x="230" y="228" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" stroke="none">क ख ग  1 2 3</text>')
+    s.append('<path d="M30 350 L430 350"/>')
+    # ज़मीन और दरी
+    s.append('<path d="M0 360 L660 360 L660 580 L0 580 Z" fill="#f3e2c6"/>')
+    s.append('<rect x="20" y="470" width="430" height="44" rx="4" fill="#ffcc80"/><path d="M20 492 L450 492" stroke="#e65100" stroke-dasharray="10 8" stroke-width="2"/>')
+    # बैठे बच्चे (कतार) और थालियां
+    cloth = ["#64b5f6", "#f06292", "#64b5f6", "#f06292"]
+    for i, x in enumerate((70, 170, 270, 370)):
+        s.append(f'<path d="M{x-30} 476 Q{x} 410 {x+30} 476 Z" fill="{cloth[i]}"/>')
+        s.append(f'<circle cx="{x}" cy="398" r="20" fill="#d49a6a"/>')
+        if i % 2:
+            s.append(f'<path d="M{x-20} 392 Q{x} 370 {x+20} 392" fill="#3a1a12"/>')
+        s.append(f'<ellipse cx="{x}" cy="500" rx="34" ry="10" fill="#cfd8dc"/>')
+        s.append(f'<circle cx="{x-12}" cy="496" r="7" fill="#fff8e1"/><circle cx="{x+2}" cy="497" r="7" fill="#ffb300"/><circle cx="{x+15}" cy="496" r="6" fill="#81c784"/>')
+        s.append(f'<path d="M{x+18} 450 L{x+6} 490" stroke-width="3"/>')
+    # रसोइया दीदी, भगोना और कलछी
+    s.append(_person(540, 560, "#c68b59", "#ff8a65", 0.95, saree=True))
+    s.append('<path d="M470 470 L470 520 Q500 540 530 520 L530 470 Z" fill="#b0bec5"/><ellipse cx="500" cy="470" rx="30" ry="9" fill="#90a4ae"/>')
+    for x in (488, 500, 512):
+        s.append(f'<path d="M{x} 456 q-6 -12 0 -24" stroke="#bdbdbd" stroke-width="2"/>')
+    s.append('<path d="M518 420 L500 462" stroke-width="3.4"/>')
+    # पोषण वाटिका (दाएं, ऊपर)
+    s.append('<rect x="460" y="270" width="190" height="80" rx="6" fill="#c5e1a5"/>')
+    s.append('<text x="555" y="262" text-anchor="middle" font-size="18" font-weight="800" fill="#138808" stroke="none">पोषण वाटिका</text>')
+    for i in range(6):
+        x = 480 + i * 30
+        s.append(f'<path d="M{x} 340 L{x} 300" stroke="#558b2f" stroke-width="2.4"/><ellipse cx="{x-8}" cy="304" rx="9" ry="5" fill="#7cb342"/><ellipse cx="{x+8}" cy="314" rx="9" ry="5" fill="#7cb342"/>')
+        if i % 2 == 0:
+            s.append(f'<circle cx="{x}" cy="296" r="7" fill="#e53935"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 

@@ -160,3 +160,4 @@
 - 2026-11-07 | विश्लेषण: डेंगू-मलेरिया के दर्ज मामले घटे, मध्य प्रदेश में मलेरिया सबसे ज़्यादा बालाघाट में | reports/2026-11-07-dengue-malaria-india-mp-2026-ncvbdc.json | 1776
 - 2026-11-08 | गरीब कल्याण अन्न योजना: 81 करोड़ लोगों को हर महीने मुफ़्त राशन, दिसंबर 2028 तक खाद्य सुरक्षा की गारंटी (बदलता भारत, भाग 16) | reports/2026-11-08-pradhan-mantri-garib-kalyan-anna-yojana-free-ration-food-security-badalta-bharat.json | 3283
 - 2026-11-09 | प्रधानमंत्री फसल बीमा योजना के 10 साल: किसानों के ₹36 हज़ार करोड़ प्रीमियम पर ₹1.92 लाख करोड़ के दावे (बदलता भारत, भाग 17) | reports/2026-11-09-pradhan-mantri-fasal-bima-yojana-10-years-premium-claims-badalta-bharat.json | 3029
+- 2026-11-10 | पीएम पोषण योजना: 10.36 लाख स्कूलों के 11.20 करोड़ बच्चों तक हर दिन गरम, पौष्टिक भोजन (बदलता भारत, भाग 18) | reports/2026-11-10-pm-poshan-mid-day-meal-school-nutrition-badalta-bharat.json | 3444
