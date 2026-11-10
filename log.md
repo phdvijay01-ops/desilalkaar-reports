@@ -161,3 +161,9 @@
 - 2026-11-08 | गरीब कल्याण अन्न योजना: 81 करोड़ लोगों को हर महीने मुफ़्त राशन, दिसंबर 2028 तक खाद्य सुरक्षा की गारंटी (बदलता भारत, भाग 16) | reports/2026-11-08-pradhan-mantri-garib-kalyan-anna-yojana-free-ration-food-security-badalta-bharat.json | 3283
 - 2026-11-09 | प्रधानमंत्री फसल बीमा योजना के 10 साल: किसानों के ₹36 हज़ार करोड़ प्रीमियम पर ₹1.92 लाख करोड़ के दावे (बदलता भारत, भाग 17) | reports/2026-11-09-pradhan-mantri-fasal-bima-yojana-10-years-premium-claims-badalta-bharat.json | 3029
 - 2026-11-10 | पीएम पोषण योजना: 10.36 लाख स्कूलों के 11.20 करोड़ बच्चों तक हर दिन गरम, पौष्टिक भोजन (बदलता भारत, भाग 18) | reports/2026-11-10-pm-poshan-mid-day-meal-school-nutrition-badalta-bharat.json | 3444
+- 2026-11-10 | विश्लेषण: धान उपार्जन 2026-27, MSP ₹2,441 पर MP में 8.68 लाख पंजीयन, पर मिलिंग अटकी | reports/2026-11-10-mp-paddy-procurement-msp-kharif-2026-27.json | 1798
+- 2026-11-10 | विश्लेषण: गौवंश भ्रूण से दूध क्रांति तक, मध्य प्रदेश की नस्ल सुधार योजना की हकीकत | reports/2026-11-10-mp-indigenous-cattle-embryo-ivf-dairy-2026.json | 1786
+- 2026-11-10 | विश्लेषण: सिवनी-कटनी अग्निकांड में 12 मौतें, देश में 2024 में आग से 5,888 जानें गईं | reports/2026-11-10-fire-accidents-deaths-safety-mp-diwali-2026.json | 1795
+- 2026-11-10 | विश्लेषण: होम लोन की EMI पर फिर दबाव, बैंक ऑफ़ बड़ौदा ने MCLR 0.20% तक बढ़ाया | reports/2026-11-10-bank-loan-interest-rates-mclr-emi-rbi-2026.json | 1799
+- 2026-11-10 | विश्लेषण: कच्चे तेल पर 88.7% आयात निर्भरता, गहरे समुद्र की बोली सातवीं बार टली | reports/2026-11-10-crude-oil-import-dependence-deepwater-exploration-oalp-2026.json | 1712
+- 2026-11-10 | विश्लेषण: एल्युमिनियम एक्सट्रूज़न पर डंपिंग जाँच, चीन से रिकॉर्ड व्यापार घाटे के बीच कदम | reports/2026-11-10-aluminium-anti-dumping-probe-china-imports-dgtr-2026.json | 1774
