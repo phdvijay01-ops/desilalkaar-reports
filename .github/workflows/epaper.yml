@@ -1,0 +1,70 @@
+name: ई-पेपर
+
+# रोज़ रात 11:15 बजे (IST) उस दिन की reports/ से ई-पेपर PDF बनाकर epaper/ में डालता है।
+# वेबसाइट का cron (tools/github_epaper.php) इसे उठाकर /epaper/ पेज पर दिखाता है।
+# किसी दिन का दोबारा बनाना हो: Actions → ई-पेपर → Run workflow → तारीख (YYYY-MM-DD)।
+on:
+  schedule:
+    - cron: '45 17 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'तारीख YYYY-MM-DD (खाली = आज, IST)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: epaper
+  cancel-in-progress: false
+
+jobs:
+  epaper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: तारीख तय करें
+        id: d
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="${{ github.event.inputs.date }}"
+          if [ -z "$d" ]; then d=$(TZ=Asia/Kolkata date +%F); fi
+          [[ "$d" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "तारीख गलत: $d"; exit 1; }
+          echo "date=$d" >> "$GITHUB_OUTPUT"
+          if ls reports/"$d"-*.json >/dev/null 2>&1; then echo "has=1" >> "$GITHUB_OUTPUT"; else echo "has=0" >> "$GITHUB_OUTPUT"; echo "$d की कोई रिपोर्ट नहीं"; fi
+
+      - uses: actions/setup-python@v5
+        if: steps.d.outputs.has == '1'
+        with:
+          python-version: '3.12'
+
+      - name: Chromium, font और poppler
+        if: steps.d.outputs.has == '1'
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y poppler-utils fonts-noto-core
+          pip install playwright pillow
+          python -m playwright install --with-deps chromium
+
+      - name: ई-पेपर बनाएँ
+        if: steps.d.outputs.has == '1'
+        run: python3 tools/make_epaper.py "${{ steps.d.outputs.date }}"
+
+      - name: Commit और push
+        if: steps.d.outputs.has == '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "desilalkaar-epaper-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add epaper/
+          if git diff --cached --quiet; then echo "कोई बदलाव नहीं"; exit 0; fi
+          git commit -m "ई-पेपर ${{ steps.d.outputs.date }} [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            sleep 5
+          done
+          exit 1

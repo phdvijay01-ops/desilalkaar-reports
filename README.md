@@ -7,3 +7,4 @@
 - विषय: `topics.md` (किसी विषय को पहले लिखवाना हो तो "## अगला (प्राथमिकता)" में डालें)
 - इतिहास: `log.md`
 - Facebook/X auto-post: `tools/SOCIAL_SETUP.md`
+- ई-पेपर (desilalkaar.com/epaper/): `tools/EPAPER_SETUP.md`
