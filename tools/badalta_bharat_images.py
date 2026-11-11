@@ -638,7 +638,58 @@ def scene_poshan():
     return "".join(s)
 
 
-SCENES = {"poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_smartcity():
+    """स्मार्ट सिटी: कमांड सेंटर की स्क्रीनें, विरासत भवन, सोलर स्ट्रीटलाइट, CCTV, ई-बस, साइकिल ट्रैक और पैदल पथ वाली स्मार्ट सड़क।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    s.append('<circle cx="585" cy="78" r="32" fill="#ffd54f"/>')
+    # दूर की इमारतें
+    for x, h, col in ((20, 170, "#cfd8dc"), (90, 220, "#b0bec5"), (520, 200, "#cfd8dc"), (590, 150, "#b0bec5")):
+        s.append(f'<rect x="{x}" y="{330-h}" width="62" height="{h}" fill="{col}"/>')
+        for wy in range(330 - h + 16, 320, 30):
+            s.append(f'<rect x="{x+12}" y="{wy}" width="12" height="14" fill="#fff" stroke-width="1.5"/><rect x="{x+36}" y="{wy}" width="12" height="14" fill="#fff" stroke-width="1.5"/>')
+    # विरासत भवन (राजबाड़ा-शैली, सामान्य)
+    s.append('<rect x="170" y="170" width="170" height="160" fill="#ffe0b2"/>')
+    s.append('<path d="M160 172 L350 172 L350 156 L160 156 Z" fill="#ffcc80"/>')
+    for i in range(4):
+        x = 186 + i * 40
+        s.append(f'<path d="M{x} 300 L{x} 220 Q{x+12} 200 {x+24} 220 L{x+24} 300" fill="#a1887f"/>')
+    s.append('<path d="M226 156 Q255 112 284 156" fill="#ffab91"/><path d="M255 112 L255 96" stroke-width="2.4"/>')
+    # कमांड सेंटर (ICCC)
+    s.append('<rect x="360" y="150" width="150" height="180" fill="#fff"/>')
+    s.append('<text x="435" y="176" text-anchor="middle" font-size="17" font-weight="800" fill="#5c0f12" stroke="none">कमांड सेंटर</text>')
+    for r in range(2):
+        for c in range(3):
+            s.append(f'<rect x="{372+c*44}" y="{190+r*44}" width="38" height="34" fill="#1e3a5f"/>')
+    s.append('<path d="M378 214 l8 -8 l8 6 l10 -12" stroke="#4fc3f7" stroke-width="2"/><path d="M420 218 l6 -10 l6 4 l8 -10" stroke="#81c784" stroke-width="2"/>')
+    s.append('<circle cx="482" cy="252" r="9" fill="#ffca28" stroke="none"/><rect x="420" y="290" width="30" height="40" fill="#90a4ae"/>')
+    # सड़क: पैदल पथ, साइकिल ट्रैक, मुख्य सड़क
+    s.append('<path d="M0 330 L660 330 L660 360 L0 360 Z" fill="#e0e0e0"/>')
+    s.append('<path d="M0 360 L660 360 L660 392 L0 392 Z" fill="#a5d6a7"/>')
+    s.append('<path d="M40 376 h40 M140 376 h40 M240 376 h40 M340 376 h40 M440 376 h40 M540 376 h40" stroke="#fff" stroke-width="3"/>')
+    s.append('<path d="M0 392 L660 392 L660 520 L0 520 Z" fill="#78909c"/>')
+    s.append('<path d="M0 456 L660 456" stroke="#fff" stroke-width="4" stroke-dasharray="26 18"/>')
+    s.append('<path d="M0 520 L660 520 L660 580 L0 580 Z" fill="#e0e0e0"/>')
+    # साइकिल सवार
+    s.append('<circle cx="110" cy="382" r="9" fill="none"/><circle cx="140" cy="382" r="9" fill="none"/><path d="M110 382 L124 368 L140 382 M124 368 L128 356"/><circle cx="128" cy="348" r="6" fill="#d49a6a"/>')
+    # ई-बस
+    s.append('<rect x="250" y="404" width="190" height="62" rx="10" fill="#66bb6a"/>')
+    for x in (264, 300, 336, 372):
+        s.append(f'<rect x="{x}" y="414" width="28" height="22" fill="#e3f2fd"/>')
+    s.append('<rect x="410" y="414" width="22" height="40" fill="#e3f2fd"/><text x="300" y="458" font-size="14" font-weight="800" fill="#fff" stroke="none">ई-बस</text>')
+    s.append('<circle cx="282" cy="470" r="12" fill="#37474f"/><circle cx="406" cy="470" r="12" fill="#37474f"/>')
+    # सोलर स्ट्रीटलाइट और CCTV खंभे
+    for x in (40, 590):
+        s.append(f'<path d="M{x} 330 L{x} 230"/><rect x="{x-22}" y="214" width="44" height="14" fill="#1e3a5f"/><path d="M{x} 236 L{x+26} 246" /><ellipse cx="{x+30}" cy="250" rx="10" ry="5" fill="#fff59d"/>')
+    s.append('<path d="M530 330 L530 262"/><rect x="530" y="256" width="26" height="14" rx="3" fill="#eceff1"/><circle cx="556" cy="263" r="4" fill="#e53935" stroke="none"/>')
+    # पैदल चलते लोग
+    s.append(_person(600, 572, "#c68b59", "#ff8a65", 0.6, saree=True))
+    s.append(_person(70, 572, "#d49a6a", "#4fc3f7", 0.6))
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 

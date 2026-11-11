@@ -167,3 +167,4 @@
 - 2026-11-10 | विश्लेषण: होम लोन की EMI पर फिर दबाव, बैंक ऑफ़ बड़ौदा ने MCLR 0.20% तक बढ़ाया | reports/2026-11-10-bank-loan-interest-rates-mclr-emi-rbi-2026.json | 1799
 - 2026-11-10 | विश्लेषण: कच्चे तेल पर 88.7% आयात निर्भरता, गहरे समुद्र की बोली सातवीं बार टली | reports/2026-11-10-crude-oil-import-dependence-deepwater-exploration-oalp-2026.json | 1712
 - 2026-11-10 | विश्लेषण: एल्युमिनियम एक्सट्रूज़न पर डंपिंग जाँच, चीन से रिकॉर्ड व्यापार घाटे के बीच कदम | reports/2026-11-10-aluminium-anti-dumping-probe-china-imports-dgtr-2026.json | 1774
+- 2026-11-11 | स्मार्ट सिटी मिशन: 100 शहरों में ₹1.55 लाख करोड़ की 7,741 परियोजनाएं पूरी, मध्य प्रदेश में 98% काम पूरा (बदलता भारत, भाग 19) | reports/2026-11-11-smart-cities-mission-projects-completed-mp-badalta-bharat.json | 3217
