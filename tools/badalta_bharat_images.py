@@ -689,7 +689,52 @@ def scene_smartcity():
     return "".join(s)
 
 
-SCENES = {"smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_kcc():
+    """किसान क्रेडिट कार्ड: गांव की बैंक शाखा, हरा KCC कार्ड लिए किसान, खेत, गाय और मछली का तालाब।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eef6ee" stroke="none"/>')
+    s.append('<circle cx="580" cy="80" r="34" fill="#ffe082"/>')
+    # बैंक शाखा
+    s.append('<path d="M60 120 L230 70 L400 120 Z" fill="#ffccbc"/>')
+    s.append('<rect x="70" y="120" width="320" height="22" fill="#fff8e1"/>')
+    for x in (95, 160, 225, 290, 355):
+        s.append(f'<rect x="{x-10}" y="142" width="20" height="120" fill="#ffffff"/>')
+    s.append('<rect x="60" y="262" width="340" height="18" fill="#fff8e1"/>')
+    s.append('<text x="230" y="112" text-anchor="middle" font-size="22" font-weight="800" fill="#5c0f12" stroke="none">बैंक</text>')
+    s.append('<circle cx="230" cy="92" r="0"/>')
+    # खेत
+    s.append('<path d="M0 300 Q330 276 660 300 L660 580 L0 580 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M0 360 Q330 336 660 360 M0 430 Q330 406 660 430" stroke="#8d6e63" stroke-width="2.4"/>')
+    for row, y0 in enumerate((352, 422)):
+        for i in range(7):
+            x = 24 + i * 44 + (row % 2) * 18
+            s.append(f'<path d="M{x} {y0} L{x} {y0-36}" stroke="#7cb342" stroke-width="2.4"/>')
+            for k in range(3):
+                s.append(f'<ellipse cx="{x-4}" cy="{y0-32+k*9}" rx="3.4" ry="5.6" fill="#ffca28" stroke-width="1.5"/><ellipse cx="{x+4}" cy="{y0-29+k*9}" rx="3.4" ry="5.6" fill="#ffca28" stroke-width="1.5"/>')
+    # मछली का तालाब
+    s.append('<ellipse cx="150" cy="510" rx="130" ry="46" fill="#90caf9"/>')
+    for x, y in ((110, 505), (180, 520), (150, 495)):
+        s.append(f'<path d="M{x} {y} q14 -12 28 0 q-14 12 -28 0 Z M{x+28} {y} l10 -7 l0 14 Z" fill="#ff8a65" stroke-width="2"/>')
+    # गाय
+    s.append('<g transform="translate(530,470)"><ellipse cx="0" cy="0" rx="62" ry="34" fill="#ffffff"/>'
+             '<ellipse cx="-14" cy="-6" rx="16" ry="12" fill="#8d6e63" stroke="none"/>'
+             '<path d="M-44 26 L-44 66 M-24 30 L-24 66 M24 30 L24 66 M44 26 L44 66"/>'
+             '<ellipse cx="76" cy="-22" rx="24" ry="17" fill="#ffffff"/>'
+             '<path d="M66 -38 L60 -52 M88 -38 L94 -52"/><circle cx="82" cy="-24" r="2.6" fill="#3a1a12"/>'
+             '<path d="M-62 -4 Q-80 10 -74 34"/></g>')
+    # किसान, हाथ में हरा KCC कार्ड
+    s.append(_person(330, 560, "#b97850", "#ffffff", 0.82))
+    s.append('<path d="M304 389 Q330 368 356 389 Q330 380 304 389 Z" fill="#ff9933"/>')
+    s.append('<path d="M352 430 L392 404" stroke-width="3.4"/>')
+    s.append('<g transform="translate(384,372) rotate(-12)"><rect x="0" y="0" width="92" height="58" rx="7" fill="#2e7d32"/>'
+             '<rect x="10" y="12" width="18" height="13" rx="2" fill="#ffca28" stroke-width="1.6"/>'
+             '<text x="50" y="44" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff" stroke="none">KCC</text>'
+             '<text x="66" y="24" text-anchor="middle" font-size="14" font-weight="800" fill="#ffcf3f" stroke="none">4%</text></g>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
