@@ -734,7 +734,57 @@ def scene_kcc():
     return "".join(s)
 
 
-SCENES = {"kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_khelo():
+    """खेलो इंडिया: गांव के मैदान का रनिंग ट्रैक, दौड़ती खिलाड़ी, हॉकी-फ़ुटबॉल, पदक मंच और तिरंगा।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#f1f6fb" stroke="none"/>')
+    s.append('<circle cx="90" cy="84" r="36" fill="#ffe082"/>')
+    # पीछे स्टेडियम की गैलरी
+    s.append('<path d="M40 250 L40 170 Q330 120 620 170 L620 250 Z" fill="#ffe0b2"/>')
+    for y in (190, 212, 234):
+        s.append(f'<path d="M48 {y} Q330 {y-46} 612 {y}" stroke-width="2"/>')
+    # फ्लडलाइट
+    for x in (70, 590):
+        s.append(f'<path d="M{x} 250 L{x} 110"/><rect x="{x-20}" y="92" width="40" height="22" rx="3" fill="#fff59d"/>')
+    # मैदान और ट्रैक
+    s.append('<path d="M0 250 L660 250 L660 580 L0 580 Z" fill="#c5e1a5"/>')
+    s.append('<path d="M0 330 Q330 290 660 330 L660 430 Q330 390 0 430 Z" fill="#ef8a6b"/>')
+    for d in (24, 50, 76):
+        s.append(f'<path d="M0 {330+d} Q330 {290+d} 660 {330+d}" stroke="#ffffff" stroke-width="2.4"/>')
+    # पदक मंच
+    s.append('<rect x="430" y="196" width="60" height="54" fill="#ffffff"/><rect x="490" y="176" width="60" height="74" fill="#ffffff"/>'
+             '<rect x="550" y="212" width="60" height="38" fill="#ffffff"/>')
+    s.append('<text x="520" y="222" text-anchor="middle" font-size="26" font-weight="800" fill="#b8232a" stroke="none">1</text>'
+             '<text x="460" y="232" text-anchor="middle" font-size="22" font-weight="800" fill="#5c0f12" stroke="none">2</text>'
+             '<text x="580" y="240" text-anchor="middle" font-size="20" font-weight="800" fill="#5c0f12" stroke="none">3</text>')
+    # तिरंगा
+    s.append('<path d="M520 176 L520 104"/><rect x="520" y="104" width="54" height="12" fill="#ff9933" stroke-width="2"/>'
+             '<rect x="520" y="116" width="54" height="12" fill="#ffffff" stroke-width="2"/><rect x="520" y="128" width="54" height="12" fill="#138808" stroke-width="2"/>'
+             '<circle cx="547" cy="122" r="4" fill="none" stroke="#1a3c8f" stroke-width="1.6"/>')
+    # दौड़ती खिलाड़ी (ट्रैक पर)
+    s.append('<g transform="translate(250,300)">'
+             '<circle cx="0" cy="0" r="20" fill="#b97850"/>'
+             '<path d="M-6 -16 Q-30 -22 -40 -4" stroke-width="5"/>'
+             '<path d="M-14 22 L18 22 L22 80 L-10 80 Z" fill="#b8232a"/>'
+             '<rect x="-6" y="38" width="20" height="16" fill="#ffffff" stroke-width="1.6"/>'
+             '<text x="4" y="51" text-anchor="middle" font-size="11" font-weight="800" fill="#5c0f12" stroke="none">21</text>'
+             '<path d="M-12 30 L-40 58 L-56 46" stroke-width="5"/><path d="M18 30 L44 48 L62 30" stroke-width="5"/>'
+             '<path d="M-6 80 L-36 120 L-64 116" stroke-width="6"/><path d="M14 80 L36 112 L30 146" stroke-width="6"/>'
+             '<path d="M-10 80 L22 80 L20 92 L-12 92 Z" fill="#1a3c8f"/></g>')
+    # गति की रेखाएं
+    for y in (322, 346, 370):
+        s.append(f'<path d="M150 {y} L196 {y}" stroke-width="2.6"/>')
+    # हॉकी स्टिक और गेंद, फ़ुटबॉल
+    s.append('<path d="M80 470 L130 540 Q136 552 150 548 L168 544" stroke="#5d4037" stroke-width="7"/>'
+             '<circle cx="190" cy="540" r="9" fill="#ffffff"/>')
+    s.append('<g transform="translate(470,500)"><circle cx="0" cy="0" r="40" fill="#ffffff"/>'
+             '<path d="M0 -14 L13 -4 L8 12 L-8 12 L-13 -4 Z" fill="#3a1a12"/>'
+             '<path d="M0 -14 L0 -40 M13 -4 L37 -14 M8 12 L22 32 M-8 12 L-22 32 M-13 -4 L-37 -14"/></g>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
