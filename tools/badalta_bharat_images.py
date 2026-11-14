@@ -784,7 +784,63 @@ def scene_khelo():
     return "".join(s)
 
 
-SCENES = {"khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_janaushadhi():
+    """जन औषधि: दवा की दुकान का काउंटर, हरे-सफ़ेद बोर्ड पर केंद्र, अलमारी में दवाएं, फ़ार्मासिस्ट और बुज़ुर्ग ग्राहक।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#f3f8f1" stroke="none"/>')
+    # दुकान की दीवार और बोर्ड
+    s.append('<rect x="40" y="40" width="580" height="80" rx="8" fill="#2e7d32"/>')
+    s.append('<text x="330" y="96" text-anchor="middle" font-size="38" font-weight="800" fill="#ffffff" stroke="none">जन औषधि केंद्र</text>')
+    s.append('<g transform="translate(88,80)"><rect x="-20" y="-7" width="40" height="14" rx="2" fill="#ffffff" stroke-width="2"/>'
+             '<rect x="-7" y="-20" width="14" height="40" rx="2" fill="#ffffff" stroke-width="2"/></g>')
+    s.append('<g transform="translate(572,80)"><rect x="-20" y="-7" width="40" height="14" rx="2" fill="#ffffff" stroke-width="2"/>'
+             '<rect x="-7" y="-20" width="14" height="40" rx="2" fill="#ffffff" stroke-width="2"/></g>')
+    # अलमारी
+    s.append('<rect x="60" y="140" width="540" height="200" fill="#fff8e1"/>')
+    for y in (205, 270):
+        s.append(f'<path d="M60 {y} L600 {y}" stroke-width="3"/>')
+    cols = ["#ef9a9a", "#90caf9", "#a5d6a7", "#ffe082", "#ce93d8", "#ffab91", "#80cbc4", "#fff59d"]
+    for r, y in enumerate((150, 215, 280)):
+        x = 74
+        i = r * 3
+        while x < 580:
+            w = 34 + (i % 3) * 10
+            h = 48 - (i % 2) * 10
+            s.append(f'<rect x="{x}" y="{y + 52 - h}" width="{w}" height="{h}" rx="3" fill="{cols[i % len(cols)]}" stroke-width="2.2"/>')
+            x += w + 10
+            i += 1
+    # काउंटर
+    s.append('<rect x="30" y="380" width="600" height="200" fill="#a5d6a7"/>')
+    s.append('<path d="M30 380 L630 380 L630 404 L30 404 Z" fill="#ffffff"/>')
+    # फ़ार्मासिस्ट (काउंटर के पीछे)
+    s.append('<g transform="translate(470,250)"><circle cx="0" cy="40" r="30" fill="#c68a5e"/>'
+             '<path d="M-28 30 Q0 -6 28 30" fill="#3a1a12"/>'
+             '<path d="M-48 130 Q-46 78 0 76 Q46 78 48 130 L48 130 L-48 130 Z" fill="#ffffff"/>'
+             '<path d="M0 78 L0 130" stroke-width="2"/><path d="M-12 78 L0 100 L12 78" stroke-width="2"/>'
+             '<path d="M-26 92 Q-30 112 -14 116" stroke="#1a3c8f" stroke-width="2.4"/><circle cx="-14" cy="118" r="4" fill="#1a3c8f" stroke="none"/></g>')
+    # दवा का पैकेट काउंटर पर
+    s.append('<rect x="330" y="350" width="70" height="30" rx="4" fill="#ffffff"/><path d="M345 365 L385 365 M365 355 L365 375" stroke="#2e7d32" stroke-width="4"/>')
+    # कैप्सूल और पत्ता
+    s.append('<g transform="translate(120,470) rotate(-25)"><rect x="-42" y="-14" width="84" height="28" rx="14" fill="#ffffff"/>'
+             '<path d="M0 -14 L0 14"/><path d="M0 -14 L28 -14 Q42 -14 42 0 Q42 14 28 14 L0 14 Z" fill="#ef5350"/></g>')
+    s.append('<rect x="210" y="450" width="120" height="60" rx="8" fill="#e3f2fd"/>')
+    for cx in (238, 270, 302):
+        for cy in (468, 492):
+            s.append(f'<circle cx="{cx}" cy="{cy}" r="8" fill="#ffffff" stroke-width="2"/>')
+    # बुज़ुर्ग ग्राहक (आगे, बाईं ओर)
+    s.append('<g transform="translate(150,300)">'
+             '<circle cx="0" cy="0" r="30" fill="#b97850"/>'
+             '<path d="M-24 -14 Q0 -36 24 -14" fill="#eeeeee"/>'
+             '<path d="M-14 4 L-4 4 M4 4 L14 4" stroke-width="2"/><circle cx="-9" cy="4" r="7" fill="none" stroke-width="2"/><circle cx="9" cy="4" r="7" fill="none" stroke-width="2"/>'
+             '<path d="M-50 120 Q-48 40 0 36 Q48 40 50 120 Z" fill="#ffcc80"/>'
+             '<path d="M40 70 Q90 72 170 62" stroke-width="7"/>'
+             '<rect x="166" y="50" width="34" height="24" rx="3" fill="#ffffff" stroke-width="2"/>'
+             '<path d="M172 58 L194 58 M172 66 L188 66" stroke-width="1.6"/></g>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 

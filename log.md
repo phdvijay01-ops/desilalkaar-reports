@@ -170,3 +170,4 @@
 - 2026-11-11 | स्मार्ट सिटी मिशन: 100 शहरों में ₹1.55 लाख करोड़ की 7,741 परियोजनाएं पूरी, मध्य प्रदेश में 98% काम पूरा (बदलता भारत, भाग 19) | reports/2026-11-11-smart-cities-mission-projects-completed-mp-badalta-bharat.json | 3217
 - 2026-11-12 | किसान क्रेडिट कार्ड: 7.72 करोड़ खातों से ₹10 लाख करोड़ का सस्ता कृषि कर्ज़, 4% ब्याज (बदलता भारत, भाग 20) | reports/2026-11-12-kisan-credit-card-farm-credit-animal-husbandry-fisheries-badalta-bharat.json | 3049
 - 2026-11-13 | खेलो इंडिया: 1,067 केंद्र और 2,745 एथलीट, ज़िलों के मैदान से एशियाई खेलों के 42 पदकों तक (बदलता भारत, भाग 21) | reports/2026-11-13-khelo-india-centres-athletes-sports-infrastructure-mp-badalta-bharat.json | 3007
+- 2026-11-14 | प्रधानमंत्री जन औषधि परियोजना: 20 हज़ार से ज़्यादा केंद्र, हर बैच की जांच और 12 साल में ₹45 हज़ार करोड़ की बचत (बदलता भारत, भाग 22) | reports/2026-11-14-pradhan-mantri-jan-aushadhi-kendra-quality-testing-savings-mp-badalta-bharat.json | 3119
