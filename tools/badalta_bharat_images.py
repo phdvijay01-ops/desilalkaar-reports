@@ -840,7 +840,50 @@ def scene_janaushadhi():
     return "".join(s)
 
 
-SCENES = {"janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_mudra():
+    """मुद्रा योजना: छोटी दुकान/सिलाई केंद्र, सिलाई मशीन पर काम करती महिला उद्यमी, बैंक से मिला कर्ज़ का कागज़, सिक्के और बढ़ती सीढ़ी।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#fdf3e7" stroke="none"/>')
+    s.append('<circle cx="590" cy="70" r="30" fill="#ffe082"/>')
+    # दुकान: छज्जा (धारियों वाला) और बोर्ड
+    s.append('<rect x="40" y="60" width="440" height="70" rx="8" fill="#b8232a"/>')
+    s.append('<text x="260" y="108" text-anchor="middle" font-size="34" font-weight="800" fill="#ffffff" stroke="none">सिलाई केंद्र</text>')
+    for i in range(8):
+        col = "#ffcc80" if i % 2 == 0 else "#ffffff"
+        s.append(f'<path d="M{40+i*55} 130 L{95+i*55} 130 L{95+i*55} 160 Q{67+i*55} 176 {40+i*55} 160 Z" fill="{col}"/>')
+    # दुकान की दीवार और अलमारी में कपड़े के थान
+    s.append('<rect x="50" y="160" width="420" height="230" fill="#fff8e1"/>')
+    s.append('<path d="M70 230 L450 230 M70 300 L450 300" stroke-width="3"/>')
+    cols = ["#ef9a9a", "#90caf9", "#a5d6a7", "#ffe082", "#ce93d8", "#80cbc4"]
+    for r, y in enumerate((186, 256)):
+        for i in range(7):
+            x = 82 + i * 52
+            s.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="{cols[(i+r) % len(cols)]}" stroke-width="2.2"/>'
+                     f'<path d="M{x+6} {y+20} L{x+34} {y+20}" stroke-width="1.6"/>')
+    # मेज़ और सिलाई मशीन
+    s.append('<rect x="70" y="380" width="300" height="24" rx="4" fill="#a1887f"/>')
+    s.append('<path d="M90 404 L90 560 M350 404 L350 560"/>')
+    s.append('<path d="M150 380 L150 320 Q150 300 172 300 L290 300 Q310 300 310 320 L310 340 L270 340 L270 380" fill="#37474f"/>')
+    s.append('<circle cx="300" cy="320" r="14" fill="#cfd8dc"/><path d="M180 340 L180 372" stroke-width="2"/>')
+    s.append('<path d="M110 372 L250 372 L250 380 L110 380 Z" fill="#f48fb1"/>')
+    # महिला उद्यमी (साड़ी)
+    s.append(_person(420, 560, "#c68a5e", "#26a69a", 0.92, saree=True))
+    s.append('<path d="M400 420 Q360 400 320 370" stroke-width="5"/>')
+    # कर्ज़ का कागज़ (मुद्रा) और सिक्के
+    s.append('<g transform="translate(500,250) rotate(8)"><rect x="0" y="0" width="120" height="150" rx="6" fill="#ffffff"/>'
+             '<text x="60" y="34" text-anchor="middle" font-size="24" font-weight="800" fill="#b8232a" stroke="none">मुद्रा</text>'
+             '<path d="M18 56 L102 56 M18 76 L102 76 M18 96 L80 96" stroke-width="2"/>'
+             '<text x="60" y="134" text-anchor="middle" font-size="26" font-weight="800" fill="#2e7d32" stroke="none">₹</text></g>')
+    for i, (x, y) in enumerate(((540, 540), (575, 540), (557, 516), (610, 540))):
+        s.append(f'<ellipse cx="{x}" cy="{y}" rx="16" ry="9" fill="#ffca28" stroke-width="2.2"/>')
+    # सीढ़ी (शिशु-किशोर-तरुण)
+    for i in range(3):
+        s.append(f'<rect x="{510+i*40}" y="{470-i*30}" width="36" height="{30+i*30}" fill="{["#ffccbc","#ffab91","#ff7043"][i]}" stroke-width="2.4"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
