@@ -883,7 +883,45 @@ def scene_mudra():
     return "".join(s)
 
 
-SCENES = {"mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_awas():
+    """प्रधानमंत्री आवास योजना: गांव का नया पक्का घर (शौचालय, बिजली, नल, गैस सिलेंडर), चाबी थामे महिला, पास में दीवार बनाता राजमिस्त्री।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eef6f0" stroke="none"/>')
+    s.append('<circle cx="600" cy="70" r="30" fill="#ffe082"/>')
+    s.append('<path d="M0 470 L660 470 L660 580 L0 580 Z" fill="#e6f1d8"/>')
+    # बिजली का खंभा और तार
+    s.append('<rect x="22" y="150" width="10" height="320" fill="#8d6e63"/><path d="M6 168 L48 168" stroke-width="4"/>')
+    s.append('<path d="M46 170 Q140 210 210 236" stroke-width="2"/>')
+    # पक्का घर: ईंट-लाल दीवारें, ढलवां छत, दरवाज़ा, खिड़कियां
+    s.append('<rect x="120" y="250" width="300" height="220" fill="#ffccbc"/>')
+    for y in (290, 330, 370, 410, 450):
+        s.append(f'<path d="M120 {y} L420 {y}" stroke-width="1.2" stroke="#c78b78"/>')
+    s.append('<path d="M100 256 L270 150 L440 256 Z" fill="#b8232a"/>')
+    s.append('<rect x="240" y="350" width="64" height="120" fill="#a1887f"/><circle cx="292" cy="412" r="4" fill="#ffca28"/>')
+    s.append('<rect x="150" y="300" width="60" height="54" fill="#bbdefb"/><path d="M180 300 L180 354 M150 327 L210 327" stroke-width="2"/>')
+    s.append('<rect x="336" y="300" width="60" height="54" fill="#bbdefb"/><path d="M366 300 L366 354 M336 327 L396 327" stroke-width="2"/>')
+    s.append('<path d="M205 236 L212 250" stroke-width="2"/><circle cx="214" cy="262" r="7" fill="#fff59d"/>')
+    # गैस सिलेंडर और नल
+    s.append('<rect x="200" y="420" width="26" height="46" rx="10" fill="#e53935"/><rect x="206" y="412" width="14" height="10" fill="#9e9e9e"/>')
+    s.append('<path d="M330 440 L330 470 M330 440 L352 440 L352 450" stroke-width="4" stroke="#546e7a"/><path d="M352 454 l0 8" stroke="#42a5f5" stroke-width="3"/>')
+    # शौचालय की छोटी इकाई
+    s.append('<rect x="440" y="370" width="70" height="100" fill="#e3f2fd"/><path d="M432 372 L475 346 L518 372 Z" fill="#90caf9"/>'
+             '<rect x="460" y="400" width="30" height="70" fill="#fff"/>')
+    # राजमिस्त्री: अधूरी दीवार पर ईंटें जोड़ता हुआ (पीछे दाईं ओर)
+    for r in range(4):
+        for c in range(3 - (r // 2)):
+            s.append(f'<rect x="{560+c*30+(r%2)*15}" y="{446-r*16}" width="28" height="14" fill="#ff8a65" stroke-width="2"/>')
+    s.append(_person(600, 470, "#b97a52", "#ffb74d", 0.62))
+    s.append('<path d="M612 360 L640 382" stroke-width="4"/><path d="M636 378 l14 -6 l2 10 z" fill="#90a4ae" stroke-width="2"/>')
+    # महिला (साड़ी) हाथ में घर की चाबी
+    s.append(_person(96, 572, "#c68a5e", "#ab47bc", 0.86, saree=True))
+    s.append('<path d="M124 440 Q150 432 160 418" stroke-width="5"/>')
+    s.append('<circle cx="166" cy="410" r="10" fill="#ffca28" stroke-width="2.4"/><path d="M172 418 L186 438 M180 430 l6 -4 M184 436 l6 -4" stroke-width="2.4"/>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
