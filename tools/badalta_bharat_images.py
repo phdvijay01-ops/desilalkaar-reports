@@ -921,7 +921,53 @@ def scene_awas():
     return "".join(s)
 
 
-SCENES = {"awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_ayushman():
+    """आयुष्मान भारत PM-JAY: अस्पताल का वार्ड, बिस्तर पर ठीक होते बुज़ुर्ग, स्टेथोस्कोप वाली डॉक्टर, आयुष्मान कार्ड थामा परिवार का सदस्य, ड्रिप स्टैंड और ₹5 लाख की ढाल।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eef5fb" stroke="none"/>')
+    # दीवार पर अस्पताल का बोर्ड
+    s.append('<rect x="40" y="36" width="400" height="74" rx="8" fill="#1565c0"/>')
+    s.append('<g transform="translate(84,73)"><rect x="-20" y="-7" width="40" height="14" rx="2" fill="#ffffff" stroke-width="2"/>'
+             '<rect x="-7" y="-20" width="14" height="40" rx="2" fill="#ffffff" stroke-width="2"/></g>')
+    s.append('<text x="262" y="88" text-anchor="middle" font-size="34" font-weight="800" fill="#ffffff" stroke="none">जिला अस्पताल</text>')
+    # खिड़की
+    s.append('<rect x="470" y="40" width="150" height="110" rx="6" fill="#bbdefb"/><path d="M545 40 L545 150 M470 95 L620 95" stroke-width="2"/>')
+    # फ़र्श
+    s.append('<path d="M0 470 L660 470 L660 580 L0 580 Z" fill="#e0ecf5"/>')
+    # बिस्तर
+    s.append('<rect x="70" y="330" width="330" height="40" rx="6" fill="#ffffff"/>')
+    s.append('<path d="M70 300 L70 470 M400 330 L400 470" stroke-width="5"/>')
+    s.append('<path d="M70 370 L400 370" stroke-width="3"/>')
+    s.append('<path d="M110 334 Q200 300 390 330 L390 352 L110 352 Z" fill="#80cbc4"/>')
+    s.append('<rect x="84" y="306" width="70" height="30" rx="12" fill="#ffffff"/>')
+    # बुज़ुर्ग मरीज़ (लेटे हुए, सिर तकिए पर, मुस्कुराते)
+    s.append('<circle cx="122" cy="300" r="24" fill="#b97850"/>'
+             '<path d="M100 290 Q122 266 144 290" fill="#eeeeee"/>'
+             '<path d="M112 306 Q122 314 132 306" stroke-width="2"/>')
+    # ड्रिप स्टैंड
+    s.append('<path d="M40 470 L40 200 M24 200 L56 200" stroke-width="4"/>'
+             '<rect x="30" y="206" width="22" height="40" rx="6" fill="#e3f2fd"/>'
+             '<path d="M41 246 Q60 290 100 320" stroke-width="1.6"/>')
+    # डॉक्टर (सफ़ेद कोट, स्टेथोस्कोप)
+    s.append(_person(470, 560, "#c68a5e", "#ffffff", 0.95))
+    s.append('<path d="M452 418 Q470 450 488 418" stroke="#1a3c8f" stroke-width="3"/><circle cx="470" cy="452" r="6" fill="#1a3c8f" stroke="none"/>')
+    s.append('<path d="M446 418 Q420 390 396 362" stroke-width="5"/>')
+    s.append('<path d="M447 374 Q446 352 470 352 Q494 352 493 374 Q470 362 447 374 Z" fill="#3a1a12"/>')
+    # परिवार की महिला, हाथ में हरा आयुष्मान कार्ड
+    s.append(_person(580, 560, "#c68a5e", "#ef6c00", 0.85, saree=True))
+    s.append('<path d="M560 430 Q545 410 540 392" stroke-width="5"/>')
+    s.append('<g transform="translate(520,346) rotate(-8)"><rect x="0" y="0" width="80" height="50" rx="5" fill="#43a047"/>'
+             '<rect x="8" y="10" width="20" height="24" rx="2" fill="#ffffff" stroke-width="1.6"/>'
+             '<path d="M36 16 L70 16 M36 26 L64 26 M36 36 L58 36" stroke="#ffffff" stroke-width="2.4"/></g>')
+    # ढाल: ₹5 लाख
+    s.append('<path d="M250 150 L330 176 L330 236 Q330 286 250 312 Q170 286 170 236 L170 176 Z" fill="#ffca28"/>')
+    s.append('<text x="250" y="232" text-anchor="middle" font-size="40" font-weight="800" fill="#5c0f12" stroke="none">₹5 लाख</text>')
+    s.append('<text x="250" y="270" text-anchor="middle" font-size="22" font-weight="700" fill="#5c0f12" stroke="none">कैशलेस इलाज</text>')
+    s.append('<path d="M0 580 L660 580"/>')
+    return "".join(s)
+
+
+SCENES = {"ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
