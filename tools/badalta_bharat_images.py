@@ -967,7 +967,45 @@ def scene_ayushman():
     return "".join(s)
 
 
-SCENES = {"ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_startup():
+    """स्टार्टअप इंडिया: छोटे शहर का इनक्यूबेटर, लैपटॉप पर काम करती युवा महिला संस्थापक, बढ़ते ग्राफ़ वाला बोर्ड दिखाता युवक, ड्रोन/प्रोटोटाइप और ऊपर उड़ता रॉकेट।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#f3f1fb" stroke="none"/>')
+    # खिड़की से छोटे शहर की इमारतें
+    s.append('<rect x="40" y="40" width="300" height="170" rx="8" fill="#e3f2fd"/>')
+    for x, h, c in ((60, 90, "#ffe0b2"), (110, 130, "#c5e1a5"), (170, 70, "#ffccbc"), (220, 110, "#b3e5fc"), (280, 80, "#f8bbd0")):
+        s.append(f'<rect x="{x}" y="{210-h}" width="44" height="{h}" fill="{c}" stroke-width="2.2"/>')
+    s.append('<path d="M190 40 L190 210 M40 125 L340 125" stroke-width="2"/>')
+    # इनक्यूबेटर बोर्ड
+    s.append('<rect x="370" y="40" width="250" height="60" rx="8" fill="#b8232a"/>')
+    s.append('<text x="495" y="82" text-anchor="middle" font-size="30" font-weight="800" fill="#ffffff" stroke="none">इनक्यूबेशन केंद्र</text>')
+    # रॉकेट (ऊपर उठता)
+    s.append('<g transform="translate(560,190) rotate(30)"><path d="M0 -60 Q22 -30 18 20 L-18 20 Q-22 -30 0 -60 Z" fill="#ffffff"/>'
+             '<circle cx="0" cy="-18" r="9" fill="#90caf9"/><path d="M-18 6 L-32 30 L-16 22 Z M18 6 L32 30 L16 22 Z" fill="#b8232a"/>'
+             '<path d="M-10 22 Q0 52 10 22 Z" fill="#ffb300"/></g>')
+    s.append('<path d="M500 280 q-20 10 -40 4 M490 300 q-24 8 -46 0" stroke-width="2" stroke-dasharray="6 6"/>')
+    # बढ़ता ग्राफ़ वाला बोर्ड
+    s.append('<rect x="390" y="250" width="200" height="150" rx="6" fill="#ffffff"/>')
+    for i, h in enumerate((30, 50, 75, 105)):
+        s.append(f'<rect x="{412+i*42}" y="{385-h}" width="28" height="{h}" fill="{["#ffccbc","#ffab91","#ff7043","#b8232a"][i]}" stroke-width="2"/>')
+    s.append('<path d="M410 330 L452 312 L494 290 L540 262 L575 262" stroke="#2e7d32" stroke-width="3"/>')
+    s.append('<path d="M490 400 L470 470 M490 400 L510 470" stroke-width="3"/>')
+    # युवक, बोर्ड की ओर इशारा
+    s.append(_person(620, 570, "#b97850", "#5c6bc0", 0.8))
+    s.append('<path d="M600 440 Q585 410 575 380" stroke-width="5"/>')
+    # मेज़ और लैपटॉप
+    s.append('<rect x="60" y="420" width="300" height="20" rx="4" fill="#a1887f"/><path d="M80 440 L80 570 M340 440 L340 570"/>')
+    s.append('<path d="M170 420 L190 350 L290 350 L270 420 Z" fill="#cfd8dc"/><path d="M150 420 L300 420" stroke-width="5"/>')
+    s.append('<path d="M206 384 L226 372 L246 380 L266 362" stroke="#1e88e5" stroke-width="2.4"/>')
+    s.append('<rect x="90" y="396" width="40" height="24" rx="4" fill="#ffe082"/><path d="M98 396 L98 386 M122 396 L122 386 M92 386 h12 M116 386 h12" stroke-width="2"/>')
+    # महिला संस्थापक (साड़ी), लैपटॉप के पास
+    s.append(_person(330, 570, "#c68a5e", "#26a69a", 0.86, saree=True))
+    s.append('<path d="M306 440 Q290 430 280 418" stroke-width="5"/>')
+    s.append('<path d="M0 570 L660 570"/>')
+    return "".join(s)
+
+
+SCENES = {"startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
