@@ -1005,7 +1005,45 @@ def scene_startup():
     return "".join(s)
 
 
-SCENES = {"startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_udan():
+    """उड़ान योजना: छोटे शहर का हवाई अड्डा, रनवे पर टर्बोप्रॉप विमान, सामान लेकर जाता परिवार, कंट्रोल टावर और पहाड़ियां।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#e8f4fb" stroke="none"/>')
+    s.append('<circle cx="560" cy="80" r="38" fill="#ffd54f"/>')
+    for x, y in ((90, 70), (300, 50)):
+        s.append(f'<path d="M{x} {y} q18 -24 42 -8 q26 -12 36 10 q20 2 16 16 L{x-6} {y+18} q-16 -8 6 -18 Z" fill="#ffffff" stroke-width="2.2"/>')
+    s.append('<path d="M0 250 L90 170 L170 235 L260 160 L360 245 L450 185 L560 250 L660 200 L660 300 L0 300 Z" fill="#c5e1a5" stroke-width="2.4"/>')
+    # विमान (ऊंचे पंख वाला टर्बोप्रॉप)
+    s.append('<g transform="translate(40,120)">'
+             '<path d="M60 130 Q70 104 120 102 L430 102 Q470 104 500 60 L530 60 L520 124 Q500 152 440 154 L110 154 Q70 152 60 130 Z" fill="#ffffff"/>'
+             '<path d="M60 130 Q66 116 86 110 L108 110 L108 130 Z" fill="#90caf9"/>'
+             '<path d="M110 142 L500 142" stroke="#b8232a" stroke-width="6"/>'
+             '<path d="M190 100 L350 100 L330 86 L205 86 Z" fill="#b8232a"/>'
+             '<rect x="236" y="104" width="34" height="18" rx="4" fill="#ffe082" stroke-width="2"/>')
+    for x in (140, 176, 300, 336, 372, 408):
+        s.append(f'<rect x="{x}" y="116" width="18" height="16" rx="4" fill="#bbdefb" stroke-width="2"/>')
+    s.append('<path d="M252 72 L252 100" stroke-width="3"/><path d="M216 72 L288 72" stroke-width="5"/>'
+             '<path d="M150 154 L150 186 M400 154 L400 186" stroke-width="4"/><circle cx="150" cy="194" r="11" fill="#5d4037"/><circle cx="400" cy="194" r="11" fill="#5d4037"/></g>')
+    # रनवे
+    s.append('<path d="M0 325 L660 325 L660 395 L0 395 Z" fill="#b0bec5" stroke-width="2.4"/>')
+    s.append('<path d="M20 360 L640 360" stroke="#ffffff" stroke-width="5" stroke-dasharray="34 24"/>')
+    # टर्मिनल और टावर
+    s.append('<rect x="30" y="420" width="290" height="110" rx="4" fill="#ffe0b2"/>')
+    s.append('<rect x="30" y="405" width="290" height="30" fill="#b8232a"/>')
+    s.append('<text x="175" y="429" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff" stroke="none">हवाई अड्डा</text>')
+    for x in (55, 115, 175, 235):
+        s.append(f'<rect x="{x}" y="450" width="42" height="44" fill="#b3e5fc" stroke-width="2.2"/>')
+    s.append('<path d="M362 530 L372 440 L396 440 L406 530 Z" fill="#eceff1"/><path d="M358 440 L410 440 L402 416 L366 416 Z" fill="#90caf9"/><path d="M384 416 L384 400" stroke-width="3"/>')
+    # परिवार, सामान के साथ
+    s.append(_person(470, 570, "#c68a5e", "#26a69a", 0.82, saree=True))
+    s.append(_person(535, 570, "#b97850", "#5c6bc0", 0.86))
+    s.append(_person(590, 570, "#c68a5e", "#ef6c00", 0.56))
+    s.append('<rect x="425" y="525" width="26" height="42" rx="4" fill="#8d6e63"/><path d="M438 525 L438 510" stroke-width="3"/>')
+    s.append('<path d="M0 570 L660 570"/>')
+    return "".join(s)
+
+
+SCENES = {"udan": scene_udan, "startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
