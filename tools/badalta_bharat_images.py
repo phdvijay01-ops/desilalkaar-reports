@@ -1043,7 +1043,43 @@ def scene_udan():
     return "".join(s)
 
 
-SCENES = {"udan": scene_udan, "startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_jandhan():
+    """जन धन योजना: गांव की बैंक शाखा, पेड़ के नीचे बैंक मित्र की मेज़ पर माइक्रो-ATM, पासबुक लिए महिला और कार्ड दिखाता किसान।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#fdf3e3" stroke="none"/>')
+    s.append('<circle cx="560" cy="78" r="36" fill="#ffd54f"/>')
+    s.append('<path d="M120 70 q18 -24 42 -8 q26 -12 36 10 q20 2 16 16 L114 88 q-16 -8 6 -18 Z" fill="#ffffff" stroke-width="2.2"/>')
+    s.append('<path d="M0 300 Q140 240 280 290 Q420 230 660 280 L660 580 L0 580 Z" fill="#e6f1d8" stroke-width="2.4"/>')
+    # बैंक शाखा
+    s.append('<path d="M40 210 L210 140 L380 210 Z" fill="#ffcc80"/>')
+    s.append('<rect x="56" y="210" width="308" height="210" fill="#fff8e1"/>')
+    s.append('<rect x="96" y="226" width="228" height="40" rx="5" fill="#b8232a"/>')
+    s.append('<text x="210" y="256" text-anchor="middle" font-size="26" font-weight="800" fill="#ffffff" stroke="none">ग्रामीण बैंक शाखा</text>')
+    s.append('<rect x="172" y="300" width="76" height="120" fill="#a1887f"/><path d="M210 300 L210 420" stroke-width="2"/>')
+    for x in (84, 274):
+        s.append(f'<rect x="{x}" y="292" width="62" height="54" fill="#b3e5fc" stroke-width="2.4"/><path d="M{x+31} 292 L{x+31} 346 M{x} 319 L{x+62} 319" stroke-width="2"/>')
+    s.append('<path d="M30 420 L390 420 L390 438 L30 438 Z" fill="#d7ccc8"/>')
+    # पेड़
+    s.append('<path d="M506 430 L506 300" stroke-width="8" stroke="#6d4c41"/>')
+    s.append('<path d="M430 300 q-20 -60 40 -80 q20 -50 76 -30 q60 -10 64 50 q40 30 0 70 q-30 30 -90 14 q-70 20 -90 -24 Z" fill="#a5d6a7"/>')
+    # बैंक मित्र की मेज़
+    s.append('<rect x="408" y="436" width="170" height="16" fill="#a1887f"/><path d="M420 452 L420 540 M566 452 L566 540"/>')
+    s.append('<rect x="430" y="408" width="50" height="28" rx="5" fill="#cfd8dc"/><rect x="438" y="414" width="22" height="12" rx="2" fill="#a5d6a7" stroke-width="1.8"/><circle cx="470" cy="422" r="4" fill="#66bb6a"/>')
+    s.append('<rect x="496" y="404" width="56" height="32" rx="3" fill="#ffffff"/><path d="M504 414 h40 M504 424 h28" stroke-width="2"/>')
+    s.append(_person(600, 560, "#b97850", "#5c6bc0", 0.8))
+    # पासबुक लिए महिला
+    s.append(_person(300, 570, "#d49a6a", "#ec407a", 0.95, saree=True))
+    s.append('<rect x="326" y="420" width="40" height="52" rx="4" fill="#26a69a"/><path d="M332 434 h28 M332 446 h20" stroke="#ffffff" stroke-width="2"/>')
+    # कार्ड दिखाता किसान
+    s.append(_person(140, 570, "#a86b45", "#ffffff", 0.9))
+    s.append('<rect x="160" y="414" width="46" height="30" rx="5" fill="#ffca28"/><rect x="166" y="422" width="12" height="9" rx="2" fill="#fff59d" stroke-width="1.6"/><path d="M184 436 h16" stroke-width="2"/>')
+    for cx, cy in ((250, 120), (300, 92), (350, 118)):
+        s.append(f'<circle cx="{cx}" cy="{cy}" r="19" fill="#ffca28"/><text x="{cx}" y="{cy+8}" text-anchor="middle" font-size="22" font-weight="800" fill="{INK}" stroke="none">₹</text>')
+    s.append('<path d="M0 570 L660 570"/>')
+    return "".join(s)
+
+
+SCENES = {"jandhan": scene_jandhan, "udan": scene_udan, "startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
