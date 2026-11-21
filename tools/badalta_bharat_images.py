@@ -1079,7 +1079,41 @@ def scene_jandhan():
     return "".join(s)
 
 
-SCENES = {"jandhan": scene_jandhan, "udan": scene_udan, "startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
+def scene_jaljeevan():
+    """जल जीवन मिशन: गांव की पानी की टंकी, घर के आंगन में नल से बाल्टी भरती महिला, जांच किट से पानी परखती महिला और स्कूल जाती बच्ची।"""
+    s = []
+    s.append('<rect x="0" y="0" width="660" height="580" fill="#eaf4fb" stroke="none"/>')
+    s.append('<circle cx="560" cy="76" r="34" fill="#ffd54f"/>')
+    s.append('<path d="M0 290 Q160 240 320 280 Q480 230 660 270 L660 580 L0 580 Z" fill="#e6f1d8" stroke-width="2.4"/>')
+    # ऊंची पानी की टंकी
+    s.append('<path d="M86 300 L110 150 M174 300 L150 150 M96 240 L164 240 M100 200 L160 200" stroke-width="4"/>')
+    s.append('<path d="M70 150 L190 150 L182 82 Q130 62 78 82 Z" fill="#90caf9"/>')
+    s.append('<text x="130" y="128" text-anchor="middle" font-size="22" font-weight="800" fill="#0d47a1" stroke="none">हर घर जल</text>')
+    s.append('<path d="M130 300 L130 330 L330 330 L330 420" stroke="#1565c0" stroke-width="6"/>')
+    # घर
+    s.append('<path d="M360 250 L470 190 L580 250 Z" fill="#ffcc80"/><rect x="376" y="250" width="188" height="150" fill="#fff8e1"/>')
+    s.append('<rect x="448" y="300" width="46" height="100" fill="#a1887f"/><rect x="392" y="276" width="40" height="36" fill="#b3e5fc" stroke-width="2.4"/>')
+    s.append('<rect x="510" y="276" width="40" height="36" fill="#b3e5fc" stroke-width="2.4"/>')
+    # आंगन का नल और बाल्टी
+    s.append('<path d="M330 420 L330 440" stroke="#1565c0" stroke-width="6"/><rect x="318" y="438" width="40" height="12" rx="4" fill="#78909c"/>')
+    s.append('<path d="M352 450 L352 466" stroke="#29b6f6" stroke-width="4" stroke-dasharray="3 4"/>')
+    s.append('<path d="M334 470 L370 470 L364 510 L340 510 Z" fill="#ef5350"/>')
+    s.append(_person(410, 560, "#d49a6a", "#ab47bc", 0.85, saree=True))
+    # जांच किट वाली महिला
+    s.append(_person(250, 570, "#c68a5e", "#26a69a", 0.9, saree=True))
+    s.append('<rect x="186" y="430" width="56" height="40" rx="5" fill="#fff59d"/><path d="M196 442 h36 M196 454 h24" stroke-width="2"/>')
+    for i, c in enumerate(("#81d4fa", "#a5d6a7", "#ffab91")):
+        s.append(f'<rect x="{270+i*16}" y="404" width="10" height="34" rx="4" fill="{c}" stroke-width="2"/>')
+    # स्कूल जाती बच्ची
+    s.append(_person(560, 560, "#d49a6a", "#ffffff", 0.6))
+    s.append('<rect x="574" y="430" width="26" height="34" rx="5" fill="#ffb300"/>')
+    for x, y in ((40, 520), (620, 500)):
+        s.append(f'<path d="M{x} {y} q-10 -20 0 -34 q10 14 0 34 q-16 -6 -18 -20 M{x} {y} q16 -6 18 -20" fill="#81c784" stroke-width="2"/>')
+    s.append('<path d="M0 570 L660 570"/>')
+    return "".join(s)
+
+
+SCENES = {"jaljeevan": scene_jaljeevan, "jandhan": scene_jandhan, "udan": scene_udan, "startup": scene_startup, "ayushman": scene_ayushman, "awas": scene_awas, "mudra": scene_mudra, "janaushadhi": scene_janaushadhi, "khelo": scene_khelo, "kcc": scene_kcc, "smartcity": scene_smartcity, "poshan": scene_poshan, "dbt": scene_dbt, "ujala": scene_ujala, "vaccine": scene_vaccine, "svamitva": scene_svamitva, "shg": scene_shg,
           "matru": scene_matru, "road": scene_road, "bharatnet": scene_bharatnet, "sarovar": scene_sarovar, "ganga": scene_ganga,
           "ration": scene_ration, "fasal": scene_fasal}
 
